@@ -5,8 +5,6 @@
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="travels.html">Travels</a></li>
                                     <li><a href="privacy.html">Privacy Policy</a></li>
-                                    <li><a href="agent.html">Agent Registration</a></li>
-                                    <li><a href="terms.html">Terms of Use</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                     <li>Need Help?<a href="#" data-toggle="modal" data-target="#myModal3"> / Write Us </a>  </li>
                                     <div class="clearfix"></div>
