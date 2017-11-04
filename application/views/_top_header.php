@@ -5,8 +5,16 @@
 
                 </ul>
                 <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
-                    <li class="tol">Welcome Ravinath Fernando</li>				
-                    <li class="sigi"><a href="Logout.php"  data-target="#myModal4" > | Logout</a></li>
+                    <li class="tol">
+                        <?php
+            if ($this->session->userdata('userbean')) {
+                $userbean = $this->session->userdata('userbean');
+            } else {
+                //if invalid session user get redirect to login
+                header("Location:" . site_url('User_Controller/logout'));
+            }
+            ?>Welcome <?= $userbean->firstname;?> <?= $userbean->lastname;?></li>				
+                    <li class="sigi"><a href="logout"  data-target="#myModal4" > | Logout</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>

@@ -44,6 +44,7 @@ CREATE TABLE `customer` (
   `password` text,
   `mobile` varchar(20) DEFAULT NULL,
   `nic` varchar(20) DEFAULT NULL,
+  `rolecode` varchar(10) DEFAULT 'CUSTOMER',
   `status` varchar(10) DEFAULT 'ACTIVE',
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -51,7 +52,7 @@ CREATE TABLE `customer` (
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`id`,`firstname`,`lastname`,`email`,`password`,`mobile`,`nic`,`status`,`datecreated`) values (1,'Gayan','Fernando','a@gmail.com','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','34445555','444444','ACTIVE','2017-11-03 19:52:52');
+insert  into `customer`(`id`,`firstname`,`lastname`,`email`,`password`,`mobile`,`nic`,`rolecode`,`status`,`datecreated`) values (1,'Gayan','Fernando','a@gmail.com','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','34445555','444444','CUSTOMER','ACTIVE','2017-11-03 19:52:52');
 
 /*Table structure for table `reservation` */
 

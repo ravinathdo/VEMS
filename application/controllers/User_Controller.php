@@ -20,6 +20,14 @@ class User_Controller extends CI_Controller {
         $this->load->view('index');
     }
 
+    
+    public function logout() {
+        $this->session->unset_userdata('userbean');
+        $this->session->unset_userdata('logged_in');
+        $this->load->view('index');
+    }
+    
+    
     public function customerLogin() {
         $this->load->model(array('Customer'));
         $formData = $this->Customer->array_from_post(array('email', 'password'));
