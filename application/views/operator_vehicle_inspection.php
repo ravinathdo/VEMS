@@ -16,7 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-     
+
         <?php $this->load->view('basecss'); ?>
         <!-- Custom Theme files -->
         <?php $this->load->view('basejs'); ?>
@@ -28,16 +28,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <body>
         <!-- top-header -->
         <div class="top-header">
-            <?php 
+            <?php
             $this->load->view('_top_header.php');
-             ?>
+            ?>
         </div>
         <!--- /top-header ---->
         <!--- header ---->
         <div class="header">
-            <?php 
-             $this->load->view('_header.php');
-              ?>
+            <?php
+            $this->load->view('_header.php');
+            ?>
         </div>
         <!--- /header ---->
         <!--- footer-btm ---->
@@ -57,9 +57,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
-                                <?php 
-                                 $this->load->view('_menu_visitor.php');
-                                 ?> 
+                                <?php
+                                $this->load->view('_menu_visitor.php');
+                                ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
                     </nav>
@@ -70,26 +70,186 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!--- /footer-btm ---->
 
-        
+
         <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
+            <center> <h2>Vehicle Inspection</h2></center>
+
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-4">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>VREG NO</td>
+                        <td>1</td>
+                        <td>VEHICLE NO</td>
+                        <td>CAO-4847</td>
+                    </tr> 
+                </table>
+                
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Chassis Number</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Engine Number</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Absence of Silencer Leak</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Absence of oil leak</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Presence of air leak</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-4">
+                
+                
+                
+                 <table class="table table-bordered">
+                    
+                    <tr>
+                        <td>Good condition of fuel tank cap</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Presence of plug top </td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Stable engine idle RPM </td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Absence of abnormal Vibration </td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Absence of noticeable water leakages</td>
+                        <td><select class="form-control">
+                                <option>--select--</option>
+                                <option>Accepted</option>
+                                <option>Not Accepted</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-primary">Inspec Now</button>
+</td>
+                    </tr>
+</table>
+                
+                
+                
+            </div>
+            <div class="col-md-1">
+
+            </div>
+
         </div>
-        
-        
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Reg NO</th>
+                            <th>Vehicle NO</th>
+                            <th>Category</th>
+                            <th>Fual Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Reg NO</th>
+                            <th>Vehicle NO</th>
+                            <th>Category</th>
+                            <th>Fual Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>CAO-4847</td>
+                            <td>Car</td>
+                            <td>Petrol</td>
+                            <td><a href="<?php echo base_url('Inspection/loadInspection'); ?>">Inspec Now</a></td>
+                            <td>Active</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
         <!--- footer-top ---->
         <div class="footer-top">
             <div class="container">
-                  <?php $this->load->view('_footer_branch');?>
+                <?php $this->load->view('_footer_branch'); ?>
             </div>
         </div>
         <!--- /footer-top ---->
         <!---copy-right ---->
         <div class="copy-right">
             <div class="container">
-               <?php 
-              $this->load->view('_footer.php'); 
-               ?>
+                <?php
+                $this->load->view('_footer.php');
+                ?>
             </div>
         </div>
         <!--- /copy-right ---->
@@ -142,7 +302,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </li>
                                     <li class="descrip">
                                         <input class="special" type="text" value="Write Description" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Write Description';}" required="">
+                                                    this.value = 'Write Description';
+                                                }" required="">
                                     </li>
                                     <div class="clearfix"></div>
                                 </ul>
@@ -159,5 +320,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!-- //write us -->
     </body>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
 </html>
 

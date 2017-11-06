@@ -7,3 +7,9 @@
 <link href="<?php echo site_url('css/font-awesome.css');?>" rel="stylesheet">
 <!--animate-->
 <link href="<?php echo site_url('css/animate.css');?>" rel="stylesheet" type="text/css" media="all">
+
+<!--fullcalender-->
+<link href='<?php echo site_url('css/fullcalendar.min.css');?>' rel='stylesheet' />
+<link href='<?php echo site_url('css/fullcalendar.print.min.css');?>' rel='stylesheet' media='print' />
+<!--datatable-->
+<link href='<?php echo site_url('css/jquery.dataTables.min.css');?>' rel='stylesheet' />

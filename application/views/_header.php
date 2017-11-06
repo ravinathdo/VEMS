@@ -1,6 +1,6 @@
 <div class="container">
                 <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-                    <a href="index.html">Green <span>Wheels</span></a>	
+                    <a href="index.html">Drive <span>Green</span></a>	
                 </div>
                 <div class="bus wow fadeInUp animated" data-wow-delay=".5s">
 <!--                    <a href="index.html" class="buses active">BUSES</a>

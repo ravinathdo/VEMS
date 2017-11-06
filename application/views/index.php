@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Green Wheels a Travel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <title>Drive Green</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Green Wheels Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -28,15 +28,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- top-header -->
         <div class="top-header">
             <div class="container">
-                <ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
+<!--                <ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
                     <li class="hm"><a href="index.html"><i class="fa fa-home"></i></a></li>
                     <li class="prnt"><a href="javascript:window.print()">Print/SMS Ticket</a></li>
 
-                </ul>
+                </ul>-->
                 <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
                     <li class="tol">Toll Number : 123-4568790</li>				
                     <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a></li> 
                     <li class="sigi"><a href="#" data-toggle="modal" data-target="#myModal4" >/ Sign In</a></li>
+                    <li class="sigi"> | <a href="#" data-toggle="modal" data-target="#myModal5" > Drive Green Login</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -46,15 +47,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="header">
             <div class="container">
                 <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-                    <a href="index">Green <span>Wheels</span></a>	
+                    <a href="index">Drive <span>Green</span></a>	
                 </div>
                 <div class="bus wow fadeInUp animated" data-wow-delay=".5s">
-                    <a href="index.html" class="buses active">BUSES</a>
-                    <a href="hotels.html">HOTELS</a>
+                    <a href="#" data-toggle="modal" data-target="#myModal"  class="buses active">SUGNUP For New Reservation</a>
+                    <!--<a href="hotels.html">HOTELS</a>-->
                 </div>
                 <div class="lock fadeInDown animated" data-wow-delay=".5s"> 
-                    <li><i class="fa fa-lock"></i></li>
-                    <li><div class="securetxt">SAFE &amp; SECURE<br> ONLINE PAYMENTS</div></li>
+                    <li><i class="fa fa-leaf"></i></li>
+                    <li><div class="securetxt">CLEAN &amp; PROTECT THE<br>  ENVIRONMENT </div></li>
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
@@ -94,7 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--- banner ---->
         <div class="banner">
             <div class="container">
-                <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> Green Wheels - Best in Class for Travel & Hotels</h1>
+                <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> Drive Green Sri Lanka - Best in Emission Tester  </h1>
             </div>
         </div>
         <div class="container">
@@ -329,6 +330,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- //sign -->
         <!-- signin -->
         <?php $this->load->view('_model_signup');?>
+        <!-- //signin -->
+        <!-- signin -->
+        <?php $this->load->view('_model_login');?>
         <!-- //signin -->
         <!-- write us -->
         <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

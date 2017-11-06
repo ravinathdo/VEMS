@@ -37,14 +37,14 @@ class Users extends MY_Model {
         return $data;
     }
 
-    public function getLogin($formData) {
+    public function getUserLogin($formData) {
         $this->db->select('users.*');
         $this->db->from('users');
         $pword = sha1($formData['password']);
-        $where = " email = '".$formData['email']."' AND password = '".$pword."'";
+        $where = " status = 'ACTIVE' AND email = '" . $formData['email'] . "' AND password = '" . $pword . "'";
         $this->db->where($where);
         $query = $this->db->get();
-        
+
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {

@@ -16,7 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-     
+
         <?php $this->load->view('basecss'); ?>
         <!-- Custom Theme files -->
         <?php $this->load->view('basejs'); ?>
@@ -28,16 +28,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <body>
         <!-- top-header -->
         <div class="top-header">
-            <?php 
+            <?php
             $this->load->view('_top_header.php');
-             ?>
+            ?>
         </div>
         <!--- /top-header ---->
         <!--- header ---->
         <div class="header">
-            <?php 
-             $this->load->view('_header.php');
-              ?>
+            <?php
+            $this->load->view('_header.php');
+            ?>
         </div>
         <!--- /header ---->
         <!--- footer-btm ---->
@@ -57,9 +57,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
-                                <?php 
-                                 $this->load->view('_menu_visitor.php');
-                                 ?> 
+                                <?php
+                                $this->load->view('_menu_visitor.php');
+                                ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
                     </nav>
@@ -70,26 +70,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!--- /footer-btm ---->
 
-        
+        <h2>Vehicle Inspec Result</h2>
         <div class="row">
             <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">RESULT</label>
+                        <div class="col-sm-10">
+                            <select class="form-control">
+                                <option>--select result--</option> 
+                                <option>PASS</option> 
+                                <option>FAIL</option> 
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">SET RESULT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        
-        
+
+
         <!--- footer-top ---->
         <div class="footer-top">
             <div class="container">
-                  <?php $this->load->view('_footer_branch');?>
+                <?php $this->load->view('_footer_branch'); ?>
             </div>
         </div>
         <!--- /footer-top ---->
         <!---copy-right ---->
         <div class="copy-right">
             <div class="container">
-               <?php 
-              $this->load->view('_footer.php'); 
-               ?>
+                <?php
+                $this->load->view('_footer.php');
+                ?>
             </div>
         </div>
         <!--- /copy-right ---->
@@ -142,7 +161,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </li>
                                     <li class="descrip">
                                         <input class="special" type="text" value="Write Description" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Write Description';}" required="">
+                                                    this.value = 'Write Description';
+                                                }" required="">
                                     </li>
                                     <div class="clearfix"></div>
                                 </ul>
