@@ -9,7 +9,7 @@
 /**
  * Description of User_Controller
  *
- * @author ravi
+ * @author indeewara
  */
 class User_Controller extends CI_Controller {
 
