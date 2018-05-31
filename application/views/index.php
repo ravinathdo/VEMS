@@ -9,10 +9,8 @@
         <meta name="keywords" content="" />
         <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-
         <?php $this->load->view('basecss'); ?>
         <?php $this->load->view('basejs'); ?>
-
 
         <script>
             new WOW().init();
@@ -29,7 +27,7 @@
 
                 </ul>-->
                 <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
-                    <li class="tol">Toll Number : 123-4568790</li>				
+                    <li class="tol">Telephone Number : 123-4568790</li>				
                     <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a></li> 
                     <li class="sigi"><a href="#" data-toggle="modal" data-target="#myModal4" >/ Sign In</a></li>
                     <li class="sigi"> | <a href="#" data-toggle="modal" data-target="#myModal5" > Drive Green Login</a></li>
@@ -45,7 +43,7 @@
                     <a href="index">Drive <span>Green</span></a>	
                 </div>
                 <div class="bus wow fadeInUp animated" data-wow-delay=".5s">
-                    <a href="#" data-toggle="modal" data-target="#myModal"  class="buses active">SUGNUP For New Reservation</a>
+                    <a href="#" data-toggle="modal" data-target="#myModal"  class="buses active">SIGNUP For New Reservation</a>
                     <!--<a href="hotels.html">HOTELS</a>-->
                 </div>
                 <div class="lock fadeInDown animated" data-wow-delay=".5s"> 
