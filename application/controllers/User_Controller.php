@@ -19,14 +19,12 @@ class User_Controller extends CI_Controller {
 //		$this->load->view('student/student_register');
         $this->load->view('index');
     }
-
     
     public function logout() {
         $this->session->unset_userdata('userbean');
         $this->session->unset_userdata('logged_in');
         $this->load->view('index');
     }
-    
     
     public function userLogin() {
         echo 'userlogin';
