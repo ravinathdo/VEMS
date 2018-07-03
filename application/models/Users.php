@@ -41,6 +41,21 @@ class Users extends MY_Model {
         $this->db->select('users.*');
         $this->db->from('users');
         $pword = sha1($formData['password']);
+        $where = " status = 'ACTIVE' AND username = '" . $formData['email'] . "' AND password = '" . $pword . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+    public function getCustomerLogin($formData) {
+        $this->db->select('customer.*');
+        $this->db->from('customer');
+        $pword = sha1($formData['password']);
         $where = " status = 'ACTIVE' AND email = '" . $formData['email'] . "' AND password = '" . $pword . "'";
         $this->db->where($where);
         $query = $this->db->get();
