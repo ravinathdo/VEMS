@@ -67,60 +67,7 @@ Author: Indeewara
         <div class="row">
             <div class="col-md-2">.col-md-8</div>
             <div class="col-md-6">
-                <?php
-                if (isset($msg)) {
-                    echo $msg;
-                }
-                ?>
-                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>Customer_Controller/customerRegistration">
-                    <span class="mando-msg">* fields are mandatory</span>
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">first_name</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="first_name" class="form-control" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">last_name</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="last_name" class="form-control" id="inputPassword3">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">nic</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nic" class="form-control" id="inputPassword3">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Register</button>
-                        </div>
-                    </div>
-                </form>
-
-
-                <table class="table">
-                    <tbody>
-                        <?php
-                        if ($customer_list != FALSE) {
-                            foreach ($customer_list as $rows) {
-                                ?>
-                                <tr>
-                                    <td><?= $rows->first_name; ?></td>
-                                    <td><?= $rows->first_name; ?></td>
-                                    <td><?= $rows->first_name; ?></td>
-                                    <td><a href="<?php echo base_url(); ?>Customer_Controller/loadCustomerData?cid=<?= $rows->id; ?>">Explorer</a></td>
-                                </tr>
-
-                                <?php
-                            }
-                        }
-                        ?>
-                    </tbody>
-                </table>
-
+               Customer Details
             </div>
             <div class="col-md-4">.col-md-4</div>
         </div>

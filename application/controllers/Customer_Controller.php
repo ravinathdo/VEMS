@@ -45,4 +45,9 @@ class Customer_Controller extends CI_Controller {
         $this->load->view('customer_registration_insertview', $data);
     }
 
+    
+    public function loadCustomerData(){
+        $id = $this->input->get('cid');
+        echo 'ID:'.$id;
+    }
 }
