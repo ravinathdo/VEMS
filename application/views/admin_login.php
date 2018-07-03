@@ -66,20 +66,17 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="<?php echo base_url();?>Admin/userLogin" method="post">
                     <fieldset>
 
                         <!-- Form Name -->
                         <legend>Admin Login</legend>
 
-        
-
                         <!-- Text input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="username">Username</label>  
                             <div class="col-md-8">
-                                <input id="username" name="email" type="text" placeholder="username" class="form-control input-md" required="">
-
+                                <input id="username" name="username" type="text" placeholder="username" class="form-control input-md" required="">
                             </div>
                         </div>
                         
@@ -99,7 +96,7 @@
                                 <button id="singlebutton" name="singlebutton" class="btn btn-success">Login</button>
                             </div>
                         </div>
-
+<?=$msg?>
                     </fieldset>
                 </form>
 

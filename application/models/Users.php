@@ -38,10 +38,10 @@ class Users extends MY_Model {
     }
 
     public function getUserLogin($formData) {
-        $this->db->select('users.*');
-        $this->db->from('users');
+        $this->db->select('dg_user.*');
+        $this->db->from('dg_user');
         $pword = sha1($formData['password']);
-        $where = " status = 'ACTIVE' AND username = '" . $formData['email'] . "' AND password = '" . $pword . "'";
+        $where = " status_code = 'ACTIVE' AND username = '" . $formData['username'] . "' AND pword = '" . $pword . "'";
         $this->db->where($where);
         $query = $this->db->get();
 

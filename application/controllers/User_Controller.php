@@ -51,4 +51,8 @@ class User_Controller extends CI_Controller {
         }
     }
 
+    public function loadUserCreation() {
+        $this->load->view('admin_user_creation');
+    }
+    
 }
