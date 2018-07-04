@@ -64,15 +64,14 @@
 
 
         <div class="row">
+            <div class="col-md-2">
+            </div>
             <div class="col-md-4">
-
-
-
                 <form class="form-horizontal">
                     <fieldset>
 
                         <!-- Form Name -->
-                        <legend style="text-align: center">Center Creation</legend>
+                        <legend style="text-align: center">Update Center</legend>
 
                         <!-- Text input-->
                         <div class="form-group">
@@ -136,13 +135,12 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="singlebutton"></label>
                             <div class="col-md-8">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Add Center</button>
+                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Update Center</button>
                             </div>
                         </div>
 
                     </fieldset>
                 </form>
-
             </div>
             <div class="col-md-4">
 
@@ -195,40 +193,7 @@
                 </svg>
 
             </div>
-            <div class="col-md-4">
-               
-                
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Center</th>
-                            <th>Telephone</th>
-                            <th>Email</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                          <tr>
-                            <td>Center</td>
-                            <td>Telephone</td>
-                            <td>Email</td>
-                            <td><a href="<?php echo site_url('Center_Controller/loadEditCenter?centerid=5')?>">Edit</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-                <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#example').DataTable( {
-        "scrollY":        "200px",
-        "scrollCollapse": true,
-        "paging":         false
-    });
-                    });
-                </script>
-                
-            </div>
+            
         </div>
 
 

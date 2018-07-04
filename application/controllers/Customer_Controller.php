@@ -48,4 +48,8 @@ class Customer_Controller extends CI_Controller {
         
     }
 
+    public function loadCustomerReg() {
+        $this->load->view('admin_customer_create');
+    }
+
 }

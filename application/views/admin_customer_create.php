@@ -68,22 +68,22 @@
                     <fieldset>
 
                         <!-- Form Name -->
-                        <legend style="text-align: center">User Creation</legend>
+                        <legend>Customer Creation</legend>
 
                         <!-- Text input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="first_name">First Name</label>  
                             <div class="col-md-8">
-                                <input id="first_name" name="first_name" type="text" placeholder="First Name" class="form-control input-md" required="">
+                                <input id="first_name" name="first_name" type="text" placeholder="first name" class="form-control input-md">
 
                             </div>
                         </div>
 
-                        <!-- Text input-->
+                        <!-- Search input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="username">Username</label>  
+                            <label class="col-md-4 control-label" for="last_name">Last Name</label>
                             <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
+                                <input id="last_name" name="last_name" type="search" placeholder="last name" class="form-control input-md">
 
                             </div>
                         </div>
@@ -92,48 +92,26 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="nic">NIC</label>  
                             <div class="col-md-8">
-                                <input id="nic" name="nic" type="text" placeholder="nic" class="form-control input-md" required="">
+                                <input id="nic" name="nic" type="text" placeholder="nic" class="form-control input-md">
 
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="last_name">Last Name</label>  
+                            <label class="col-md-4 control-label" for="mobile_number">Mobile Number</label>  
                             <div class="col-md-8">
-                                <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" required="">
+                                <input id="mobile_number" name="mobile_number" type="text" placeholder="mobile number" class="form-control input-md">
 
-                            </div>
-                        </div>
-
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="center_id">Center Name</label>
-                            <div class="col-md-8">
-                                <select id="center_id" name="center_id" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="mobile_number">Mobile No</label>  
+                            <label class="col-md-4 control-label" for="email">email</label>  
                             <div class="col-md-8">
-                                <input id="mobile_number" name="mobile_number" type="text" placeholder="Mobile Number" class="form-control input-md">
+                                <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
 
-                            </div>
-                        </div>
-
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="role_code">User Role</label>
-                            <div class="col-md-8">
-                                <select id="role_code" name="role_code" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
                             </div>
                         </div>
 
@@ -147,7 +125,7 @@
 
                         <!-- Select Basic -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="status_code">Status</label>
+                            <label class="col-md-4 control-label" for="status_code">Status Code</label>
                             <div class="col-md-8">
                                 <select id="status_code" name="status_code" class="form-control">
                                     <option value="1">Option one</option>
@@ -160,40 +138,40 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="singlebutton"></label>
                             <div class="col-md-8">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Create User</button>
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Create Customer</button>
                             </div>
                         </div>
 
                     </fieldset>
                 </form>
 
-
             </div>
             <div class="col-md-8">
+
                 
                 
                 <table id="example" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th>Mobile</th>
-                            <th>Center</th>
-                            <th>Role</th>
+                            <th>Name</th>
+                            <th>NIC</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <th>
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                         <tr>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Username</td>
-                            <td>Mobile</td>
-                            <td>Center</td>
-                            <td>Role</td>
-                            <td><a href="<?php echo site_url('User_Controller/loadEditUser')?>">edit</a></td>
-                        </tr>
+                        <th>Name</th>
+                            <td>NIC</td>
+                            <td>Mobile Number</td>
+                            <td>Email</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-xs">CAO-4847</button>
+                                <button type="button" class="btn btn-primary btn-xs">KJG-8866</button>
+                            </td>
+                            <td></td>
                     </tbody>
                 </table>
                 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -229,5 +207,9 @@
 
 
     </body>
+
+
+
+
 </html>
 

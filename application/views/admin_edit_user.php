@@ -63,12 +63,12 @@
 
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form class="form-horizontal">
                     <fieldset>
 
                         <!-- Form Name -->
-                        <legend style="text-align: center">User Creation</legend>
+                        <legend style="text-align: center">Edit User</legend>
 
                         <!-- Text input-->
                         <div class="form-group">
@@ -160,7 +160,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="singlebutton"></label>
                             <div class="col-md-8">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Create User</button>
+                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Save</button>
                             </div>
                         </div>
 
@@ -169,42 +169,27 @@
 
 
             </div>
-            <div class="col-md-8">
-                
-                
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th>Mobile</th>
-                            <th>Center</th>
-                            <th>Role</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                         <tr>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Username</td>
-                            <td>Mobile</td>
-                            <td>Center</td>
-                            <td>Role</td>
-                            <td><a href="<?php echo site_url('User_Controller/loadEditUser')?>">edit</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-                <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#example').DataTable();
-                    });
-                </script>
-                
-                
+            <div class="col-md-6">
+
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>&nbsp;</legend>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="singlebutton">UBSCPP</label>
+                            <div class="col-md-4">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Password Rest</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+
+
             </div>
         </div>
 

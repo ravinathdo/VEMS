@@ -12,8 +12,16 @@
  * @author ravi
  */
 class Center_Controller extends CI_Controller {
+
     //put your code here
     public function index() {
-         $this->load->view('admin_center');
+        $this->load->view('admin_center');
     }
+
+    public function loadEditCenter() {
+//        $this->uid = $this->input->get('centerid', TRUE);
+//        echo $this->uid;
+        $this->load->view('admin_edit_center');
+    }
+
 }
