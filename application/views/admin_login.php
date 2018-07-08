@@ -96,7 +96,7 @@
                                 <button id="singlebutton" name="singlebutton" class="btn btn-success">Login</button>
                             </div>
                         </div>
-<?=$msg?>
+                    <?=$msg?>
                     </fieldset>
                 </form>
 

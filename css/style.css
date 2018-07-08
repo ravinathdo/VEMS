@@ -13,6 +13,7 @@ html, body{
 .msg-err{
     font-weight: bold;
     text-align: center;
+    color:red;
 }
 
 body a,.grid_1,plan_1,plan_1.one,plan_1.two,i.icon1, i.icon2, i.icon3, i.icon4, i.icon5, i.icon6 {
