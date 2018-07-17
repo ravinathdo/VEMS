@@ -68,7 +68,7 @@
 
 
 
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="<?php echo site_url('Center_Controller/add') ?>" method="post">
                     <fieldset>
 
                         <!-- Form Name -->
@@ -114,10 +114,14 @@
                             <label class="col-md-4 control-label" for="district_name">District Name</label>  
                             <div class="col-md-8">
                                 <select id="status_code" name="district_name" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                    <option value="">--select district--</option>
+                                    <?php foreach ($districtList as $row) {
+                                        ?> 
+                                        <option value="<?= $row->district_name ?>"><?= $row->district_name ?></option>
+                                        <?php
+                                    }
+                                    ?>
                                 </select>
-
                             </div>
                         </div>
 
@@ -126,12 +130,12 @@
                             <label class="col-md-4 control-label" for="status_code">Status</label>
                             <div class="col-md-8">
                                 <select id="status_code" name="status_code" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                    <option value="ACTIVE">ACTIVE</option>
+                                    <option value="DEACTIVE">DEACTIVE</option>
                                 </select>
                             </div>
                         </div>
-                        
+
                         <!-- Button -->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -142,6 +146,47 @@
 
                     </fieldset>
                 </form>
+
+            </div>
+            <div class="col-md-4">
+
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Center</th>
+                            <th>Telephone</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($centerList as $value) {
+                            ?> 
+                            <tr>
+                                <td><?= $value->center_name ?></td>
+                                <td>Telephone</td>
+                                <td>Email</td>
+                                <td><?= $value->district_name ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
+                    </tbody>
+                </table>
+                <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+                <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+                <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    "scrollY": "200px",
+                    "scrollCollapse": true,
+                    "paging": false
+                });
+            });
+                </script>
+
+
 
             </div>
             <div class="col-md-4">
@@ -194,40 +239,7 @@
                 </g>
                 </svg>
 
-            </div>
-            <div class="col-md-4">
-               
-                
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Center</th>
-                            <th>Telephone</th>
-                            <th>Email</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                          <tr>
-                            <td>Center</td>
-                            <td>Telephone</td>
-                            <td>Email</td>
-                            <td><a href="<?php echo site_url('Center_Controller/loadEditCenter?centerid=5')?>">Edit</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-                <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#example').DataTable( {
-        "scrollY":        "200px",
-        "scrollCollapse": true,
-        "paging":         false
-    });
-                    });
-                </script>
-                
+
             </div>
         </div>
 

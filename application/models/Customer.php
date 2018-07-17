@@ -13,18 +13,19 @@
  */
 class Customer extends MY_Model {
 
-    const DB_TABLE = 'customer';
+    const DB_TABLE = 'dg_customer';
     const DB_TABLE_PK = 'id';
 
     public $id;
-    public $firstname;
-    public $lastname;
-    public $email;
-    public $password;
+    public $first_name;
+    public $last_name;
     public $nic;
-    public $mobileno;
-    public $status;
-    public $datecreated;
+    public $pword;
+    public $mobile_number;
+    public $address;
+    public $email;
+    public $status_code;
+    public $created_user;
 
     public function array_from_post($fields) {
         $data = array();

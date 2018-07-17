@@ -64,12 +64,11 @@
 
         <div class="row">
             <div class="col-md-4">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="<?php echo site_url('Customer_Controller/add') ?>" method="post">
                     <fieldset>
-
                         <!-- Form Name -->
                         <legend>Customer Creation</legend>
-
+                        <?php echo $msg ?>
                         <!-- Text input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="first_name">First Name</label>  
@@ -128,8 +127,8 @@
                             <label class="col-md-4 control-label" for="status_code">Status Code</label>
                             <div class="col-md-8">
                                 <select id="status_code" name="status_code" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                    <option value="ACTIVE">ACTIVE</option>
+                                    <option value="DEACTIVE">DEACTIVE</option>
                                 </select>
                             </div>
                         </div>
@@ -147,42 +146,43 @@
 
             </div>
             <div class="col-md-8">
-
-                
-                
                 <table id="example" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>NIC</th>
                             <th>Mobile Number</th>
-                            <th>Email</th>
-                            <th>
-                            </th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <th>Name</th>
-                            <td>NIC</td>
-                            <td>Mobile Number</td>
-                            <td>Email</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-xs">CAO-4847</button>
-                                <button type="button" class="btn btn-primary btn-xs">KJG-8866</button>
-                            </td>
-                            <td></td>
+                        <?php foreach ($customerList as $value) {
+                            ?> 
+                            <tr>
+                                <td><?php echo $value->first_name ?></td>
+                                <td><?php echo $value->last_name ?></td>
+                                <td><?php echo $value->nic ?></td>
+                                <td><?php echo $value->mobile_number ?></td>
+                                <td><?php echo $value->status_code ?> </td>
+                                <td></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
                     </tbody>
                 </table>
                 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
                 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
                 <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#example').DataTable();
-                    });
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
                 </script>
-                
-                
+
+
             </div>
         </div>
 

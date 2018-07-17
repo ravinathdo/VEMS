@@ -13,21 +13,21 @@
  */
 class Users extends MY_Model {
 
-    const DB_TABLE = 'users';
+    const DB_TABLE = 'dg_user';
     const DB_TABLE_PK = 'id';
 
     public $id;
-    public $firstname;
-    public $lastname;
-    public $email;
-    public $password;
+    public $first_name;
+    public $last_name;
     public $nic;
-    public $mobileno;
-    public $branchid;
-    public $status;
-    public $rolecode;
-    public $usercreated;
-    public $datecreated;
+    public $username;
+    public $pword;
+    public $mobile_number;
+    public $address;
+    public $role_code;
+    public $center_id;
+    public $status_code;
+    public $created_user;
 
     public function array_from_post($fields) {
         $data = array();
@@ -51,7 +51,7 @@ class Users extends MY_Model {
             return FALSE;
         }
     }
-    
+
     public function getCustomerLogin($formData) {
         $this->db->select('customer.*');
         $this->db->from('customer');
@@ -62,6 +62,22 @@ class Users extends MY_Model {
 
         if ($query->num_rows() > 0) {
             return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getUserList() {
+        $this->db->select('dg_user.*,dg_center.center_name');
+        $this->db->from('dg_user');
+//        $where = " effectdate = " . $effectdate;
+//        $this->db->where($where);
+        $this->db->join('dg_center','dg_center.id = dg_user.center_id');
+        $query = $this->db->get();
+
+        $result = $query->result();
+        if ($result) {
+            return $result;
         } else {
             return FALSE;
         }

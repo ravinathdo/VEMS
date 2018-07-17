@@ -64,7 +64,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="<?php echo site_url('User_Controller/add') ?>"  method="post">
                     <fieldset>
 
                         <!-- Form Name -->
@@ -74,7 +74,15 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="first_name">First Name</label>  
                             <div class="col-md-8">
-                                <input id="first_name" name="first_name" type="text" placeholder="First Name" class="form-control input-md" required="">
+                                <input id="first_name" name="first_name" type="text" placeholder="First Name" class="form-control input-md" >
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="last_name">Last Name</label>  
+                            <div class="col-md-8">
+                                <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" >
 
                             </div>
                         </div>
@@ -83,36 +91,33 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="username">Username</label>  
                             <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
+                                <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" >
 
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="nic">NIC</label>  
+                            <label class="col-md-4 control-label" name="nic" >NIC</label>  
                             <div class="col-md-8">
-                                <input id="nic" name="nic" type="text" placeholder="nic" class="form-control input-md" required="">
+                                <input id="nic" name="nic" type="text" placeholder="nic" class="form-control input-md">
 
                             </div>
                         </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="last_name">Last Name</label>  
-                            <div class="col-md-8">
-                                <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" required="">
 
-                            </div>
-                        </div>
 
                         <!-- Select Basic -->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="center_id">Center Name</label>
                             <div class="col-md-8">
                                 <select id="center_id" name="center_id" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                    <option value="">--select--</option>
+                                    <?php
+                                    foreach ($centerList as $rows) {
+                                        ?> <option value="<?= $rows->id ?>"><?= $rows->center_name ?></option> <?php
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -131,8 +136,12 @@
                             <label class="col-md-4 control-label" for="role_code">User Role</label>
                             <div class="col-md-8">
                                 <select id="role_code" name="role_code" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                    <option value="">--select role--</option>
+                                    <?php
+                                    foreach ($roleList as $rows) {
+                                        ?> <option value="<?= $rows->role_code ?>"><?= $rows->description ?></option> <?php
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -150,8 +159,8 @@
                             <label class="col-md-4 control-label" for="status_code">Status</label>
                             <div class="col-md-8">
                                 <select id="status_code" name="status_code" class="form-control">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                    <option value="ACTIVE">ACTIVE</option>
+                                    <option value="DEACTIVE">DEACTIVE</option>
                                 </select>
                             </div>
                         </div>
@@ -170,8 +179,8 @@
 
             </div>
             <div class="col-md-8">
-                
-                
+
+
                 <table id="example" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -181,30 +190,35 @@
                             <th>Mobile</th>
                             <th>Center</th>
                             <th>Role</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                         <tr>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Username</td>
-                            <td>Mobile</td>
-                            <td>Center</td>
-                            <td>Role</td>
-                            <td><a href="<?php echo site_url('User_Controller/loadEditUser')?>">edit</a></td>
-                        </tr>
+                        <?php
+                        foreach ($userList as $row) {
+                            ?>
+                            <tr>
+                                <td><?= $row->first_name ?></td>
+                                <td><?= $row->last_name ?></td>
+                                <td><?= $row->username ?></td>
+                                <td><?= $row->mobile_number ?></td>
+                                <td><?= $row->center_name ?></td>
+                                <td><?= $row->role_code ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
                     </tbody>
                 </table>
                 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
                 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
                 <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#example').DataTable();
-                    });
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
                 </script>
-                
-                
+
+
             </div>
         </div>
 

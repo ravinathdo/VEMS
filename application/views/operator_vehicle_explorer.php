@@ -71,139 +71,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--- /footer-btm ---->
 
 
-        <div class="row">
-            <center> <h2>Vehicle Registration</h2></center>
-            <form class="form-horizontal" action="<?php echo site_url('Vehicle_Controller/add') ?>" method="post">
-                <div class="col-md-1">
 
-                </div>
-                <div class="col-md-4">
-
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Manufacture Year</label>
-                        <input type="text" name="manufac_year" class="form-control" id="exampleInputEmail1" placeholder="Year">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Brand</label>
-                        <select name="brand_code" class="form-control">
-                            <option value="">--Select Brand--</option>
-                            <?php foreach ($brandList as $value) {
-                                ?>  <option value="<?php echo $value->brand_code; ?>"><?php echo $value->decription; ?></option> <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Vehicle Reg Number</label>
-                        <input name="reg_no" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Vehicle Type (Category)</label>
-                        <select name="type_code" class="form-control">
-                            <option value="">--Select Category--</option>
-                            <?php foreach ($typeList as $value) {
-                                ?>  <option value="<?php echo $value->type_code; ?>"><?php echo $value->description; ?> </option> <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                </div>
-                <div class="col-md-1">
-
-                </div>
-                <div class="col-md-4">
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Customer</label>
-                        <select name="customer_id" class="form-control">
-                            <option>--Select Customer--</option>
-                            <?php foreach ($customerList as $value) {
-                                ?>  <option value="<?php echo $value->id; ?>"><?php echo $value->nic; ?> - <?php echo $value->first_name; ?> </option> <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Fual Type</label>
-                        <select name="fual_type" class="form-control">
-                            <option value="">--Select Fual Type--</option>
-                            <?php foreach ($fualList as $value) {
-                                ?>  <option value="<?php echo $value->fual_type; ?>"><?php echo $value->fual_type; ?></option> <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Stroke</label>
-                        <select name="stroke" class="form-control">
-                            <option value="">--Select Stroke--</option>
-                            <option value="6">6</option>
-                            <option value="5">5</option>
-                            <option value="2">2</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Cylinder</label>
-                        <input name="cylinder" type="text" class="form-control"/>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Register</button>
-
-                </div>
-                <div class="col-md-1">
-
-                </div>
-            </form>
-        </div>
-        <hr>
         <div class="row">
             <div class="col-md-12">
                 <table id="example" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>manufac_year</th>
+                            <th>Reg No</th>
                             <th>type_code</th>
-                            <th>reg_no</th>
-                            <th>stroke</th>
-                            <th>Fual Type</th>
-                            <th>Status</th>
+                            <th>fual_type</th>
+                            <th>manufac_year</th>
+                            <th></th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>manufac_year</th>
-                            <th>type_code</th>
-                            <th>reg_no</th>
-                            <th>stroke</th>
-                            <th>Fual Type</th>
-                            <th>Status</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
-
-                        <?php foreach ($vehicleList as $value) {
-                            ?>  
+                        <?php foreach ($customerVehicleList as $value) { ?>
                             <tr>
-                                <td><?= $value->manufac_year ?></td>
                                 <td><?= $value->reg_no ?></td>
                                 <td><?= $value->type_code ?></td>
-                                <td><?= $value->stroke ?></td>
                                 <td><?= $value->fual_type ?></td>
-                                <td><?= $value->brand_code ?></td>
+                                <td><?= $value->manufac_year ?></td>
+                                <td><a href="<?php echo site_url('Inspection_Controller/loadInspection')?>?id=<?= $value->id ?>">Inspec Now</a></td>
                             </tr>
-                            <?php
-                        }
+                        <?php }
                         ?>
-
-
-
                     </tbody>
                 </table>
+                <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+                <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+                <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+                </script>
             </div>
         </div>
-
 
 
         <!--- footer-top ---->

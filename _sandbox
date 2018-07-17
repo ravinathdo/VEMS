@@ -25,6 +25,26 @@
 
 
 
+<p class="bg-primary msg-success">...</p>
+<p class="bg-success msg-success">...</p>
+<p class="bg-info">...</p>
+<p class="bg-warning">...</p>
+<p class="bg-danger msg-success">...</p>
+
+
 
 password => a
 86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+
+
+
+$userbean = $this->session->userdata('userbean');
+
+<form class="form-horizontal" action="<?php echo site_url('Customer_Controller/add') ?>" method="post">
+
+
+--short-cuts
+cipostdata       [array_from_post]
+pecho
+
+

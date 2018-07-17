@@ -49,7 +49,39 @@ class Customer_Controller extends CI_Controller {
     }
 
     public function loadCustomerReg() {
-        $this->load->view('admin_customer_create');
+        $this->load->model(array('Customer'));
+        $customer = new Customer();
+        $data['customerList'] = $customer->get();
+        $data['msg'] = null;
+        $this->load->view('admin_customer_create', $data);
+    }
+
+    public function add() {
+        $this->load->model(array('Customer'));
+        $customer = new Customer();
+        $post_data = $customer->array_from_post(array('first_name', 'last_name', 'nic', 'mobile_number', 'email', 'address', 'status_code'));
+
+        $customer->first_name = $post_data['first_name'];
+        $customer->last_name = $post_data['last_name'];
+        $customer->nic = $post_data['nic'];
+        $customer->mobile_number = $post_data['mobile_number'];
+        $customer->email = $post_data['email'];
+        $customer->address = $post_data['address'];
+        $customer->status_code = $post_data['status_code'];
+        $customer->created_user = $this->session->userdata('userbean')->id;
+
+        $customer->save();
+        $data['msg'] = '<p class="bg-success msg-success">New customer created successfuly</p>';
+        //get customer list
+        $data['customerList'] = $customer->get();
+        $this->load->view('admin_customer_create', $data);
+    }
+
+    public function explorer() {
+        $this->load->model(array('Customer'));
+        $customer = new Customer();
+        $data['customerList'] = $customer->get();
+        $this->load->view('operator_customer_explorer', $data);
     }
 
 }

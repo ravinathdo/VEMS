@@ -52,11 +52,61 @@ class User_Controller extends CI_Controller {
     }
 
     public function loadUserCreation() {
-        $this->load->view('admin_user_creation');
+        $this->load->model(array('Users', 'Center', 'Role'));
+
+        $userbean = $this->session->userdata('userbean');
+
+        $center = new Center();
+        $role = new Role();
+        $users = new Users();
+
+        $centerList = $center->get();
+        $roleList = $role->get();
+        $userList = $users->getUserList();
+
+
+        $data['centerList'] = $centerList;
+        $data['roleList'] = $roleList;
+        $data['userList'] = $userList;
+
+        $this->load->view('admin_user_creation', $data);
     }
-    
+
+    public function add() {
+        $this->load->model(array('Users', 'Center'));
+        $arry_input = $this->array_from_post(array('first_name', 'last_name', 'nic', 'username', 'mobile_number', 'address', 'role_code', 'center_id', 'status_code'));
+
+        $userbean = $this->session->userdata('userbean');
+
+        $users = new Users();
+        $users->first_name = $arry_input['first_name'];
+        $users->last_name = $arry_input['last_name'];
+        $users->nic = $arry_input['nic'];
+        $users->username = $arry_input['username'];
+        $users->pword = sha1($users->username);
+        $users->mobile_number = $arry_input['mobile_number'];
+        $users->address = $arry_input['address'];
+        $users->role_code = $arry_input['role_code'];
+        $users->center_id = $arry_input['center_id'];
+        $users->status_code = $arry_input['status_code'];
+        $users->created_user = $userbean->id;
+        $users->save();
+
+
+        echo '<tt><pre>' . var_export($arry_input, TRUE) . '</pre></tt>';
+    }
+
     public function loadEditUser() {
         $this->load->view('admin_edit_user');
     }
-    
+
+    public function array_from_post($fields) {
+        $data = array();
+
+        foreach ($fields as $field) {
+            $data[$field] = $this->input->post($field);
+        }
+        return $data;
+    }
+
 }

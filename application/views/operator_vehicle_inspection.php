@@ -9,9 +9,9 @@
         <meta name="keywords" content="Green Wheels Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
               Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
         <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <!--        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+                <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+                <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
 
         <?php $this->load->view('basecss'); ?>
         <!-- Custom Theme files -->
@@ -54,7 +54,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_visitor.php');
+                                $this->load->view('_menu_admin.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -76,13 +76,15 @@
             <div class="col-md-4">
                 <table class="table table-bordered">
                     <tr>
-                        <td>VREG NO</td>
-                        <td>1</td>
                         <td>VEHICLE NO</td>
-                        <td>CAO-4847</td>
+                        <td>CAO-4847 <input type="hidden" value="" name="vehicle_id" /></td>
+                    </tr> 
+                    <tr>
+                        <td>Engine Type</td>
+                        <td><input type="text" name="engine_type" /></td>
                     </tr> 
                 </table>
-                
+
                 <table class="table table-bordered">
                     <tr>
                         <td>Chassis Number</td>
@@ -125,17 +127,17 @@
                             </select></td>
                     </tr>
                 </table>
-                
+
             </div>
             <div class="col-md-1">
 
             </div>
             <div class="col-md-4">
-                
-                
-                
-                 <table class="table table-bordered">
-                    
+
+
+
+                <table class="table table-bordered">
+
                     <tr>
                         <td>Good condition of fuel tank cap</td>
                         <td><select class="form-control">
@@ -177,14 +179,20 @@
                             </select></td>
                     </tr>
                     <tr>
+                        <td colspan="2">
+                            <input type="radio" name="inspec_result" value="ACCEPT" /> Accept for Test <br>
+                            <input type="radio" name="inspec_result" value="REJECT" /> Reject for Test 
+                        </td>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td><button type="submit" class="btn btn-primary">Inspec Now</button>
-</td>
+                        </td>
                     </tr>
-</table>
-                
-                
-                
+                </table>
+
+
+
             </div>
             <div class="col-md-1">
 
