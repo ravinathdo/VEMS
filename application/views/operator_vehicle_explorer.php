@@ -74,29 +74,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <div class="row">
             <div class="col-md-12">
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Reg No</th>
-                            <th>type_code</th>
-                            <th>fual_type</th>
-                            <th>manufac_year</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($customerVehicleList as $value) { ?>
-                            <tr>
-                                <td><?= $value->reg_no ?></td>
-                                <td><?= $value->type_code ?></td>
-                                <td><?= $value->fual_type ?></td>
-                                <td><?= $value->manufac_year ?></td>
-                                <td><a href="<?php echo site_url('Inspection_Controller/loadInspection')?>?id=<?= $value->id ?>">Inspec Now</a></td>
-                            </tr>
-                        <?php }
-                        ?>
-                    </tbody>
-                </table>
+                <div class="panel panel-success">
+                    <div class="panel-heading ">Customer Vehicle</div>
+                    <div class="panel-body">
+                       <?php echo '<tt><pre>' . var_export($customerVehicleList, TRUE) . '</pre></tt>';?>
+                        <table id="example" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Reg No</th>
+                                    <th>type_code</th>
+                                    <th>fual_type</th>
+                                    <th>manufac_year</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($customerVehicleList as $value) { ?>
+                                    <tr>
+                                        <td><?= $value->reg_no ?></td>
+                                        <td><?= $value->type_code ?></td>
+                                        <td><?= $value->fual_type ?></td>
+                                        <td><?= $value->manufac_year ?></td>
+                                        <td><a href="<?php echo site_url('Inspection_Controller/loadInspection') ?>/<?= $value->id ?>/<?= $value->reg_no ?>">Inspec Now</a></td>
+                                    </tr>
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
                 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
                 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
                 <script type="text/javascript">

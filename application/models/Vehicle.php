@@ -37,7 +37,7 @@ class Vehicle extends MY_Model {
     }
 
     public function getCustomerVehicles($customer_id) {
-        $this->db->select('dg_vehicle.*,dg_customer.id,dg_customer.nic,dg_customer.first_name');
+        $this->db->select('dg_vehicle.*,dg_customer.id AS customer_id,dg_customer.nic,dg_customer.first_name');
         $this->db->from('dg_vehicle');
         $this->db->join('dg_customer', 'dg_customer.id = dg_vehicle.customer_id');
         $this->db->where('dg_customer.id =', $customer_id);

@@ -64,10 +64,14 @@
 
         <div class="row">
             <div class="col-md-4">
-                <form class="form-horizontal" action="<?php echo site_url('Customer_Controller/add') ?>" method="post">
+                
+                <div class="panel panel-success">
+                    <div class="panel-heading ">Customer Creation</div>
+                    <div class="panel-body">
+                          <form class="form-horizontal" action="<?php echo site_url('Customer_Controller/add') ?>" method="post">
                     <fieldset>
                         <!-- Form Name -->
-                        <legend>Customer Creation</legend>
+                        <legend></legend>
                         <?php echo $msg ?>
                         <!-- Text input-->
                         <div class="form-group">
@@ -143,6 +147,10 @@
 
                     </fieldset>
                 </form>
+                    </div>
+                </div>
+                
+              
 
             </div>
             <div class="col-md-8">

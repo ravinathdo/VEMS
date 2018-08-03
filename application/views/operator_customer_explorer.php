@@ -74,31 +74,44 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <div class="row">
             <div class="col-md-12">
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Item Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Qty</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($customerList as $value) { ?>
-                            <tr>
-                                <td><?= $value->first_name ?></td>
-                                <td><?= $value->last_name ?></td>
-                                <td><?= $value->nic ?></td>
-                                <td><?= $value->mobile_number ?></td>
-                                <td><?= $value->status_code ?></td>
-                                <td><a href="<?php echo site_url('Vehicle_Controller/getCustomerVehicle')?>?id=<?= $value->id ?>">vehicles</a></td>
-                            </tr>
-                        <?php }
-                        ?>
-                    </tbody>
-                </table>
+
+
+                <div class="panel panel-success">
+                    <div class="panel-heading ">Customer Explorer</div>
+                    <div class="panel-body">
+                        <table id="example" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>NIC</th>
+                                    <th>Mobile</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($customerList as $value) { ?>
+                                    <tr>
+                                        <td><?= $value->first_name ?></td>
+                                        <td><?= $value->last_name ?></td>
+                                        <td><?= $value->nic ?></td>
+                                        <td><?= $value->mobile_number ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><a href="<?php echo site_url('Vehicle_Controller/getCustomerVehicle') ?>?id=<?= $value->id ?>">vehicles</a></td>
+                                    </tr>
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
                 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
                 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
                 <script type="text/javascript">

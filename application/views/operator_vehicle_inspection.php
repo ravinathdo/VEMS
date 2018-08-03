@@ -68,174 +68,181 @@
 
 
         <div class="row">
-            <center> <h2>Vehicle Inspection</h2></center>
+            <form action="<?= base_url('Inspection_Controller/inspection') ?>" method="post">
+                <center> <h2>Vehicle Inspection</h2></center>
 
-            <div class="col-md-1">
+                <div class="col-md-1">
 
-            </div>
-            <div class="col-md-4">
-                <table class="table table-bordered">
-                    <tr>
-                        <td>VEHICLE NO</td>
-                        <td>CAO-4847 <input type="hidden" value="" name="vehicle_id" /></td>
-                    </tr> 
-                    <tr>
-                        <td>Engine Type</td>
-                        <td><input type="text" name="engine_type" /></td>
-                    </tr> 
-                </table>
+                </div>
+                <div class="col-md-4">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>VEHICLE NO</td>
+                            <td><?= $reg_no; ?> 
+                                <input type="hidden" value="<?= $vehicle_id ?>" name="vehicle_id" />
+                                <input type="hidden" value="<?= $booking_id ?>" name="booking_id" />
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>Engine Type</td>
+                            <td><input type="text" name="engine_type" /></td>
+                        </tr> 
+                    </table>
 
-                <table class="table table-bordered">
-                    <tr>
-                        <td>Chassis Number</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Engine Number</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Absence of Silencer Leak</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Absence of oil leak</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Presence of air leak</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                </table>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Chassis Number</td>
+                            <td><select class="form-control" name="chassis_number">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Engine Number</td>
+                            <td><select class="form-control" name="engine_number">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Absence of Silencer Leak</td>
+                            <td><select class="form-control" name="silencer_leak">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Absence of oil leak</td>
+                            <td><select class="form-control" name="oil_leak">
+                                    <option>--select--</option>
+                                   <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Presence of air leak</td>
+                            <td><select class="form-control" name="air_leak">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                    </table>
 
-            </div>
-            <div class="col-md-1">
+                </div>
+                <div class="col-md-1">
 
-            </div>
-            <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <table class="table table-bordered">
 
-
-
-                <table class="table table-bordered">
-
-                    <tr>
-                        <td>Good condition of fuel tank cap</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Presence of plug top </td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Stable engine idle RPM </td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Absence of abnormal Vibration </td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Absence of noticeable water leakages</td>
-                        <td><select class="form-control">
-                                <option>--select--</option>
-                                <option>Accepted</option>
-                                <option>Not Accepted</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="radio" name="inspec_result" value="ACCEPT" /> Accept for Test <br>
-                            <input type="radio" name="inspec_result" value="REJECT" /> Reject for Test 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><button type="submit" class="btn btn-primary">Inspec Now</button>
-                        </td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td>Good condition of fuel tank cap</td>
+                            <td><select class="form-control" name="fuel_tank_cap">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Presence of plug top </td>
+                            <td><select class="form-control" name="plug_top">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Stable engine idle RPM </td>
+                            <td><select class="form-control" name="engine_idle_RPM">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Absence of abnormal Vibration </td>
+                            <td><select class="form-control" name="abnormal_vibration">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Absence of noticeable water leakages</td>
+                            <td><select class="form-control" name="water_leakages">
+                                    <option>--select--</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Not Accepted">Not Accepted</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="radio" name="inspec_result" value="ACCEPT" /> Accept for Test <br>
+                                <input type="radio" name="inspec_result" value="REJECT" /> Reject for Test 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button type="submit" class="btn btn-primary">Inspec Now</button>
+                            </td>
+                        </tr>
+                    </table>
 
 
 
-            </div>
-            <div class="col-md-1">
+                </div>
+                <div class="col-md-1">
 
-            </div>
-
+                </div>
+            </form>
         </div>
         <hr>
         <div class="row">
             <div class="col-md-12">
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Reg NO</th>
-                            <th>Vehicle NO</th>
-                            <th>Category</th>
-                            <th>Fual Type</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Reg NO</th>
-                            <th>Vehicle NO</th>
-                            <th>Category</th>
-                            <th>Fual Type</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>CAO-4847</td>
-                            <td>Car</td>
-                            <td>Petrol</td>
-                            <td><a href="<?php echo base_url('Inspection/loadInspection'); ?>">Inspec Now</a></td>
-                            <td>Active</td>
-                        </tr>
+                <div class="panel panel-success">
+                    <div class="panel-heading ">Vehicle List</div>
+                    <div class="panel-body">
+                        <table id="example" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Reg NO</th>
+                                    <th>Vehicle NO</th>
+                                    <th>Category</th>
+                                    <th>Fual Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Reg NO</th>
+                                    <th>Vehicle NO</th>
+                                    <th>Category</th>
+                                    <th>Fual Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>CAO-4847</td>
+                                    <td>Car</td>
+                                    <td>Petrol</td>
+                                    <td><a href="<?php echo base_url('Inspection/loadInspection'); ?>">Inspec Now</a></td>
+                                    <td>Active</td>
+                                </tr>
 
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
 

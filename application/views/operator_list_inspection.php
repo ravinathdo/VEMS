@@ -13,9 +13,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <meta name="keywords" content="Green Wheels Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
               Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
         <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
         <?php $this->load->view('basecss'); ?>
         <!-- Custom Theme files -->
@@ -58,7 +55,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_visitor.php');
+                                $this->load->view('_menu_admin.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -71,144 +68,134 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--- /footer-btm ---->
 
 
-        
-        <center> <h2>Vehicle Inspection List</h2></center>
-        <div class="row">
-            <div class="col-md-12">
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
+
+    <center> <h2>Vehicle Inspection List</h2></center>
+    <div class="row">
+        <div class="col-md-12">
+            <?php echo $msg; ?>
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Token No</th>
+                        <th>Created Date</th>
+                        <th>inspec_result</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Token No</th>
+                        <th>Created Date</th>
+                        <th>inspec_result</th>
+                        <th>View</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <?php foreach ($inspectionList as $value) { ?>
                         <tr>
-                            <th>Reg NO</th>
-                            <th>Vehicle NO</th>
-                            <th>Category</th>
-                            <th>Fual Type</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Reg NO</th>
-                            <th>Vehicle NO</th>
-                            <th>Category</th>
-                            <th>Fual Type</th>
-                            <th>Status</th>
-                            <th>Result</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>CAO-4847</td>
-                            <td>Car</td>
-                            <td>Petrol</td>
-                            <td><a href="<?php echo base_url('Inspection/loadInspection'); ?>">Inspec Now</a></td>
-                            <td><a href="<?php echo base_url('Inspection/result'); ?>">Set Result</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>CAJ-4445</td>
-                            <td>Car</td>
-                            <td>Petrol</td>
-                            <td><a class="btn btn-success" href="<?php echo base_url('Inspection/loadInspection'); ?>">View Result</a></td>
-                            <td>PASS</td>
+                            <td><?= $value->id ?></td>
+                            <td><?= $value->created_datetime ?></td>
+                            <td><?= $value->inspec_result ?></td>
+                            <td><a href="<?php echo base_url('Inspection/loadInspection'); ?>">Go to Payment</a></td>                        
                         </tr>
 
+                    <?php } ?>
 
-                    </tbody>
-                </table>
-            </div>
+
+                </tbody>
+            </table>
         </div>
+    </div>
 
 
 
-        <!--- footer-top ---->
-        <div class="footer-top">
-            <div class="container">
-                <?php $this->load->view('_footer_branch'); ?>
-            </div>
+    <!--- footer-top ---->
+    <div class="footer-top">
+        <div class="container">
+            <?php $this->load->view('_footer_branch'); ?>
         </div>
-        <!--- /footer-top ---->
-        <!---copy-right ---->
-        <div class="copy-right">
-            <div class="container">
-                <?php
-                $this->load->view('_footer.php');
-                ?>
-            </div>
+    </div>
+    <!--- /footer-top ---->
+    <!---copy-right ---->
+    <div class="copy-right">
+        <div class="container">
+            <?php
+            $this->load->view('_footer.php');
+            ?>
         </div>
-        <!--- /copy-right ---->
+    </div>
+    <!--- /copy-right ---->
 
 
-        <!-- write us -->
-        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-                    </div>
-                    <section>
-                        <div class="modal-body modal-spa">
-                            <div class="writ">
-                                <h4>HOW CAN WE HELP YOU</h4>
-                                <ul>
-                                    <li class="na-me">
-                                        <input class="name" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Name';
-                                                }" required="">
-                                    </li>
-                                    <li class="na-me">
-                                        <input class="Email" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Email';
-                                                }" required="">
-                                    </li>
-                                    <li class="na-me">
-                                        <input class="number" type="text" value="Mobile Number" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Mobile Number';
-                                                }" required="">
-                                    </li>
-                                    <li class="na-me">
-                                        <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-                                            <option value="null">Select Issue</option> 		
-                                            <option value="null">Booking Issues</option>
-                                            <option value="null">Bus Cancellation</option>
-                                            <option value="null">Refund</option>
-                                            <option value="null">Wallet</option>														
-                                        </select>
-                                    </li>
-                                    <li class="na-me">
-                                        <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-                                            <option value="null">Select Issue</option> 		
-                                            <option value="null">Booking Issues</option>
-                                            <option value="null">Bus Cancellation</option>
-                                            <option value="null">Refund</option>
-                                            <option value="null">Wallet</option>														
-                                        </select>
-                                    </li>
-                                    <li class="descrip">
-                                        <input class="special" type="text" value="Write Description" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Write Description';
-                                                }" required="">
-                                    </li>
-                                    <div class="clearfix"></div>
-                                </ul>
-                                <div class="sub-bn">
-                                    <form>
-                                        <button class="subbtn">Submit</button>
-                                    </form>
-                                </div>
+    <!-- write us -->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+                </div>
+                <section>
+                    <div class="modal-body modal-spa">
+                        <div class="writ">
+                            <h4>HOW CAN WE HELP YOU</h4>
+                            <ul>
+                                <li class="na-me">
+                                    <input class="name" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                this.value = 'Name';
+                                            }" required="">
+                                </li>
+                                <li class="na-me">
+                                    <input class="Email" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                this.value = 'Email';
+                                            }" required="">
+                                </li>
+                                <li class="na-me">
+                                    <input class="number" type="text" value="Mobile Number" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                this.value = 'Mobile Number';
+                                            }" required="">
+                                </li>
+                                <li class="na-me">
+                                    <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                                        <option value="null">Select Issue</option> 		
+                                        <option value="null">Booking Issues</option>
+                                        <option value="null">Bus Cancellation</option>
+                                        <option value="null">Refund</option>
+                                        <option value="null">Wallet</option>														
+                                    </select>
+                                </li>
+                                <li class="na-me">
+                                    <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                                        <option value="null">Select Issue</option> 		
+                                        <option value="null">Booking Issues</option>
+                                        <option value="null">Bus Cancellation</option>
+                                        <option value="null">Refund</option>
+                                        <option value="null">Wallet</option>														
+                                    </select>
+                                </li>
+                                <li class="descrip">
+                                    <input class="special" type="text" value="Write Description" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                this.value = 'Write Description';
+                                            }" required="">
+                                </li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <div class="sub-bn">
+                                <form>
+                                    <button class="subbtn">Submit</button>
+                                </form>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
-        <!-- //write us -->
-    </body>
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
+    </div>
+    <!-- //write us -->
+</body>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
 </html>
 

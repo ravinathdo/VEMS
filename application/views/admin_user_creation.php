@@ -64,11 +64,15 @@
 
         <div class="row">
             <div class="col-md-4">
-                <form class="form-horizontal" action="<?php echo site_url('User_Controller/add') ?>"  method="post">
+                
+                
+                <div class="panel panel-success">
+                    <div class="panel-heading ">User Creation</div>
+                    <div class="panel-body">
+                          <form class="form-horizontal" action="<?php echo site_url('User_Controller/add') ?>"  method="post">
                     <fieldset>
 
                         <!-- Form Name -->
-                        <legend style="text-align: center">User Creation</legend>
 
                         <!-- Text input-->
                         <div class="form-group">
@@ -176,6 +180,11 @@
                     </fieldset>
                 </form>
 
+                    </div>
+                </div>
+                
+                
+              
 
             </div>
             <div class="col-md-8">

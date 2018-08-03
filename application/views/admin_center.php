@@ -66,86 +66,90 @@
         <div class="row">
             <div class="col-md-4">
 
+                <div class="panel panel-success">
+                    <div class="panel-heading ">Center Creation</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="<?php echo site_url('Center_Controller/add') ?>" method="post">
+                            <fieldset>
+
+                                <!-- Form Name -->
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="center_name">Center Name</label>  
+                                    <div class="col-md-8">
+                                        <input id="center_name" name="center_name" type="text" placeholder="Center Name" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="mobile">Mobile</label>  
+                                    <div class="col-md-8">
+                                        <input id="mobile" name="mobile" type="text" placeholder="Mobile" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="email">Email</label>  
+                                    <div class="col-md-8">
+                                        <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Textarea -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="address">Address</label>
+                                    <div class="col-md-8">                     
+                                        <textarea class="form-control" id="address" name="address"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="district_name">District Name</label>  
+                                    <div class="col-md-8">
+                                        <select id="status_code" name="district_name" class="form-control">
+                                            <option value="">--select district--</option>
+                                            <?php foreach ($districtList as $row) {
+                                                ?> 
+                                                <option value="<?= $row->district_name ?>"><?= $row->district_name ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Select Basic -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="status_code">Status</label>
+                                    <div class="col-md-8">
+                                        <select id="status_code" name="status_code" class="form-control">
+                                            <option value="ACTIVE">ACTIVE</option>
+                                            <option value="DEACTIVE">DEACTIVE</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                                    <div class="col-md-8">
+                                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Add Center</button>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
 
 
-                <form class="form-horizontal" action="<?php echo site_url('Center_Controller/add') ?>" method="post">
-                    <fieldset>
-
-                        <!-- Form Name -->
-                        <legend style="text-align: center">Center Creation</legend>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="center_name">Center Name</label>  
-                            <div class="col-md-8">
-                                <input id="center_name" name="center_name" type="text" placeholder="Center Name" class="form-control input-md">
-
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="mobile">Mobile</label>  
-                            <div class="col-md-8">
-                                <input id="mobile" name="mobile" type="text" placeholder="Mobile" class="form-control input-md">
-
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="email">Email</label>  
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
-
-                            </div>
-                        </div>
-
-                        <!-- Textarea -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="address">Address</label>
-                            <div class="col-md-8">                     
-                                <textarea class="form-control" id="address" name="address"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="district_name">District Name</label>  
-                            <div class="col-md-8">
-                                <select id="status_code" name="district_name" class="form-control">
-                                    <option value="">--select district--</option>
-                                    <?php foreach ($districtList as $row) {
-                                        ?> 
-                                        <option value="<?= $row->district_name ?>"><?= $row->district_name ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="status_code">Status</label>
-                            <div class="col-md-8">
-                                <select id="status_code" name="status_code" class="form-control">
-                                    <option value="ACTIVE">ACTIVE</option>
-                                    <option value="DEACTIVE">DEACTIVE</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Button -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton"></label>
-                            <div class="col-md-8">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Add Center</button>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
 
             </div>
             <div class="col-md-4">

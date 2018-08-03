@@ -19,11 +19,21 @@ class Inspection extends MY_Model {
     public $id;
     public $vehicle_id;
     public $engine_type;
-    public $created_datetime;
+    public $chassis_number;
+    public $engine_number;
+    public $silencer_leak;
+    public $oil_leak;
+    public $air_leak;
+    public $fuel_tank_cap;
+    public $plug_top;
+    public $engine_idle_RPM;
+    public $abnormal_vibration;
+    public $water_leakages;
+//    public $created_datetime;
     public $created_user;
     public $inspec_result;
-    public $booking_id;
-    
+    public $booking_id = 0;
+
     public function array_from_post($fields) {
         $data = array();
         foreach ($fields as $field) {
@@ -31,5 +41,28 @@ class Inspection extends MY_Model {
         }
         return $data;
     }
+
+    public function getPostData() {
+        $this->vehicle_id = $this->input->post('vehicle_id');
+        $this->engine_type = $this->input->post('engine_type');
+        $this->chassis_number = $this->input->post('chassis_number');
+        $this->engine_number = $this->input->post('engine_number');
+        $this->silencer_leak = $this->input->post('silencer_leak');
+        $this->oil_leak = $this->input->post('oil_leak');
+        $this->air_leak = $this->input->post('air_leak');
+        $this->fuel_tank_cap = $this->input->post('fuel_tank_cap');
+        $this->plug_top = $this->input->post('plug_top');
+        $this->engine_idle_RPM = $this->input->post('engine_idle_RPM');
+        $this->abnormal_vibration = $this->input->post('abnormal_vibration');
+        $this->water_leakages = $this->input->post('water_leakages');
+        $this->inspec_result = $this->input->post('inspec_result');
+        $this->booking_id = $this->input->post('booking_id');
+    }
+
+    public function getInspectionDetail($inspection_id) {
+        
+    }
+    
+        
 
 }
