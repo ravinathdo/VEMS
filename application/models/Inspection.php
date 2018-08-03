@@ -60,7 +60,7 @@ class Inspection extends MY_Model {
     }
 
     public function getInspectionDetail($inspection_id) {
-        
+           
     }
     
         
