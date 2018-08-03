@@ -11,10 +11,16 @@
  *
  * @author User
  */
-class Payment_Controller  extends CI_Controller{
-    //put your code here
+class Payment_Controller extends CI_Controller {
+
     public function loadPayment($token) {
-        //get inspec by token id
-        $this->load->model(array(''));
+        $this->load->model(array('Inspection'));
+        $inspection = new Inspection();
+        $inspectionDetail = $inspection->getInspectionDetail($token);
+        $data['inspectionDetail'] = $inspectionDetail[0];
+        echo '<tt><pre>' . var_export($data['inspectionDetail'], TRUE) . '</pre></tt>';
+//        $data['msg'] = '';
+//        $this->load->view('', $data);
     }
+
 }

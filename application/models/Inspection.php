@@ -60,9 +60,18 @@ class Inspection extends MY_Model {
     }
 
     public function getInspectionDetail($inspection_id) {
-           
+        $this->db->select('dg_inspection.*,dg_vehicle.reg_no');
+        $this->db->from('dg_inspection');
+        $this->db->join('dg_vehicle','dg_vehicle.id = dg_inspection.vehicle_id');
+        $where = " dg_inspection.id = '" . $inspection_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
     }
-    
-        
 
 }
