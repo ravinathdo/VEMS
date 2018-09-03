@@ -66,39 +66,45 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <form class="form-horizontal" action="<?php echo base_url();?>Admin/userLogin" method="post">
-                    <fieldset>
+                <br>
+                <div class="panel panel-success">
+                    <div class="panel-heading ">Green Drive Login</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="<?php echo base_url(); ?>Admin/userLogin" method="post">
+                            <fieldset>
+                                <!-- Form Name -->
+                                <?= $msg ?>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="username">Username</label>  
+                                    <div class="col-md-8">
+                                        <input id="username" name="username" type="text" placeholder="username" class="form-control input-md" required="">
+                                    </div>
+                                </div>
 
-                        <!-- Form Name -->
-                        <legend>Admin Login</legend>
+                                <!-- Password input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="pword">Password</label>
+                                    <div class="col-md-8">
+                                        <input id="pword" name="password" type="password" placeholder="Password" class="form-control input-md">
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="username">Username</label>  
-                            <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="username" class="form-control input-md" required="">
-                            </div>
-                        </div>
-                        
-                                        <!-- Password input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="pword">Password</label>
-                            <div class="col-md-8">
-                                <input id="pword" name="password" type="password" placeholder="Password" class="form-control input-md">
+                                    </div>
+                                </div>
 
-                            </div>
-                        </div>
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                                    <div class="col-md-8">
+                                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Login</button>
+                                    </div>
+                                </div>
 
-                        <!-- Button -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton"></label>
-                            <div class="col-md-8">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Login</button>
-                            </div>
-                        </div>
-                    <?=$msg?>
-                    </fieldset>
-                </form>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+
 
             </div>
             <div class="col-md-4"></div>
@@ -106,21 +112,9 @@
 
 
         <!--- footer-top ---->
-        <div class="footer-top">
-            <div class="container">
-                <?php $this->load->view('_footer_branch'); ?>
-            </div>
-        </div>
-        <!--- /footer-top ---->
-        <!---copy-right ---->
-        <div class="copy-right">
-            <div class="container">
-                <?php
-                $this->load->view('_footer.php');
-                ?>
-            </div>
-        </div>
-        <!--- /copy-right ---->
+        <?php $this->load->view('_footer.php'); ?>
+        <!---// footer-top ---->
+
 
 
 
