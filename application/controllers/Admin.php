@@ -40,7 +40,7 @@ class Admin extends CI_Controller {
             $data['msg'] = '<p class="bg-danger msg-err"> Invalid username or password </p>';
             $this->load->view('admin_login', $data);
         }
-        
+
     }
 
 }
