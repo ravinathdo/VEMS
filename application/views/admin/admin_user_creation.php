@@ -49,7 +49,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -64,7 +64,6 @@
 
         <div class="row">
             <div class="col-md-4">
-                
                 
                 <div class="panel panel-success">
                     <div class="panel-heading ">User Creation</div>
@@ -96,7 +95,7 @@
                             <label class="col-md-4 control-label" for="username">Username<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
                                 <input id="username" name="username" required="" type="text" placeholder="Username" class="form-control input-md" >
-
+                                username will be same as the password for first login
                             </div>
                         </div>
 

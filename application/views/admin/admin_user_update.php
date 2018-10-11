@@ -49,7 +49,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -77,9 +77,11 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="first_name">First Name<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md" >
+                                <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md" value="<?= $user_update->first_name ?>" >
+                              <?php // echo '<tt><pre>' . var_export($user_update, TRUE) . '</pre></tt>'; ?>
                             </div>
                         </div>
+                        
 
                         <!-- Text input-->
                         <div class="form-group">

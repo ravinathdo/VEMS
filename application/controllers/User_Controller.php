@@ -62,14 +62,26 @@ class User_Controller extends CI_Controller {
 
         $centerList = $center->get();
         $roleList = $role->get();
-        $userList = $users->getUserList();
+
 
 
         $data['centerList'] = $centerList;
         $data['roleList'] = $roleList;
-        $data['userList'] = $userList;
 
-        $this->load->view('admin/admin_user_creation', $data);
+
+        // if admin or manager
+        switch ($this->session->userdata('userbean')->role_code) {
+            case 'ADMIN':
+                $userList = $users->getUserList();
+                $data['userList'] = $userList;
+                $this->load->view('admin/admin_user_creation', $data);
+                break;
+            case 'MANAGER':
+                $userList = $users->getUserListOnCenter($this->session->userdata('userbean')->center_id);
+                $data['userList'] = $userList;
+                $this->load->view('manager/manager_user_creation', $data);
+                break;
+        }
     }
 
     public function loadUpdateUser() {
@@ -83,13 +95,28 @@ class User_Controller extends CI_Controller {
 
         $centerList = $center->get();
         $roleList = $role->get();
-        $userList = $users->getUserList();
+
+
+        //manager get user for his center only
+        // if admin or manager
+        switch ($this->session->userdata('userbean')->role_code) {
+            case 'ADMIN':
+                $userList = $users->getUserList();
+                break;
+            case 'MANAGER':
+                $userList = $users->getUserListOnCenter($this->session->userdata('userbean')->center_id);
+                break;
+        }
 
         $data['centerList'] = $centerList;
         $data['roleList'] = $roleList;
         $data['userList'] = $userList;
         //--form data
-        
+
+        $user = $users->getUser($uid);
+        if ($user) {
+            $data['user_update'] = $user[0];
+        }
 
         $this->load->view('admin/admin_user_update', $data);
     }
@@ -114,8 +141,10 @@ class User_Controller extends CI_Controller {
         $users->created_user = $userbean->id;
         $users->save();
 
-
-        echo '<tt><pre>' . var_export($arry_input, TRUE) . '</pre></tt>';
+        //new user created message on same page 
+        $data['msg'] = '<p class="bg-success msg-success">New user created successfully</p>';
+        $this->load->view('/admin/admin_msg', $data);
+//        echo '<tt><pre>' . var_export($arry_input, TRUE) . '</pre></tt>';
     }
 
     public function loadEditUser() {

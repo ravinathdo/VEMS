@@ -26,7 +26,7 @@ class Center_Controller extends CI_Controller {
         $data['districtList'] = $districtList;
 
        // echo '<tt><pre>' . var_export($centerList, TRUE) . '</pre></tt>';
-        $this->load->view('admin_center', $data);
+        $this->load->view('/admin/admin_center', $data);
     }
 
     public function loadEditCenter() {

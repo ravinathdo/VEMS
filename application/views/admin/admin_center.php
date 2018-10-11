@@ -50,7 +50,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -73,12 +73,12 @@
                             <fieldset>
 
                                 <!-- Form Name -->
-
+  <span class="mando-msg">* Fields are mandatory</span>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="center_name">Center Name</label>  
+                                    <label class="col-md-4 control-label" for="center_name">Center Name<span class="mando-msg">*</span></label>  
                                     <div class="col-md-8">
-                                        <input id="center_name" name="center_name" type="text" placeholder="Center Name" class="form-control input-md">
+                                        <input id="center_name" name="center_name" required="" type="text" placeholder="Center Name" class="form-control input-md">
 
                                     </div>
                                 </div>
@@ -111,9 +111,9 @@
 
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="district_name">District Name</label>  
+                                    <label class="col-md-4 control-label" for="district_name">District Name<span class="mando-msg">*</span></label>  
                                     <div class="col-md-8">
-                                        <select id="status_code" name="district_name" class="form-control">
+                                        <select id="status_code" required="" name="district_name" class="form-control">
                                             <option value="">--select district--</option>
                                             <?php foreach ($districtList as $row) {
                                                 ?> 

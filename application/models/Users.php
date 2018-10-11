@@ -67,6 +67,26 @@ class Users extends MY_Model {
         }
     }
 
+    
+    public function getUserListOnCenter($centerid) {
+        $this->db->select('dg_user.*,dg_center.center_name');
+        $this->db->from('dg_user');
+//        $where = " effectdate = " . $effectdate;
+        $this->db->join('dg_center', 'dg_center.id = dg_user.center_id');
+        $this->db->where('dg_user.center_id',$centerid);
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        
+        if ($result) {
+            return $result;
+        } else {
+            return FALSE;
+        }
+        
+    }
+
+    
     public function getUserList() {
         $this->db->select('dg_user.*,dg_center.center_name');
         $this->db->from('dg_user');
@@ -83,10 +103,12 @@ class Users extends MY_Model {
         }
     }
 
+    
+    
     public function getUser($param) {
-        $this->db->select('hms_doctor_availability.*');
-        $this->db->from('hms_doctor_availability');
-        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->select('dg_user.*');
+        $this->db->from('dg_user');
+        $where = " id = '" . $param . "'";
         $this->db->where($where);
         $query = $this->db->get();
 

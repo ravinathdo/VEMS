@@ -11,7 +11,7 @@
                         <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
                     </ul>
                 </div>
-                <p class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">© 2016 Drive Green . All Rights Reserved | Design by  <a href="#" target="_blank">VEMS</a> </p>
+                <p class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">© 2018 Drive Green . All Rights Reserved | Design by  <a href="#" target="_blank">VEMS</a> </p>
             </div>
         </div>
         <!--- /copy-right ---->
