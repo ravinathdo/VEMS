@@ -6,6 +6,10 @@ html, body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.mando-msg{
+    color:red;
+}
+
 .msg-err{
     font-weight: bold;
     text-align: center;

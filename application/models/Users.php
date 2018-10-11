@@ -72,12 +72,26 @@ class Users extends MY_Model {
         $this->db->from('dg_user');
 //        $where = " effectdate = " . $effectdate;
 //        $this->db->where($where);
-        $this->db->join('dg_center','dg_center.id = dg_user.center_id');
+        $this->db->join('dg_center', 'dg_center.id = dg_user.center_id');
         $query = $this->db->get();
 
         $result = $query->result();
         if ($result) {
             return $result;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getUser($param) {
+        $this->db->select('hms_doctor_availability.*');
+        $this->db->from('hms_doctor_availability');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
         } else {
             return FALSE;
         }

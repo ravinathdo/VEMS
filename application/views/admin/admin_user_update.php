@@ -61,11 +61,10 @@
         </div>
         <!--- /footer-btm ---->
 
-
         <div class="row">
             <div class="col-md-4">
-                
-                
+            </div>
+            <div class="col-md-4">
                 <div class="panel panel-success">
                     <div class="panel-heading ">User Creation</div>
                     <div class="panel-body">
@@ -73,12 +72,12 @@
                     <fieldset>
 
                         <!-- Form Name -->
-
+                        <span class="mando-msg">* Fields are mandatory</span>
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="first_name">First Name</label>  
+                            <label class="col-md-4 control-label" for="first_name">First Name<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="first_name" name="first_name" type="text" placeholder="First Name" class="form-control input-md" >
+                                <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md" >
                             </div>
                         </div>
 
@@ -93,18 +92,18 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="username">Username</label>  
+                            <label class="col-md-4 control-label" for="username">Username<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="Username" class="form-control input-md" >
+                                <input id="username" name="username" required="" type="text" placeholder="Username" class="form-control input-md" >
 
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" name="nic" >NIC</label>  
+                            <label class="col-md-4 control-label" name="nic" >NIC/PPN<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="nic" name="nic" type="text" placeholder="nic" class="form-control input-md">
+                                <input id="nic" name="nic" type="text" required="" placeholder="nic" class="form-control input-md">
 
                             </div>
                         </div>
@@ -113,9 +112,9 @@
 
                         <!-- Select Basic -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="center_id">Center Name</label>
+                            <label class="col-md-4 control-label" for="center_id">Center Name<span class="mando-msg">*</span></label>
                             <div class="col-md-8">
-                                <select id="center_id" name="center_id" class="form-control">
+                                <select id="center_id" required="" name="center_id" class="form-control">
                                     <option value="">--select--</option>
                                     <?php
                                     foreach ($centerList as $rows) {
@@ -137,9 +136,9 @@
 
                         <!-- Select Basic -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="role_code">User Role</label>
+                            <label class="col-md-4 control-label" for="role_code">User Role<span class="mando-msg">*</span></label>
                             <div class="col-md-8">
-                                <select id="role_code" name="role_code" class="form-control">
+                                <select id="role_code" required="" name="role_code" class="form-control">
                                     <option value="">--select role--</option>
                                     <?php
                                     foreach ($roleList as $rows) {
@@ -182,55 +181,10 @@
 
                     </div>
                 </div>
-                
-                
-              
-
             </div>
-            <div class="col-md-8">
-
-
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th>Mobile</th>
-                            <th>Center</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($userList as $row) {
-                            ?>
-                            <tr>
-                                <td><?= $row->first_name ?></td>
-                                <td><?= $row->last_name ?></td>
-                                <td><?= $row->username ?></td>
-                                <td><?= $row->mobile_number ?></td>
-                                <td><?= $row->center_name ?></td>
-                                <td><?= $row->role_code ?></td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
-
-                    </tbody>
-                </table>
-                <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-                <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-                <script type="text/javascript">
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
-                </script>
-
-
+            <div class="col-md-4">
             </div>
         </div>
-
 
         <!--- footer-top ---->
         <div class="footer-top">

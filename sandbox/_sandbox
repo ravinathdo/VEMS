@@ -46,5 +46,108 @@ $userbean = $this->session->userdata('userbean');
 --short-cuts
 cipostdata       [array_from_post]
 pecho
+cisearchwhere   
+cibase          <?= base_url('') ?>
+cimethod
+
+
+
+
+
+
+
+AROGYA HOSPITAL MANAGEMENT SYSTEM
+
+sampl e
+ 
+https://bootstrapformbuilder.com/
+
+ignitor crud
+https://www.phptpoint.com/codeigniter-update-database-record/
+ 
+
+<p class="text-muted">...</p>
+<p class="text-primary">. ..</p>
+<p class="text-success">...</p>
+<p class="text-info">...</p>
+<p class="text-warning">...</p>
+<p class="text-danger">...</p>
+
+
+doctor place availability
+
+$this->session->userdata('userbean')
+
+
+
+
+
+
+
+http://localhost:81/HMS/Admin_Controller/
+
+
+
+
+[Admin] 88->a
+    
+
+
+
+
+ <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                            <h3> <img src="<?= base_url('/images/icon-patient-list.png') ?>" style="width: 30px" />  Item Purchasing </h3>
+                        </div>
+
+
+
+ $this->db->select('hms_doctor_appointment.*');
+        $this->db->from('hms_doctor_appointment');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+
+
+
+
+$patient->save();
+   $db_error = $this->db->error();
+            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+
+                        <span class="mando-msg">* fields are mandatory</span>
+
+
+
+
+
+<div class="form-group">
+                                    <label for="select" class="control-label col-xs-4">Vehicle Number</label> 
+                                    <div class="col-xs-8">
+
+                                        <select id="select" required="" name="vehicle_id" class="select form-control">
+                                            <?php
+                                            if ($vehicleLiat != null)
+                                                foreach ($vehicleLiat as $value) {
+                                                    ?>
+                                                    <option value="<?php echo $value->id ?>"><?php echo $value->vehicle_number ?></option>
+                                                <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+
 
 

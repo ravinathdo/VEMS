@@ -69,7 +69,29 @@ class User_Controller extends CI_Controller {
         $data['roleList'] = $roleList;
         $data['userList'] = $userList;
 
-        $this->load->view('admin_user_creation', $data);
+        $this->load->view('admin/admin_user_creation', $data);
+    }
+
+    public function loadUpdateUser() {
+        $this->load->model(array('Users', 'Center', 'Role'));
+        $uid = $this->input->get('uid');
+
+        //form data
+        $center = new Center();
+        $role = new Role();
+        $users = new Users();
+
+        $centerList = $center->get();
+        $roleList = $role->get();
+        $userList = $users->getUserList();
+
+        $data['centerList'] = $centerList;
+        $data['roleList'] = $roleList;
+        $data['userList'] = $userList;
+        //--form data
+        
+
+        $this->load->view('admin/admin_user_update', $data);
     }
 
     public function add() {
