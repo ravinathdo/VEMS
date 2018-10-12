@@ -139,11 +139,18 @@ class User_Controller extends CI_Controller {
         $users->center_id = $arry_input['center_id'];
         $users->status_code = $arry_input['status_code'];
         $users->created_user = $userbean->id;
+        
+        
         $users->save();
-
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="bg-success msg-success">New user created successfully</p>';
+        } else {
+            $data['msg'] = '<p class="bg-error msg-err">Invalid or duplicate data</p>';
+        }
         //new user created message on same page 
-        $data['msg'] = '<p class="bg-success msg-success">New user created successfully</p>';
-        $this->load->view('/admin/admin_msg', $data);
+        $this->load->view('/msg', $data);
 //        echo '<tt><pre>' . var_export($arry_input, TRUE) . '</pre></tt>';
     }
 

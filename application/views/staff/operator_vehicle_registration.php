@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -78,15 +78,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 </div>
                 <div class="col-md-4">
-
+<span class="mando-msg">* Fields are mandatory</span>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Manufacture Year</label>
-                        <input type="text" name="manufac_year" class="form-control" id="exampleInputEmail1" placeholder="Year">
+                        <label for="exampleInputEmail1">Manufacture Year<span class="mando-msg">*</span></label>
+                        <input type="text" name="manufac_year"  required=""class="form-control" id="exampleInputEmail1" placeholder="Year">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Brand</label>
-                        <select name="brand_code" class="form-control">
+                        <label for="exampleInputPassword1">Brand <span class="mando-msg">*</span></label>
+                        <select name="brand_code" class="form-control" required="">
                             <option value="">--Select Brand--</option>
                             <?php foreach ($brandList as $value) {
                                 ?>  <option value="<?php echo $value->brand_code; ?>"><?php echo $value->decription; ?></option> <?php
@@ -95,12 +95,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Vehicle Reg Number</label>
-                        <input name="reg_no" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                        <label for="exampleInputPassword1">Vehicle Reg Number<span class="mando-msg">*</span></label>
+                        <input name="reg_no" type="text" required="" class="form-control" id="exampleInputPassword1" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Vehicle Type (Category)</label>
-                        <select name="type_code" class="form-control">
+                        <label for="exampleInputPassword1">Vehicle Type (Category)<span class="mando-msg">*</span></label>
+                        <select name="type_code" class="form-control" required="">
                             <option value="">--Select Category--</option>
                             <?php foreach ($typeList as $value) {
                                 ?>  <option value="<?php echo $value->type_code; ?>"><?php echo $value->description; ?> </option> <?php
@@ -116,8 +116,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="col-md-4">
 
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Customer</label>
-                        <select name="customer_id" class="form-control">
+                        <label for="exampleInputPassword1">Customer<span class="mando-msg">*</span></label>
+                        <select name="customer_id" class="form-control" required="">
                             <option>--Select Customer--</option>
                             <?php foreach ($customerList as $value) {
                                 ?>  <option value="<?php echo $value->id; ?>"><?php echo $value->nic; ?> - <?php echo $value->first_name; ?> </option> <?php
@@ -126,8 +126,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Fual Type</label>
-                        <select name="fual_type" class="form-control">
+                        <label for="exampleInputPassword1">Fual Type<span class="mando-msg">*</span></label>
+                        <select name="fual_type" class="form-control" required="">
                             <option value="">--Select Fual Type--</option>
                             <?php foreach ($fualList as $value) {
                                 ?>  <option value="<?php echo $value->fual_type; ?>"><?php echo $value->fual_type; ?></option> <?php
@@ -136,8 +136,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Stroke</label>
-                        <select name="stroke" class="form-control">
+                        <label for="exampleInputPassword1">Stroke<span class="mando-msg">*</span></label>
+                        <select name="stroke" class="form-control" required="">
                             <option value="">--Select Stroke--</option>
                             <option value="6">6</option>
                             <option value="5">5</option>
@@ -152,6 +152,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <button type="submit" class="btn btn-primary">Register</button>
 
                 </div>
+                
                 <div class="col-md-1">
 
                 </div>

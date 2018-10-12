@@ -66,7 +66,7 @@
             <div class="col-md-4">
 
                 <div class="panel panel-success">
-                    <div class="panel-heading ">User Creation</div>
+                    <div class="panel-heading ">Staff User Creation</div>
                     <div class="panel-body">
                         <form class="form-horizontal" action="<?php echo site_url('User_Controller/add') ?>"  method="post">
                             <fieldset>
@@ -124,10 +124,11 @@
                                     <label class="col-md-4 control-label" for="role_code">User Role<span class="mando-msg">*</span></label>
                                     <div class="col-md-8">
                                         <select id="role_code" required="" name="role_code" class="form-control">
-                                            <option value="">--select role--</option>
                                             <?php
                                             foreach ($roleList as $rows) {
-                                                ?> <option value="<?= $rows->role_code ?>"><?= $rows->description ?></option> <?php
+                                               if($rows->role_code == 'STAFF'){
+                                                   ?> <option value="<?= $rows->role_code ?>"><?= $rows->description ?></option>  <?php
+                                               } 
                                             }
                                             ?>
                                         </select>

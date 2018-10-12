@@ -14,7 +14,6 @@
 class Vehicle_Controller extends CI_Controller {
 
     //put your code here
-
     public function loadAddVehicle() {
         $this->load->model(array('Vehicle', 'Vehicle_Brand', 'Customer', 'Fual', 'Type'));
         $vehicle = new Vehicle();
@@ -31,7 +30,7 @@ class Vehicle_Controller extends CI_Controller {
         $data['customerList'] = $customer->get();
         $data['fualList'] = $fual->get();
 
-        $this->load->view('operator_vehicle_registration', $data);
+        $this->load->view('staff/operator_vehicle_registration', $data);
     }
 
     public function add() {
@@ -78,7 +77,7 @@ class Vehicle_Controller extends CI_Controller {
         //get parameter
         $customer_id = $this->input->get('id');
         $data['customerVehicleList'] = $vehicle->getCustomerVehicles($customer_id);
-        $this->load->view('operator_vehicle_explorer',$data);
+        $this->load->view('staff/operator_vehicle_explorer',$data);
     }
 
 }

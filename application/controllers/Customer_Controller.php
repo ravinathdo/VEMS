@@ -51,9 +51,14 @@ class Customer_Controller extends CI_Controller {
     public function loadCustomerReg() {
         $this->load->model(array('Customer'));
         $customer = new Customer();
+        
+        
+        //get customers for branch
         $data['customerList'] = $customer->get();
+        
+        
         $data['msg'] = null;
-        $this->load->view('admin_customer_create', $data);
+        $this->load->view('admin/admin_customer_create', $data);
     }
 
     public function add() {
@@ -71,17 +76,23 @@ class Customer_Controller extends CI_Controller {
         $customer->created_user = $this->session->userdata('userbean')->id;
 
         $customer->save();
-        $data['msg'] = '<p class="bg-success msg-success">New customer created successfuly</p>';
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="bg-success msg-success">New customer created successfuly</p>';
+        } else {
+            $data['msg'] = '<p class="bg-success msg-error">Invalid input or duplicate entry</p>';
+        }
         //get customer list
         $data['customerList'] = $customer->get();
-        $this->load->view('admin_customer_create', $data);
+        $this->load->view('msg', $data);
     }
 
     public function explorer() {
         $this->load->model(array('Customer'));
         $customer = new Customer();
         $data['customerList'] = $customer->get();
-        $this->load->view('operator_customer_explorer', $data);
+        $this->load->view('customer_explorer', $data);
     }
 
 }

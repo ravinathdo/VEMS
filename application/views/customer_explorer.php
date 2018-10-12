@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -74,28 +74,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <div class="row">
             <div class="col-md-12">
+
+
                 <div class="panel panel-success">
-                    <div class="panel-heading ">Customer Vehicle</div>
+                    <div class="panel-heading ">Customer Explorer</div>
                     <div class="panel-body">
-                       <?php echo '<tt><pre>' . var_export($customerVehicleList, TRUE) . '</pre></tt>';?>
                         <table id="example" class="display" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Reg No</th>
-                                    <th>type_code</th>
-                                    <th>fual_type</th>
-                                    <th>manufac_year</th>
+                                    <th style="width: 2%">Cust Number</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>NIC</th>
+                                    <th>Mobile</th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($customerVehicleList as $value) { ?>
+                                <?php foreach ($customerList as $value) { ?>
                                     <tr>
-                                        <td><?= $value->reg_no ?></td>
-                                        <td><?= $value->type_code ?></td>
-                                        <td><?= $value->fual_type ?></td>
-                                        <td><?= $value->manufac_year ?></td>
-                                        <td><a href="<?php echo site_url('Inspection_Controller/loadInspection') ?>/<?= $value->id ?>/<?= $value->reg_no ?>">Inspec Now</a></td>
+                                        <td><?= $value->id ?></td>
+                                        <td><?= $value->first_name ?></td>
+                                        <td><?= $value->last_name ?></td>
+                                        <td><?= $value->nic ?></td>
+                                        <td><?= $value->mobile_number ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><a href="<?php echo site_url('Vehicle_Controller/getCustomerVehicle') ?>?id=<?= $value->id ?>">vehicles</a></td>
                                     </tr>
                                 <?php }
                                 ?>
@@ -103,6 +108,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </table>
                     </div>
                 </div>
+
+
 
 
 

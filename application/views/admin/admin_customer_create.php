@@ -5,12 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Green Wheels Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
         <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
+        
         <?php $this->load->view('basecss'); ?>
         <!-- Custom Theme files -->
         <?php $this->load->view('basejs'); ?>
+        
         <script>
             new WOW().init();
         </script>
@@ -49,7 +50,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -64,21 +65,21 @@
 
         <div class="row">
             <div class="col-md-4">
-                
                 <div class="panel panel-success">
                     <div class="panel-heading ">Customer Creation</div>
                     <div class="panel-body">
                           <form class="form-horizontal" action="<?php echo site_url('Customer_Controller/add') ?>" method="post">
                     <fieldset>
+                                                <span class="mando-msg">* Fields are mandatory</span>
+
                         <!-- Form Name -->
                         <legend></legend>
                         <?php echo $msg ?>
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="first_name">First Name</label>  
+                            <label class="col-md-4 control-label" for="first_name">First Name<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="first_name" name="first_name" type="text" placeholder="first name" class="form-control input-md">
-
+                                <input id="first_name" required="" name="first_name" type="text" placeholder="first name" class="form-control input-md">
                             </div>
                         </div>
 
@@ -93,9 +94,9 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="nic">NIC</label>  
+                            <label class="col-md-4 control-label" for="nic">NIC<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="nic" name="nic" type="text" placeholder="nic" class="form-control input-md">
+                                <input id="nic" required="" name="nic" type="text" placeholder="nic" class="form-control input-md">
 
                             </div>
                         </div>
