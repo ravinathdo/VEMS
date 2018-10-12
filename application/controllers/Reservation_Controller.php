@@ -12,11 +12,18 @@
  * @author ravi
  */
 class Reservation_Controller extends CI_Controller {
+
     //put your code here
-    public function newReservation() {
-        $this->load->view('customer_new_reservation');
+    public function loadNewReservation() {
+        $this->load->model(array('Customer'));
+        //get customer list
+        $customer = new Customer();
+        $data['custList'] = $customer->get();
+        $this->load->view('staff/new_reservation', $data);
     }
+
     public function manageReservation() {
         $this->load->view('customer_manage_reservation');
     }
+
 }
