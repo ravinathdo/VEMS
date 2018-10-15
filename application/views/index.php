@@ -28,8 +28,8 @@
                 </ul>-->
                 <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
                     <li class="tol">Telephone Number : 123-4568790</li>				
-                    <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a></li> 
-                    <li class="sigi"><a href="#" data-toggle="modal" data-target="#myModal4" >/ Sign In</a></li>
+                    <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a> </li> 
+                    <!--<li class="sigi"><a href="#" data-toggle="modal" data-target="#myModal4" >/ Sign In</a></li>-->
                     <li class="sigi"> | <a href="#" data-toggle="modal" data-target="#myModal5" > Drive Green Login</a></li>
                 </ul>
                 <div class="clearfix"></div>
@@ -329,7 +329,7 @@
         </div>
         <!--- /copy-right ---->
         <!-- sign -->
-        <?php $this->load->view('_model_signin');?>
+        <?php // $this->load->view('_model_signin');?>
         <!-- //sign -->
         <!-- signin -->
         <?php $this->load->view('_model_signup');?>
