@@ -45,7 +45,11 @@ class Customer_Controller extends CI_Controller {
     }
 
     public function customerRegistration() {
+        $this->load->model(array('Customer'));
+        $customer = new Customer();
         
+                $this->load->view('admin/admin_customer_create', $data);
+
     }
 
     public function loadCustomerReg() {
