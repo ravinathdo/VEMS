@@ -54,7 +54,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	

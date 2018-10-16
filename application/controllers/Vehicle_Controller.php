@@ -56,7 +56,12 @@ class Vehicle_Controller extends CI_Controller {
         $vehicle->created_userid = $userbean->id;
 
         $vehicle->save();
-        $data['msg'] = '<p class="bg-success msg-success">New vehicle created successfully</p>';
+        $db_error = $this->db->error();
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New vehicle created successfully</p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
 
         //get the vehicle list for the user
         $vehicleList = $vehicle->getCustomerVehicles($vehicle->customer_id);
@@ -66,8 +71,7 @@ class Vehicle_Controller extends CI_Controller {
         $data['customerList'] = $customer->get();
         $data['fualList'] = $fual->get();
 
-
-        $this->load->view('operator_vehicle_registration', $data);
+        $this->load->view('staff/operator_vehicle_registration', $data);
     }
 
     public function getCustomerVehicle() {

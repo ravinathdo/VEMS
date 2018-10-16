@@ -14,7 +14,7 @@ class Inspection_Controller extends CI_Controller {
         $data['reg_no'] = $reg_no;
         $data['vehicle_id'] = $vehicle_id;
         $data['booking_id'] = 0;
-        $this->load->view('operator_vehicle_inspection', $data);
+        $this->load->view('staff/operator_vehicle_inspection', $data);
     }
 
     public function inspection() {

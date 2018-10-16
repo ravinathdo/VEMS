@@ -31,9 +31,14 @@ class Customer_Controller extends CI_Controller {
 
         if ($doLogin) {
 
+            //get login date 
+            date_default_timezone_set('Asia/Colombo');
+            $today = date("Y-m-d", time());
+
             $newdata = array(
                 'userbean' => $doLogin[0],
-                'logged_in' => TRUE
+                'logged_in' => TRUE,
+                'today' => $today
             );
             $this->session->set_userdata($newdata);
             $this->load->view('home');

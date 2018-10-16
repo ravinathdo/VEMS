@@ -25,83 +25,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             new WOW().init();
         </script>
         <!--//end-animate-->
-        
-        
-        <script src='<?php echo site_url('lib/moment.min.js');?>'></script>
-<script src='<?php echo site_url('lib/jquery.min.js');?>'></script>
-<script src='<?php echo site_url('lib/fullcalendar.min.js');?>'></script>
 
-<script>
 
-	$(document).ready(function() {
-            alert('k');
-		$('#calendar').fullCalendar({
-			defaultDate: '2017-10-12',
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			events: [
-				{
-					title: 'All Day Event',
-					start: '2017-10-01'
-				},
-				{
-					title: 'Long Event',
-					start: '2017-10-07',
-					end: '2017-10-10'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2017-10-09T16:00:00'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2017-10-16T16:00:00'
-				},
-				{
-					title: 'Conference',
-					start: '2017-10-11',
-					end: '2017-10-13'
-				},
-				{
-					title: 'Meeting',
-					start: '2017-10-12T10:30:00',
-					end: '2017-10-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2017-10-12T12:00:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2017-10-12T14:30:00'
-				},
-				{
-					title: 'Happy Hour',
-					start: '2017-10-12T17:30:00'
-				},
-				{
-					title: 'Dinner',
-					start: '2017-10-12T20:00:00'
-				},
-				{
-					title: 'Birthday Party',
-					start: '2017-10-13T07:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2017-10-28'
-				}
-			]
-		});
-		
-	});
 
-</script>
+
+
+
+
+
+        <script src="<?php echo site_url('js/wow.min.js'); ?>"></script>
+
+        <link href='<?php echo site_url('css/fullcalendar.min.css'); ?>' rel='stylesheet' />
+        <link href='<?php echo site_url('css/fullcalendar.print.min.css'); ?>' rel='stylesheet' media='print' />
+        <script src='<?php echo site_url('lib/moment.min.js'); ?>'></script>
+        <script src='<?php echo site_url('lib/jquery.min.js'); ?>'></script>
+        <script src='<?php echo site_url('lib/jquery.min.js'); ?>'></script>
+        <script src='<?php echo site_url('js/fullcalendar.min.js'); ?>'></script>
+        <script>
+
+            $(document).ready(function () {
+
+                $('#calendar').fullCalendar({
+                    defaultDate: '<?= $this->session->userdata('today')?>',
+                    editable: true,
+                    eventLimit: true, // allow "more" link when too many events
+                    events: [
+<?php
+if ($bookingList != null)
+    foreach ($bookingList as $value) {
+        ?>
+                                {
+                                    title: '<?= $value->id ?>',
+                                    start: '<?= $value->book_date_time ?>'
+                                },
+    <?php }
+?>
+                    ]
+                });
+            });
+        </script>
+
+
+
+
     </head>
     <body>
+        <?php // echo '<tt><pre>' . var_export($bookingList, TRUE) . '</pre></tt>'; ?>
         <!-- top-header -->
         <div class="top-header">
             <?php
@@ -134,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_visitor.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -148,46 +117,60 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
         <div class="row">
-            <div class="col-md-7">
-                <h2>New Reservation</h2>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4">
+                <?= $msg ?>
+                <div class="panel panel-success">
+                    <div class="panel-heading ">New Reservation</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="<?= base_url('Reservation_Controller/newReservation') ?>" method="post" >
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-5 control-label">Customer</label>
+                                <div class="col-sm-7">
+                                    <input type="hidden" name="customer_id" value="<?= $this->session->userdata('userbean')->id ?>" />
+                                    <input type="text" class="form-control" name="" readonly=""  value="<?= $this->session->userdata('userbean')->first_name ?>" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-5 control-label">Date Time</label>
+                                <div class="col-sm-7">
+                                    <input type="datetime-local"  min="<?= $this->session->userdata('today') ?>T00:00" name="book_date_time" class="form-control" id="inputPassword3" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-5 control-label">Select Branch</label>
+                                <div class="col-sm-7">
 
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-5 control-label">Date</label>
-                        <div class="col-sm-7">
-                            <input type="date" class="form-control" id="inputEmail3" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-5 control-label">Time</label>
-                        <div class="col-sm-7">
-                            <input type="time" class="form-control" id="inputPassword3" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-5 control-label">Select Branch</label>
-                        <div class="col-sm-7">
-                            <select class="form-control" >
-                                <option>--select branch--</option>
-                                <option>GAMPAHAA</option>
-                                <option>YAKKALA</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-5 control-label"></label>
-                        <div class="col-sm-7">
-                            <button type="submit" class="btn btn-primary">Reserve Now</button>
-                        </div>
-                    </div>
+                                    <select class="form-control" required="" name="center_id">
+                                        <option value="">--select branch--</option>
+                                        <?php
+                                        if ($centerList != null)
+                                            foreach ($centerList as $value) {
+                                                ?> 
+                                                <option value="<?= $value->id ?>"><?= $value->center_name ?></option>
+                                            <?php }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-5 control-label"></label>
+                                <div class="col-sm-7">
+                                    <button type="submit" class="btn btn-primary">Reserve Now</button>
+                                </div>
+                            </div>
 
 
-                </form>
+                        </form>
+                    </div>
+                </div>
 
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div id='calendar'></div>
-                
+            </div>
+            <div class="col-md-1">
             </div>
         </div>
 
@@ -195,7 +178,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--- footer-top ---->
         <div class="footer-top">
             <div class="container">
-               <?php $this->load->view('_footer_branch');?>
+                <?php $this->load->view('_footer_branch'); ?>
             </div>
         </div>
         <!--- /footer-top ---->

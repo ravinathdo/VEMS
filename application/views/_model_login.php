@@ -13,7 +13,7 @@
                                 <div class="login-right">
                                     <?php echo form_open('Customer_Controller/customerLogin');?>
                                         <h3>Signin with your account </h3>
-                                        <input type="text" name="email" required="" placeholder="NIC">	
+                                        <input type="text" name="email" required="" placeholder="email">	
                                         <input type="password" name="pword" required="" placeholder="Password">	
                                         <h4><a href="#">Forgot password</a></h4>
                                         <div class="single-bottom">
