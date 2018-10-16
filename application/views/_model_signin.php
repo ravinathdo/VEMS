@@ -8,21 +8,13 @@
                 <div class="login-grids">
                     <div class="login">
                         <div class="login-left">
-                            <ul>
-                                <li><a class="fb" href="#"><i></i>Sign in with Facebook</a></li>
-                                <li><a class="goog" href="#"><i></i>Sign in with Google</a></li>
-                                <li><a class="linkin" href="#"><i></i>Sign in with Linkedin</a></li>
-                            </ul>
+                           
                         </div>
                         <div class="login-right">
                             <?php echo form_open('Customer_Controller/customerLogin'); ?>
                             <h3>Signin with your account x</h3>
-                            <input type="text" name="email" value="Enter your Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Enter your mobile number or Email';
-                                                }" required="">	
-                            <input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                            this.value = 'Password';
-                                                                                                        }" required="">	
+                            <input type="text" name="email" >	
+                            <input type="password" name="password" value="Password" required="">	
                             <h4><a href="#">Forgot password</a></h4>
                             <div class="single-bottom">
                                 <input type="checkbox" id="brand" value="">

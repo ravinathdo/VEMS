@@ -18,6 +18,10 @@
         <!--//end-animate-->
     </head>
     <body>
+        
+        
+        
+        
         <!-- top-header -->
         <div class="top-header">
             <?php
@@ -75,6 +79,12 @@
             </div>
         </div>
 
+           <!-- signin -->
+        <?php $this->load->view('_model_signup');?>
+        <!-- //signin -->
+        <!-- signin -->
+        <?php $this->load->view('_model_login');?>
+        <!-- //signin -->
 
         <!--- footer-top ---->
         <div class="footer-top">

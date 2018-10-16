@@ -3,7 +3,9 @@
             <li><a href="<?php echo base_url('Menu_Controller/about'); ?>">About</a></li>
             <!--    <li><a href="faq.html">Faq</a></li>
                 <li><a href="apps.html">Apps</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="
+            
+            html">Blog</a></li>
                 <li><a href="travels.html">Travels</a></li>
                 <li><a href="privacy.html">Privacy Policy</a></li>
                 <li><a href="agent.html">Agent Registration</a></li>-->

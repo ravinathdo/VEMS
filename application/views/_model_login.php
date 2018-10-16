@@ -11,12 +11,10 @@
                                   Drive Green Users Login
                                 </div>
                                 <div class="login-right">
-                                    <?php echo form_open('User_Controller/userLogin');?>
+                                    <?php echo form_open('Customer_Controller/customerLogin');?>
                                         <h3>Signin with your account </h3>
-                                        <input type="text" name="email" value="Enter your Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                    this.value = 'Enter your mobile number or Email';}" required="">	
-                                                                                                <input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                    this.value = 'Password';}" required="">	
+                                        <input type="text" name="email" required="" placeholder="NIC">	
+                                        <input type="password" name="pword" required="" placeholder="Password">	
                                         <h4><a href="#">Forgot password</a></h4>
                                         <div class="single-bottom">
                                             <input type="checkbox" id="brand" value="">

@@ -38,6 +38,7 @@ class Users extends MY_Model {
     }
 
     public function getUserLogin($formData) {
+        
         $this->db->select('dg_user.*');
         $this->db->from('dg_user');
         $pword = sha1($formData['password']);
@@ -53,10 +54,11 @@ class Users extends MY_Model {
     }
 
     public function getCustomerLogin($formData) {
-        $this->db->select('customer.*');
-        $this->db->from('customer');
-        $pword = sha1($formData['password']);
-        $where = " status = 'ACTIVE' AND email = '" . $formData['email'] . "' AND password = '" . $pword . "'";
+        $this->db->select('dg_customer.*');
+        $this->db->from('dg_customer');
+        $pword = sha1($formData['pword']);
+        $where = " status_code = 'ACTIVE' AND email = '" . $formData['email'] . "' AND pword = '" . $pword . "'";
+        echo $where;
         $this->db->where($where);
         $query = $this->db->get();
 

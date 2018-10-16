@@ -1,4 +1,6 @@
-<div class="container">
+<?php if(null !== $this->session->userdata('userbean')){ ?>
+    
+    <div class="container">
     <ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
         <li class="hm"><a href="index.html"><i class="fa fa-home"></i></a></li>
         <!--                    <li class="prnt"><a href="javascript:window.print()">Print/SMS Ticket</a></li>-->
@@ -24,4 +26,20 @@
     </ul>
     <div class="clearfix"></div>
 </div>
+<?php }else{  ?>
+    
+<div class="container">
+    <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
+        <li class="tol">Telephone Number : 123-4568790</li>				
+        <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a> </li> 
+        <li class="sigi"> | <a href="#" data-toggle="modal" data-target="#myModal5" > Drive Green Login</a></li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+
+<?php }?>
+
+
+
+
 
