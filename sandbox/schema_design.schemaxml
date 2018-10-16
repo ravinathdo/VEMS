@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">drivegreen_db</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="gd_test" view="colnames">
+<left>35</left>
+<top>11</top>
+<width>146</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `gd_test` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `test_result` varchar(10) DEFAULT NULL,
+  `result_doc` varchar(20) DEFAULT NULL,
+  `payment_id` int(5) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `cteated_userid` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_gd_test_payment` (`payment_id`),
+  CONSTRAINT `FK_gd_test_payment` FOREIGN KEY (`payment_id`) REFERENCES `dg_payment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_payment" view="colnames">
+<left>225</left>
+<top>4</top>
+<width>146</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `dg_payment` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `vehicle_id` int(5) DEFAULT NULL,
+  `status_code` varchar(10) DEFAULT NULL,
+  `expire_date` varchar(20) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `created_userid` int(5) DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `inspection_id` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_payment` (`vehicle_id`),
+  KEY `FK_dg_payment_inspection` (`inspection_id`),
+  CONSTRAINT `FK_dg_payment` FOREIGN KEY (`vehicle_id`) REFERENCES `dg_vehicle` (`id`),
+  CONSTRAINT `FK_dg_payment_inspection` FOREIGN KEY (`inspection_id`) REFERENCES `dg_inspection` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_booking" view="colnames">
+<left>645</left>
+<top>233</top>
+<width>146</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `dg_booking` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `book_date_time` varchar(20) DEFAULT NULL,
+  `customer_id` int(5) DEFAULT NULL,
+  `vehicle_id` int(5) DEFAULT NULL,
+  `status_code` varchar(10) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `center_id` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_booking` (`customer_id`),
+  KEY `FK_dg_booking_vehicle` (`vehicle_id`),
+  CONSTRAINT `FK_dg_booking` FOREIGN KEY (`customer_id`) REFERENCES `dg_customer` (`id`),
+  CONSTRAINT `FK_dg_booking_vehicle` FOREIGN KEY (`vehicle_id`) REFERENCES `dg_vehicle` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_center" view="colnames">
+<left>984</left>
+<top>195</top>
+<width>146</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `dg_center` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `center_name` varchar(50) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `mobile` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `created_user` int(5) DEFAULT NULL,
+  `district_name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_center` (`district_name`),
+  CONSTRAINT `FK_dg_center` FOREIGN KEY (`district_name`) REFERENCES `dg_district` (`district_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_customer" view="colnames">
+<left>830</left>
+<top>-6</top>
+<width>146</width>
+<height>282</height>
+<sql_create_table>CREATE TABLE `dg_customer` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `nic` varchar(12) DEFAULT NULL,
+  `pword` text DEFAULT NULL,
+  `mobile_number` varchar(10) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `status_code` varchar(10) DEFAULT 'ACTIVE',
+  `role_code` varchar(10) DEFAULT 'CUSTOMER',
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `created_user` int(5) DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `NewIndex1` (`nic`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_district" view="colnames">
+<left>830</left>
+<top>340</top>
+<width>123</width>
+<height>95</height>
+<sql_create_table>CREATE TABLE `dg_district` (
+  `district_name` varchar(30) NOT NULL,
+  PRIMARY KEY (`district_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_engine" view="colnames">
+<left>305</left>
+<top>552</top>
+<width>116</width>
+<height>95</height>
+<sql_create_table>CREATE TABLE `dg_engine` (
+  `engine_type` varchar(10) NOT NULL,
+  PRIMARY KEY (`engine_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_inspection" view="colnames">
+<left>449</left>
+<top>444</top>
+<width>157</width>
+<height>390</height>
+<sql_create_table>CREATE TABLE `dg_inspection` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `vehicle_id` int(5) DEFAULT NULL,
+  `engine_type` varchar(10) DEFAULT NULL,
+  `chassis_number` varchar(20) DEFAULT NULL,
+  `engine_number` varchar(20) DEFAULT NULL,
+  `silencer_leak` varchar(20) DEFAULT NULL,
+  `oil_leak` varchar(20) DEFAULT NULL,
+  `air_leak` varchar(20) DEFAULT NULL,
+  `fuel_tank_cap` varchar(20) DEFAULT NULL,
+  `plug_top` varchar(20) DEFAULT NULL,
+  `engine_idle_RPM` varchar(20) DEFAULT NULL,
+  `abnormal_vibration` varchar(20) DEFAULT NULL,
+  `water_leakages` varchar(20) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `created_user` int(5) DEFAULT NULL,
+  `inspec_result` varchar(20) DEFAULT NULL,
+  `booking_id` int(5) DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_inspection_engine` (`engine_type`),
+  KEY `FK_dg_inspection_user` (`created_user`),
+  KEY `FK_dg_inspection_booking` (`booking_id`),
+  CONSTRAINT `FK_dg_inspection_booking` FOREIGN KEY (`booking_id`) REFERENCES `dg_booking` (`id`),
+  CONSTRAINT `FK_dg_inspection_engine` FOREIGN KEY (`engine_type`) REFERENCES `dg_engine` (`engine_type`),
+  CONSTRAINT `FK_dg_inspection_user` FOREIGN KEY (`created_user`) REFERENCES `dg_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_fual" view="colnames">
+<left>98</left>
+<top>327</top>
+<width>99</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `dg_fual` (
+  `fual_type` varchar(20) NOT NULL,
+  `fee` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`fual_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_vehicle" view="colnames">
+<left>451</left>
+<top>173</top>
+<width>146</width>
+<height>248</height>
+<sql_create_table>CREATE TABLE `dg_vehicle` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `manufac_year` int(5) DEFAULT NULL,
+  `stroke` int(5) DEFAULT NULL,
+  `reg_no` varchar(30) DEFAULT NULL,
+  `type_code` varchar(10) DEFAULT NULL,
+  `fual_type` varchar(10) DEFAULT NULL,
+  `brand_code` varchar(10) DEFAULT NULL,
+  `customer_id` int(5) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `created_userid` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_vehicle_fual` (`fual_type`),
+  KEY `FK_dg_vehicle_brand` (`brand_code`),
+  KEY `FK_dg_vehicle_type` (`type_code`),
+  CONSTRAINT `FK_dg_vehicle_brand` FOREIGN KEY (`brand_code`) REFERENCES `dg_vehicle_brand` (`brand_code`),
+  CONSTRAINT `FK_dg_vehicle_fual` FOREIGN KEY (`fual_type`) REFERENCES `dg_fual` (`fual_type`),
+  CONSTRAINT `FK_dg_vehicle_type` FOREIGN KEY (`type_code`) REFERENCES `dg_vehicle_type` (`type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_user" view="colnames">
+<left>694</left>
+<top>505</top>
+<width>146</width>
+<height>299</height>
+<sql_create_table>CREATE TABLE `dg_user` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `nic` varchar(12) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `pword` text DEFAULT NULL,
+  `mobile_number` varchar(10) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `role_code` varchar(10) DEFAULT NULL,
+  `center_id` int(5) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT NULL,
+  `created_datetime` timestamp NULL DEFAULT current_timestamp(),
+  `created_user` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_user` (`role_code`),
+  CONSTRAINT `FK_dg_user` FOREIGN KEY (`role_code`) REFERENCES `dg_user_role` (`role_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_user_role" view="colnames">
+<left>886</left>
+<top>487</top>
+<width>108</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `dg_user_role` (
+  `role_code` varchar(20) NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`role_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_vehicle_brand" view="colnames">
+<left>79</left>
+<top>447</top>
+<width>113</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `dg_vehicle_brand` (
+  `brand_code` varchar(10) NOT NULL,
+  `decription` varbinary(50) DEFAULT NULL,
+  PRIMARY KEY (`brand_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="dg_vehicle_type" view="colnames">
+<left>88</left>
+<top>210</top>
+<width>108</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `dg_vehicle_type` (
+  `type_code` varchar(10) NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`type_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
