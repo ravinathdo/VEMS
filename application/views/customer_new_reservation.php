@@ -124,6 +124,7 @@ if ($bookingList != null)
                 <div class="panel panel-success">
                     <div class="panel-heading ">New Reservation</div>
                     <div class="panel-body">
+                         <span class="mando-msg">* Fields are mandatory</span>
                         <form class="form-horizontal" action="<?= base_url('Reservation_Controller/newReservation') ?>" method="post" >
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-5 control-label">Customer</label>
@@ -133,13 +134,13 @@ if ($bookingList != null)
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-5 control-label">Date Time</label>
+                                <label for="inputPassword3" class="col-sm-5 control-label">Date Time<span class="mando-msg">*</span></label>
                                 <div class="col-sm-7">
                                     <input type="datetime-local"  min="<?= $this->session->userdata('today') ?>T00:00" name="book_date_time" class="form-control" id="inputPassword3" >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-5 control-label">Select Branch</label>
+                                <label for="inputPassword3" class="col-sm-5 control-label">Select Branch<span class="mando-msg">*</span></label>
                                 <div class="col-sm-7">
 
                                     <select class="form-control" required="" name="center_id">

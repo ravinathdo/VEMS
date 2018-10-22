@@ -20,14 +20,14 @@ class Customer_Controller extends CI_Controller {
     }
 
     public function customerLogin() {
-        echo 'customerLogin';
+//        echo 'customerLogin';
         $this->load->model(array('Users'));
         $formData = $this->Users->array_from_post(array('email', 'pword'));
-        echo '<tt><pre>' . var_export($formData, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($formData, TRUE) . '</pre></tt>';
         $doLogin = $this->Users->getCustomerLogin($formData);
 
         // echo sha1('a');
-        echo '<tt><pre>' . var_export($doLogin, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($doLogin, TRUE) . '</pre></tt>';
 
         if ($doLogin) {
 
@@ -43,7 +43,7 @@ class Customer_Controller extends CI_Controller {
             $this->session->set_userdata($newdata);
             $this->load->view('home');
         } else {
-            $data['msg'] = '<p class="bg-success"> Invalid username or password </p>';
+            $data['msg'] = '<p class="bg-danger msg-err"> Invalid username or password </p>';
             $this->load->view('index', $data);
         }
     }

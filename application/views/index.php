@@ -94,6 +94,11 @@
                 <div class="clearfix"></div>
             </div>
         </div>
+        
+        <?php if(isset($msg)){
+            echo $msg;
+        }?>
+        
         <!--- /footer-btm ---->
         <!--- banner ---->
         <div class="banner">

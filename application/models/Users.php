@@ -58,7 +58,7 @@ class Users extends MY_Model {
         $this->db->from('dg_customer');
         $pword = sha1($formData['pword']);
         $where = " status_code = 'ACTIVE' AND email = '" . $formData['email'] . "' AND pword = '" . $pword . "'";
-        echo $where;
+//        echo $where;
         $this->db->where($where);
         $query = $this->db->get();
 
