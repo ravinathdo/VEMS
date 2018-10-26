@@ -92,4 +92,16 @@ class Reservation_Controller extends CI_Controller {
         $this->load->view('customer_booking_explorer', $data);
     }
 
+    public function removeReservation($rid) {
+         $this->load->model(array('Booking', 'Center'));
+         $booking = new Booking();
+         $booking->id = $rid;
+         $booking->delete();
+         $data['msg'] = "removed";
+         $this->load->view('msg', $data);
+    }
+    
+    public function viewReservationDetails($rid) {
+        
+    }
 }

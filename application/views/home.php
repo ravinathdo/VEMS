@@ -7,10 +7,10 @@
         <meta name="keywords" content="Green Wheels Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
               Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
         <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <?php $this->load->view('basecss');?>
+        <?php $this->load->view('basecss'); ?>
         <!-- Custom Theme files -->
-        <?php $this->load->view('basejs');?>
-        
+        <?php $this->load->view('basejs'); ?>
+
         <script>
             new WOW().init();
         </script>
@@ -19,16 +19,16 @@
     <body>
         <!-- top-header -->
         <div class="top-header">
-            <?php 
+            <?php
             $this->load->view('_top_header.php');
-             ?>
+            ?>
         </div>
         <!--- /top-header ---->
         <!--- header ---->
         <div class="header">
-            <?php 
-             $this->load->view('_header.php');
-              ?>
+            <?php
+            $this->load->view('_header.php');
+            ?>
         </div>
         <!--- /header ---->
         <!--- footer-btm ---->
@@ -48,9 +48,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
-                                 <?php 
-                                 $this->load->view('_menu.php');
-                                 ?> 
+                                <?php
+                                $this->load->view('_menu.php');
+                                ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
                     </nav>
@@ -61,20 +61,38 @@
         </div>
         <!--- /footer-btm ---->
 
-        
+
+
+        <!--STAFF user home--> 
+        <?php
+//        echo '<tt><pre>' . var_export($this->session->userdata('userbean'), TRUE) . '</pre></tt>';
+        if ($this->session->userdata('userbean')->role_code == 'STAFF') {
+            ?> 
         <div class="row">
             <div class="col-md-8">.col-md-8</div>
             <div class="col-md-4">.col-md-4</div>
         </div>
-        
-        
-        
+            <?php
+        }
+        ?>
+        <!--STAFF user home--> 
+
+        <?php
+        if ($this->session->userdata('userbean')->role_code == 'MANAGER') {
+        }
+        ?>
+
+        <?php
+        if ($this->session->userdata('userbean')->role_code == 'ADMIN') {
+        }
+        ?>
+
         <!---copy-right ---->
         <div class="copy-right">
             <div class="container">
-               <?php 
-              $this->load->view('_footer.php'); 
-               ?>
+                <?php
+                $this->load->view('_footer.php');
+                ?>
             </div>
         </div>
         <!--- /copy-right ---->
@@ -127,7 +145,8 @@
                                     </li>
                                     <li class="descrip">
                                         <input class="special" type="text" value="Write Description" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Write Description';}" required="">
+                                                    this.value = 'Write Description';
+                                                }" required="">
                                     </li>
                                     <div class="clearfix"></div>
                                 </ul>

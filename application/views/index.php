@@ -73,7 +73,7 @@
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                  <ul class="nav navbar-nav">
-            <li class="active"><a href="customer_new_reservation.php">New Reservation</a></li>
+            <li class="active"><a href="#booking" >New Reservation</a></li>
             <li><a href="<?php echo base_url('Menu_Controller/about'); ?>">About</a></li>
             <!--    <li><a href="faq.html">Faq</a></li>
                 <li><a href="apps.html">Apps</a></li>
@@ -106,13 +106,13 @@
                 <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> Drive Green Sri Lanka - Best in Emission Tester  </h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container"  id="booking">
             <div class="col-md-5 bann-info1 wow fadeInLeft animated" data-wow-delay=".5s">
                 <i class="fa fa-columns"></i>
-                <h3>WORLD'S MOST TRAVEL BRAND</h3>
+                <h3>TEST FAST AND ACCURATE</h3>
             </div>
             <div class="col-md-7 bann-info wow fadeInRight animated" data-wow-delay=".5s">
-                <h2>Online Tickets with Zero Booking Fees</h2>
+                <h2>Online Bookings its Free</h2>
                 <div class="ban-top">
                     <div class="bnr-left">
                         <label class="inputLabel">From</label>
@@ -120,10 +120,10 @@
                                             this.value = 'Enter a city';
                                         }" required=>
                     </div>
-                    <div class="bnr-left">
-                        <label class="inputLabel">To</label>
-                        <input class="city" type="text" value="Enter a city" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'Enter a city';}" required=>
+                     <div class="bnr-right">
+                         Register with <a href="#" data-toggle="modal" data-target="#myModal" >
+                         Green Drive free
+                             </a>, its easy and fast
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -133,11 +133,7 @@
                         <input class="date" id="datepicker" type="text" value="dd-mm-yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'dd-mm-yyyy';}" required=>
                     </div>
-                    <div class="bnr-right">
-                        <label class="inputLabel">Date of Return<span class="opt">&nbsp;(Optional)</span></label>
-                        <input class="date" id="datepicker1" type="text" value="dd-mm-yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'dd-mm-yyyy';}" required=>
-                    </div>
+                    
                     <div class="clearfix"></div>
                     <!---start-date-piker---->
                     <link rel="stylesheet" href="css/jquery-ui.css" />
@@ -150,9 +146,7 @@
                     <!---/End-date-piker---->
                 </div>
                 <div class="sear">
-                    <form action="bus.html">
-                        <button class="seabtn">Search Buses</button>
-                    </form>
+                        <button class="seabtn" data-toggle="modal" data-target="#myModal5" >Please Login to proceed</button>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -166,9 +160,9 @@
                         <a href="offers.html"><i class="fa fa-usd"></i></a>
                     </div>
                     <div class="rup-rgt">
-                        <h3>UP TO USD. 50 OFF</h3>
-                        <h4><a href="offers.html">TRAVEL SMART</a></h4>
-                        <p>CODE:YBMAR12<br>Book Using Pay Money</p>
+                        <h3>UP TO 50+ CENTERS</h3>
+                        <h4><a href="offers.html">TEST SMART</a></h4>
+                        <p>Call Now<br>Book Using Pay Money</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -177,9 +171,9 @@
                         <a href="offers.html"><i class="fa fa-h-square"></i></a>
                     </div>
                     <div class="rup-rgt">
-                        <h3>UP TO 70% OFF</h3>
-                        <h4><a href="offers.html">ON HOTELS ACROSS WORLD</a></h4>
-                        <p>Offer CODE:YBMAR12</p>
+                        <h3>BEST IN SERVICE</h3>
+                        <h4><a href="offers.html">ON CENTERS ACROSS ISLAND</a></h4>
+                        <p>Offer more </p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -188,9 +182,9 @@
                         <a href="offers.html"><i class="fa fa-mobile"></i></a>
                     </div>
                     <div class="rup-rgt">
-                        <h3>FLAT USD. 50 OFF</h3>
-                        <h4><a href="offers.html">BUS APP OFFER</a></h4>
-                        <p>book via the yellow Bus App<br>CODE:YBMAR12</p>
+                        <h3>BOOKING ON THE GO</h3>
+                        <h4><a href="offers.html">MOBILE</a></h4>
+                        <p>book via the mobile<br>RESPONSIVE</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -205,7 +199,7 @@
                     <img src="images/4.jpg" class="img-responsive" alt="">
                 </div>
                 <div class="col-md-6 holiday-mid animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp;">
-                    <h3>Travel Holiday Packages</h3>
+                    <h3>Message to Customers</h3>
                     <p>Private Guide and Driver in any language and in any departure date. For more information please contact us....</p>
                 </div>
                 <div class="col-md-3 holiday-left animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp;">
@@ -222,9 +216,9 @@
                     <a href="track.html"><img src="images/map1.png" class="img-responsive" alt=""></a>
                 </div>
                 <div class="col-md-6 track-left wow fadeInRight animated" data-wow-delay=".5s">
-                    <h3>TRACK MY BUS</h3>
+                    <h3>PROTECT ENVIRONMENT</h3>
                     <p>First of its own kind,bus tracking feature on bus</p>
-                    <a href="track.html" class="learn">Learn More</a>
+<!--                    <a href="track.html" class="learn">Learn More</a>-->
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -239,7 +233,7 @@
                     </div>
                     <div class="rou-rgt wow fadeInDown animated" data-wow-delay=".5s">
                         <h3>80000</h3>
-                        <p>ROUTES</p>
+                        <p>Testers</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -249,7 +243,7 @@
                     </div>
                     <div class="rou-rgt">
                         <h3>1900</h3>
-                        <p>BUS OPERATORS</p>
+                        <p>Staff OPERATORS</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -259,7 +253,7 @@
                     </div>
                     <div class="rou-rgt">
                         <h3>7,00,00,000+</h3>
-                        <p>TICKETS SOLD</p>
+                        <p>Booking SOLD</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -317,21 +311,7 @@
         </div>
         <!--- /footer-top ---->
         <!---copy-right ---->
-        <div class="copy-right">
-            <div class="container">
-
-                <div class="footer-social-icons wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-                    <ul>
-                        <li><a class="facebook" href="#"><span>Facebook</span></a></li>
-                        <li><a class="twitter" href="#"><span>Twitter</span></a></li>
-                        <li><a class="flickr" href="#"><span>Flickr</span></a></li>
-                        <li><a class="googleplus" href="#"><span>Google+</span></a></li>
-                        <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
-                    </ul>
-                </div>
-                <p class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">© 2016 Green Wheels . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-            </div>
-        </div>
+         <?php $this->load->view('_footer');?>
         <!--- /copy-right ---->
         <!-- sign -->
         <?php // $this->load->view('_model_signin');?>

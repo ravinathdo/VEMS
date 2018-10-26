@@ -81,7 +81,15 @@
                                 <tr>
                                     <td><?= $value->id ?></td>
                                     <td><?= $value->book_date_time ?></td>
-                                    <td><?= $value->status_code ?></td>
+                                    <td><?= $value->status_code ?>
+                                    </td>
+                                    <td><?php 
+                                    if($value->status_code == 'OPEN' ){
+                                        ?> <a onclick="return confirmMe()" class="btn-danger btn-sm" href="<?= base_url('Reservation_Controller/removeReservation')?>/<?= $value->id ?>">Remove</a> <?php
+                                    }else{
+                                      ?> <a onclick="return confirmMe()" class="btn-info btn-sm" href="<?= base_url('Reservation_Controller/viewReservationDetails')?>/<?= $value->id ?>">Details</a> <?php  
+                                    }
+                                    ?></td>
                                 </tr>
                                 <?php
                             }
@@ -89,6 +97,15 @@
 
                     </tbody>
                 </table>
+                <script>
+                function confirmMe(){
+                    if(confirm("Are you sure?")){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+                </script>
                 
                 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
                 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
