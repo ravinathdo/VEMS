@@ -32,6 +32,7 @@
 
 
 
+<a href="<?php echo site_url('Inspection_Controller/loadInspection') ?>/<?= $value->id ?>remove</a>
 
 <p class="bg-danger msg-err">...</p>
 
@@ -42,7 +43,7 @@ password => a
 86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
 
 
-
+$this->session->set_userdata($newdata);
 $userbean = $this->session->userdata('userbean');
 
 <form class="form-horizontal" action="<?php echo site_url('Customer_Controller/add') ?>" method="post">

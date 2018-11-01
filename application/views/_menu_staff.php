@@ -5,6 +5,6 @@
     <li><a href="<?php echo base_url('Vehicle_Controller/loadAddVehicle'); ?>">Vehicle Registration</a></li>
     <li ><a href="<?php echo base_url('Reservation_Controller/loadNewReservation'); ?>">New Reservation</a></li>
     <li><a href="<?php echo base_url('Reservation_Controller/manageReservation'); ?>">Manage Reservation</a></li>
-    <li><a href="<?php echo base_url('Inspection/listInspection'); ?>">Inspec. List</a></li>
+    <li><a href="<?php echo base_url('Inspection_Controller/getCenterInspectionList'); ?>">Inspec. List</a></li>
     <div class="clearfix"></div>
 </ul>

@@ -21,11 +21,23 @@ class Payment extends MY_Model {
     public $vehicle_id;
     public $status_code;
     public $expire_date;
-    public $created_datetime;
+//    public $created_datetime;
     public $created_userid;
     public $amount;
     public $inspection_id;
-    
-    
+
+    public function getPaymentByInspetionID($inspection_id) {
+        $this->db->select('dg_payment.*');
+        $this->db->from('dg_payment');
+        $where = " inspection_id = '" . $inspection_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
 
 }

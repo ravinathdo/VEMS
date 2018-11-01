@@ -55,7 +55,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-1">
                                 <?php
-                                $this->load->view('_menu_admin.php');
+                                $this->load->view('_menu.php');
                                 ?> 
                             </nav>
                         </div><!-- /.navbar-collapse -->	
@@ -96,32 +96,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <td><?= $value->id ?></td>
                             <td><?= $value->created_datetime ?></td>
                             <td><?= $value->inspec_result ?></td>
-                            <td><a href="<?php echo base_url('Inspection/loadInspection'); ?>">Go to Payment</a></td>                        
-                        </tr>
+                            <td>
+                                <?php if ($value->inspec_result == 'ACCEPT') { ?> 
+                                    <a href="<?php echo base_url('Payment_Controller/loadPayment'); ?>/<?= $value->id ?>">Go to Payment</a>
+                                <?php } else if ($value->inspec_result == 'REJECT') { ?> 
+                                    <a href="<?php echo base_url('Inspection/loadInspection'); ?>">View</a>
+                                    <?php } ?>
 
-                    <?php } ?>
+                                </td>                        
+                            </tr>
+
+                        <?php } ?>
 
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
 
 
-    <!--- footer-top ---->
-    <div class="footer-top">
-        <div class="container">
-            <?php $this->load->view('_footer_branch'); ?>
+        <!--- footer-top ---->
+        <div class="footer-top">
+            <div class="container">
+                <?php $this->load->view('_footer_branch'); ?>
+            </div>
         </div>
-    </div>
-    <!--- /footer-top ---->
-    <!---copy-right ---->
-    <div class="copy-right">
-        <div class="container">
-            <?php
-            $this->load->view('_footer.php');
-            ?>
+        <!--- /footer-top ---->
+        <!---copy-right ---->
+        <div class="copy-right">
+            <div class="container">
+                <?php
+                $this->load->view('_footer.php');
+                ?>
         </div>
     </div>
     <!--- /copy-right ---->

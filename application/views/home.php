@@ -68,10 +68,25 @@
 //        echo '<tt><pre>' . var_export($this->session->userdata('userbean'), TRUE) . '</pre></tt>';
         if ($this->session->userdata('userbean')->role_code == 'STAFF') {
             ?> 
-        <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-1">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="text-align: center">New Bookings</div>
+                        <div class="panel-body">
+                            <h1 style="text-align: center"><?php
+                                $openBooking = $this->session->userdata('openBooking');
+                                echo sizeof($openBooking);
+                                ?></h1>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3"></div>
+            </div>
             <?php
         }
         ?>
@@ -79,11 +94,13 @@
 
         <?php
         if ($this->session->userdata('userbean')->role_code == 'MANAGER') {
+            
         }
         ?>
 
         <?php
         if ($this->session->userdata('userbean')->role_code == 'ADMIN') {
+            
         }
         ?>
 

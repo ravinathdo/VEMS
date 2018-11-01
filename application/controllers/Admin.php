@@ -22,7 +22,7 @@ class Admin extends CI_Controller {
 
     public function userLogin() {
         //find the user and role == 'ADMIN'
-        $this->load->model(array('Users'));
+        $this->load->model(array('Users','Booking'));
         $formData = $this->Users->array_from_post(array('username', 'password'));
 //        echo '<tt><pre>' . var_export($formData, TRUE) . '</pre></tt>';
         
@@ -35,6 +35,17 @@ class Admin extends CI_Controller {
                 'logged_in' => TRUE
             );
             $this->session->set_userdata($newdata);
+            
+            //IF staff user get the requested booking list
+            if($doLogin[0]->role_code == 'STAFF'){
+                $bookingObj = new Booking();
+//                echo 'get OPEN booking for center';
+                $centerBooking = $bookingObj->getCenterBooking($doLogin[0]->center_id);
+//                echo '<tt><pre>' . var_export($centerBooking, TRUE) . '</pre></tt>';
+                $this->session->set_userdata(array('openBooking'=>$centerBooking));
+            }
+            
+            
             $this->load->view('home');
         } else {
             $data['msg'] = '<p class="bg-danger msg-err"> Invalid username or password </p>';

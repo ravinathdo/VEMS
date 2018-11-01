@@ -27,12 +27,18 @@ CREATE TABLE `dg_booking` (
   `vehicle_id` int(5) DEFAULT NULL,
   `status_code` varchar(10) DEFAULT NULL,
   `created_datetime` timestamp NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `created_user` int(5) DEFAULT NULL,
+  `center_id` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_booking` (`customer_id`),
+  KEY `FK_dg_booking_vehicle` (`vehicle_id`),
+  CONSTRAINT `FK_dg_booking` FOREIGN KEY (`customer_id`) REFERENCES `dg_customer` (`id`),
+  CONSTRAINT `FK_dg_booking_vehicle` FOREIGN KEY (`vehicle_id`) REFERENCES `dg_vehicle` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_booking` */
 
-insert  into `dg_booking`(`id`,`book_date_time`,`customer_id`,`vehicle_id`,`status_code`,`created_datetime`) values (1,'2018-07-05 10:49:13',1,1,'OPEN','2018-07-04 10:49:13');
+insert  into `dg_booking`(`id`,`book_date_time`,`customer_id`,`vehicle_id`,`status_code`,`created_datetime`,`created_user`,`center_id`) values (5,'2018-10-18T04:54',1,NULL,'OPEN',NULL,1,1),(6,'xcdfsdfdsf',NULL,NULL,NULL,'2018-10-16 23:11:39',NULL,NULL),(7,'2018-10-19T04:55',1,NULL,'OPEN','2018-10-16 23:12:11',1,1),(8,'2018-10-17T04:54',1,NULL,'OPEN','2018-10-16 23:16:13',1,1),(9,'2018-11-02T12:02',1,NULL,'OPEN','2018-11-01 11:14:00',1,1);
 
 /*Table structure for table `dg_center` */
 
@@ -47,12 +53,14 @@ CREATE TABLE `dg_center` (
   `created_datetime` timestamp NULL DEFAULT current_timestamp(),
   `created_user` int(5) DEFAULT NULL,
   `district_name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_center` (`district_name`),
+  CONSTRAINT `FK_dg_center` FOREIGN KEY (`district_name`) REFERENCES `dg_district` (`district_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_center` */
 
-insert  into `dg_center`(`id`,`center_name`,`address`,`mobile`,`email`,`created_datetime`,`created_user`,`district_name`) values (1,'Negombo','Sea Street','0315223354','nego@gd.com','2018-07-16 12:01:07',0,'GAMPAHA'),(2,'assadsa','dfdf','23213','sdfd','2018-07-17 10:05:17',NULL,'GAMPAHA'),(3,'dasadsad','sadsad','23123','sddsd','2018-07-17 10:07:47',1,'COLOMBO'),(4,'dasadsad','sadsad','23123','sddsd','2018-07-17 10:25:16',1,'COLOMBO');
+insert  into `dg_center`(`id`,`center_name`,`address`,`mobile`,`email`,`created_datetime`,`created_user`,`district_name`) values (1,'COLOMBO','Colombo 03',NULL,NULL,'2018-10-16 21:14:32',NULL,'COLOMBO');
 
 /*Table structure for table `dg_customer` */
 
@@ -68,15 +76,15 @@ CREATE TABLE `dg_customer` (
   `address` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `status_code` varchar(10) DEFAULT 'ACTIVE',
-  `user_role` varchar(10) DEFAULT 'CUSTOMER',
+  `role_code` varchar(10) DEFAULT 'CUSTOMER',
   `created_datetime` timestamp NULL DEFAULT current_timestamp(),
   `created_user` int(5) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_customer` */
 
-insert  into `dg_customer`(`id`,`first_name`,`last_name`,`nic`,`pword`,`mobile_number`,`address`,`email`,`status_code`,`user_role`,`created_datetime`,`created_user`) values (1,'Ravinath','Fernando',NULL,NULL,NULL,NULL,NULL,'ACTIVE',NULL,'2018-05-31 22:29:16',0),(2,'Ravinath','Fernando',NULL,NULL,NULL,NULL,NULL,'ACTIVE',NULL,'2018-05-31 22:36:58',0),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'ACTIVE',NULL,'2018-05-31 22:37:48',0),(4,'Ravinath','Fernando',NULL,NULL,NULL,NULL,NULL,'ACTIVE',NULL,'2018-05-31 22:49:55',0),(5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'ACTIVE',NULL,'2018-05-31 22:50:24',0),(6,'Ravinath','Fernando',NULL,NULL,NULL,NULL,NULL,'ACTIVE',NULL,'2018-05-31 22:50:37',0),(7,'asdsad','sadsad','423423',NULL,'34234','sdfsdfsd','dsfsdf@gg','ACTIVE','CUSTOMER','2018-07-17 11:17:14',1),(8,'Ravinathxx','Fernando','863512866V',NULL,'45545','','ravi@gmail.com','ACTIVE','CUSTOMER','2018-10-12 15:32:32',8),(9,'Ravinathxx','Fernando','863512866V',NULL,'45545','','ravi@gmail.com','ACTIVE','CUSTOMER','2018-10-12 15:34:46',8),(10,'Ravinathxx','Fernando','863512866V',NULL,'45545','','ravi@gmail.com','ACTIVE','CUSTOMER','2018-10-12 15:34:58',8);
+insert  into `dg_customer`(`id`,`first_name`,`last_name`,`nic`,`pword`,`mobile_number`,`address`,`email`,`status_code`,`role_code`,`created_datetime`,`created_user`) values (1,'Ravinath','Fernando','863512824V','b24777061756485c930c12fba0d84d37ab356646','071',' Raddoluwa','ravinathdo@gmail.com','ACTIVE','CUSTOMER','2018-10-16 20:57:23',NULL);
 
 /*Table structure for table `dg_district` */
 
@@ -89,7 +97,7 @@ CREATE TABLE `dg_district` (
 
 /*Data for the table `dg_district` */
 
-insert  into `dg_district`(`district_name`) values ('COLOMBO'),('GAMPAHA'),('HAMBANTOTA');
+insert  into `dg_district`(`district_name`) values ('COLOMBO');
 
 /*Table structure for table `dg_engine` */
 
@@ -102,7 +110,7 @@ CREATE TABLE `dg_engine` (
 
 /*Data for the table `dg_engine` */
 
-insert  into `dg_engine`(`engine_type`) values ('AUTO'),('MANUAL');
+insert  into `dg_engine`(`engine_type`) values ('manual');
 
 /*Table structure for table `dg_fual` */
 
@@ -116,7 +124,7 @@ CREATE TABLE `dg_fual` (
 
 /*Data for the table `dg_fual` */
 
-insert  into `dg_fual`(`fual_type`,`fee`) values ('DESEL','3500'),('PATROL','2500');
+insert  into `dg_fual`(`fual_type`,`fee`) values ('Petrol','3500');
 
 /*Table structure for table `dg_inspection` */
 
@@ -140,12 +148,19 @@ CREATE TABLE `dg_inspection` (
   `created_user` int(5) DEFAULT NULL,
   `inspec_result` varchar(20) DEFAULT NULL,
   `booking_id` int(5) DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `center_id` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_inspection_engine` (`engine_type`),
+  KEY `FK_dg_inspection_user` (`created_user`),
+  KEY `FK_dg_inspection_booking` (`booking_id`),
+  CONSTRAINT `FK_dg_inspection_booking` FOREIGN KEY (`booking_id`) REFERENCES `dg_booking` (`id`),
+  CONSTRAINT `FK_dg_inspection_engine` FOREIGN KEY (`engine_type`) REFERENCES `dg_engine` (`engine_type`),
+  CONSTRAINT `FK_dg_inspection_user` FOREIGN KEY (`created_user`) REFERENCES `dg_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_inspection` */
 
-insert  into `dg_inspection`(`id`,`vehicle_id`,`engine_type`,`chassis_number`,`engine_number`,`silencer_leak`,`oil_leak`,`air_leak`,`fuel_tank_cap`,`plug_top`,`engine_idle_RPM`,`abnormal_vibration`,`water_leakages`,`created_datetime`,`created_user`,`inspec_result`,`booking_id`) values (1,3,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted',NULL,NULL,'ACCEP',NULL),(2,3,'manual','Accepted','Not Accepted','Not Accepted','Accepted','Not Accepted','Accepted','Accepted','Accepted','Not Accepted','Not Accepted','2018-08-03 15:38:51',NULL,'REJEC',0),(3,3,'manual','--select--','--select--','--select--','Not Accepted','--select--','--select--','--select--','--select--','--select--','--select--','2018-08-03 15:44:45',NULL,'ACCEP',0);
+insert  into `dg_inspection`(`id`,`vehicle_id`,`engine_type`,`chassis_number`,`engine_number`,`silencer_leak`,`oil_leak`,`air_leak`,`fuel_tank_cap`,`plug_top`,`engine_idle_RPM`,`abnormal_vibration`,`water_leakages`,`created_datetime`,`created_user`,`inspec_result`,`booking_id`,`center_id`) values (6,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 13:13:32',9,'ACCEPT',9,NULL),(7,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 13:14:59',9,'ACCEPT',9,NULL),(8,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 13:15:13',9,'ACCEPT',9,NULL),(9,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 13:20:32',9,'ACCEPT',9,1),(10,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 13:58:14',9,'ACCEPT',9,1),(11,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 13:59:04',9,'ACCEPT',9,1),(12,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 14:09:43',9,'ACCEPT',9,1),(13,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 14:10:30',9,'ACCEPT',9,1),(14,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 14:11:55',9,'ACCEPT',9,1),(15,1,'manual','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','Accepted','2018-11-01 14:12:47',9,'PAID',9,1);
 
 /*Table structure for table `dg_payment` */
 
@@ -160,10 +175,16 @@ CREATE TABLE `dg_payment` (
   `created_userid` int(5) DEFAULT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
   `inspection_id` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_payment` (`vehicle_id`),
+  KEY `FK_dg_payment_inspection` (`inspection_id`),
+  CONSTRAINT `FK_dg_payment` FOREIGN KEY (`vehicle_id`) REFERENCES `dg_vehicle` (`id`),
+  CONSTRAINT `FK_dg_payment_inspection` FOREIGN KEY (`inspection_id`) REFERENCES `dg_inspection` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_payment` */
+
+insert  into `dg_payment`(`id`,`vehicle_id`,`status_code`,`expire_date`,`created_datetime`,`created_userid`,`amount`,`inspection_id`) values (2,1,'PAID',NULL,'2018-11-01 16:09:47',9,'1500.00',15),(3,1,'PAID',NULL,'2018-11-01 16:11:53',9,'1500.00',15),(4,1,'PAID',NULL,'2018-11-01 16:14:04',9,'1500.00',15),(5,1,'PAID',NULL,'2018-11-01 16:15:48',9,'1500.00',15),(6,1,'PAID',NULL,'2018-11-01 16:17:39',9,'1500.00',15);
 
 /*Table structure for table `dg_status` */
 
@@ -175,8 +196,6 @@ CREATE TABLE `dg_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_status` */
-
-insert  into `dg_status`(`status_code`,`description`) values ('ACTIVE','Active'),('DEACTIVE','Deactive'),('OPEN','Open'),('CLOSE','Close'),('REJECT','Reject'),('STAFF','Staff');
 
 /*Table structure for table `dg_user` */
 
@@ -196,7 +215,9 @@ CREATE TABLE `dg_user` (
   `status_code` varchar(20) DEFAULT NULL,
   `created_datetime` timestamp NULL DEFAULT current_timestamp(),
   `created_user` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_user` (`role_code`),
+  CONSTRAINT `FK_dg_user` FOREIGN KEY (`role_code`) REFERENCES `dg_user_role` (`role_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_user` */
@@ -232,12 +253,18 @@ CREATE TABLE `dg_vehicle` (
   `customer_id` int(5) DEFAULT NULL,
   `created_datetime` timestamp NULL DEFAULT current_timestamp(),
   `created_userid` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `FK_dg_vehicle_fual` (`fual_type`),
+  KEY `FK_dg_vehicle_brand` (`brand_code`),
+  KEY `FK_dg_vehicle_type` (`type_code`),
+  CONSTRAINT `FK_dg_vehicle_brand` FOREIGN KEY (`brand_code`) REFERENCES `dg_vehicle_brand` (`brand_code`),
+  CONSTRAINT `FK_dg_vehicle_fual` FOREIGN KEY (`fual_type`) REFERENCES `dg_fual` (`fual_type`),
+  CONSTRAINT `FK_dg_vehicle_type` FOREIGN KEY (`type_code`) REFERENCES `dg_vehicle_type` (`type_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dg_vehicle` */
 
-insert  into `dg_vehicle`(`id`,`manufac_year`,`stroke`,`reg_no`,`type_code`,`fual_type`,`brand_code`,`customer_id`,`created_datetime`,`created_userid`) values (1,2015,6,'4849','','DESEL','NISSAN',1,'0000-00-00 00:00:00',NULL),(2,2017,6,'8855',NULL,'DESEL','NISSAN',1,'2018-07-17 14:45:38',NULL),(3,2016,6,'6655','BUS','DESEL','TOYOTA',7,NULL,1);
+insert  into `dg_vehicle`(`id`,`manufac_year`,`stroke`,`reg_no`,`type_code`,`fual_type`,`brand_code`,`customer_id`,`created_datetime`,`created_userid`) values (1,2018,6,'8855444','CAR','Petrol','TOYOTA',1,NULL,10);
 
 /*Table structure for table `dg_vehicle_brand` */
 
@@ -251,7 +278,7 @@ CREATE TABLE `dg_vehicle_brand` (
 
 /*Data for the table `dg_vehicle_brand` */
 
-insert  into `dg_vehicle_brand`(`brand_code`,`decription`) values ('NISSAN','NISSAN'),('TOYOTA','TOYOTA');
+insert  into `dg_vehicle_brand`(`brand_code`,`decription`) values ('TOYOTA','Toyota');
 
 /*Table structure for table `dg_vehicle_type` */
 
@@ -265,7 +292,7 @@ CREATE TABLE `dg_vehicle_type` (
 
 /*Data for the table `dg_vehicle_type` */
 
-insert  into `dg_vehicle_type`(`type_code`,`description`) values ('BUS','BUS'),('CAR','CAR');
+insert  into `dg_vehicle_type`(`type_code`,`description`) values ('CAR','Car');
 
 /*Table structure for table `gd_test` */
 
@@ -278,7 +305,9 @@ CREATE TABLE `gd_test` (
   `payment_id` int(5) DEFAULT NULL,
   `created_datetime` timestamp NULL DEFAULT current_timestamp(),
   `cteated_userid` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `FK_gd_test_payment` (`payment_id`),
+  CONSTRAINT `FK_gd_test_payment` FOREIGN KEY (`payment_id`) REFERENCES `dg_payment` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `gd_test` */

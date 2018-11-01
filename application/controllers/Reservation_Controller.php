@@ -34,8 +34,7 @@ class Reservation_Controller extends CI_Controller {
         $center_id = $this->session->userdata('userbean')->center_id;
         $centerBooking = $booking->getCenterBooking($center_id);
         echo '<tt><pre>' . var_export($centerBooking, TRUE) . '</pre></tt>';
-
-        //
+        $this->load->view('staff/bookings');
     }
 
     public function loadCustNewReservation() {

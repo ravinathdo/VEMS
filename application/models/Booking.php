@@ -47,9 +47,7 @@ class Booking extends MY_Model {
             return FALSE;
         }
     }
-    
-    
-    
+
     public function getCenterBooking($center_id) {
         $this->db->select('dg_booking.*');
         $this->db->from('dg_booking');
@@ -63,8 +61,34 @@ class Booking extends MY_Model {
             return FALSE;
         }
     }
-    
-    
-    
+
+    public function getCenterOPENBookings($center_id) {
+        $this->db->select('dg_booking.*');
+        $this->db->from('dg_booking');
+        $where = " center_id = '" . $center_id . "' AND status_code = 'OPEN' ";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getBookingDetails($bookng_id) {
+        $this->db->select('dg_booking.*,dg_customer.first_name,dg_customer.nic');
+        $this->db->from('dg_booking');
+        $this->db->join('dg_customer',"dg_customer.id = dg_booking.customer_id");
+        $where = " dg_booking.id = '" . $bookng_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
 
 }

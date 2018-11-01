@@ -18,7 +18,7 @@ class MY_Model extends CI_Model{
         $this->{$this::DB_TABLE_PK} = $this->db->insert_id();
     }
     
-    private function update() {
+    public function update() {
         $this->db->update($this::DB_TABLE,$this,$this::DB_TABLE_PK);
     }
     

@@ -33,6 +33,7 @@ class Inspection extends MY_Model {
     public $created_user;
     public $inspec_result;
     public $booking_id = 0;
+    public $center_id;
 
     public function array_from_post($fields) {
         $data = array();
@@ -60,9 +61,9 @@ class Inspection extends MY_Model {
     }
 
     public function getInspectionDetail($inspection_id) {
-        $this->db->select('dg_inspection.*,dg_vehicle.reg_no');
+        $this->db->select('dg_inspection.*,dg_vehicle.reg_no,dg_vehicle.type_code');
         $this->db->from('dg_inspection');
-        $this->db->join('dg_vehicle','dg_vehicle.id = dg_inspection.vehicle_id');
+        $this->db->join('dg_vehicle', 'dg_vehicle.id = dg_inspection.vehicle_id');
         $where = " dg_inspection.id = '" . $inspection_id . "'";
         $this->db->where($where);
         $query = $this->db->get();
@@ -72,6 +73,25 @@ class Inspection extends MY_Model {
         } else {
             return FALSE;
         }
+    }
+
+    public function getCenterInspectionList($center_id) {
+        $this->db->select('dg_inspection.*');
+        $this->db->from('dg_inspection');
+        $where = " center_id = '" . $center_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function update_inspec($data, $id) {
+        $this->db->where('dg_inspection.id', $id);
+        return $this->db->update('dg_inspection', $data);
     }
 
 }
