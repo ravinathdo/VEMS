@@ -87,7 +87,7 @@
                                     if($value->status_code == 'OPEN' ){
                                         ?> <a onclick="return confirmMe()" class="btn-danger btn-sm" href="<?= base_url('Reservation_Controller/removeReservation')?>/<?= $value->id ?>">Remove</a> <?php
                                     }else{
-                                      ?> <a onclick="return confirmMe()" class="btn-info btn-sm" href="<?= base_url('Reservation_Controller/viewReservationDetails')?>/<?= $value->id ?>">Details</a> <?php  
+                                      ?> <a class="btn-info btn-sm" href="<?= base_url('Reservation_Controller/viewReservationDetails')?>/<?= $value->id ?>">Details</a> <?php  
                                     }
                                     ?></td>
                                 </tr>

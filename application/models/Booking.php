@@ -48,9 +48,29 @@ class Booking extends MY_Model {
         }
     }
 
-    public function getCenterBooking($center_id) {
+    
+    
+    
+    public function getCustomerStatusBooking($customer_id,$status_code) {
         $this->db->select('dg_booking.*');
         $this->db->from('dg_booking');
+        $where = " customer_id = '" . $customer_id . "' AND status_code = '".$status_code."'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+    
+    
+    public function getCenterBooking($center_id) {
+        $this->db->select('dg_booking.*,dg_center.center_name');
+        $this->db->from('dg_booking');
+        $this->db->join('dg_center','dg_center.id = dg_booking.center_id');
         $where = " center_id = '" . $center_id . "'";
         $this->db->where($where);
         $query = $this->db->get();
@@ -90,5 +110,12 @@ class Booking extends MY_Model {
             return FALSE;
         }
     }
+    
+    
+    public function update_booking($data, $id) {
+        $this->db->where('dg_booking.id', $id);
+        return $this->db->update('dg_booking', $data);
+    }
+    
 
 }

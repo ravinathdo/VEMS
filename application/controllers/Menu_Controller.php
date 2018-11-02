@@ -31,4 +31,9 @@ class Menu_Controller extends CI_Controller {
         $this->load->view('contact.php');
                 
     }
+    
+      public function loadHome() {
+                $this->load->view('home.php');
+    }
+    
 }

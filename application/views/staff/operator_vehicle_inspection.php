@@ -68,6 +68,9 @@
 
 
         <div class="row">
+            
+            
+            
             <form action="<?= base_url('Inspection_Controller/inspection') ?>" method="post">
                 <center> <h2>Vehicle Inspection</h2></center>
 
@@ -85,7 +88,12 @@
                         </tr> 
                         <tr>
                             <td>Engine Type</td>
-                            <td><input type="text" name="engine_type" /></td>
+                            <td>
+                                <select name="" name="engine_type" class="form-control" >
+                                    <option value="manual">Manual</option>
+                                    <option value="auto">Auto</option>
+                                </select>
+                            </td>
                         </tr> 
                     </table>
 
@@ -181,7 +189,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="radio" name="inspec_result" value="ACCEPT" /> Accept for Test <br>
+                                <input type="radio" name="inspec_result" value="ACCEPT" required="" /> Accept for Test <br>
                                 <input type="radio" name="inspec_result" value="REJECT" /> Reject for Test 
                             </td>
                         </tr>

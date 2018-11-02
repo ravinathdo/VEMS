@@ -29,12 +29,13 @@ class Reservation_Controller extends CI_Controller {
     public function loadCenterBooking() {
         //get sesion user center 
         $this->load->model(array('Booking'));
-        $booking = new Booking(); 
-        
+        $booking = new Booking();
+
         $center_id = $this->session->userdata('userbean')->center_id;
         $centerBooking = $booking->getCenterBooking($center_id);
-        echo '<tt><pre>' . var_export($centerBooking, TRUE) . '</pre></tt>';
-        $this->load->view('staff/bookings');
+//        echo '<tt><pre>' . var_export($centerBooking, TRUE) . '</pre></tt>';
+        $data['centerBooking'] = $centerBooking;
+        $this->load->view('staff/bookings', $data);
     }
 
     public function loadCustNewReservation() {
@@ -88,19 +89,33 @@ class Reservation_Controller extends CI_Controller {
         $customer_id = $this->session->userdata('userbean')->id;
         $customerBooking = $booking->getCustomerBooking($customer_id);
         $data['customerBooking'] = $customerBooking;
-        $this->load->view('customer_booking_explorer', $data);
+//        echo '<tt><pre>' . var_export($customerBooking, TRUE) . '</pre></tt>';
+        $this->load->view('customer/customer_booking_explorer', $data);
     }
 
     public function removeReservation($rid) {
-         $this->load->model(array('Booking', 'Center'));
-         $booking = new Booking();
-         $booking->id = $rid;
-         $booking->delete();
-         $data['msg'] = "removed";
-         $this->load->view('msg', $data);
+        $this->load->model(array('Booking', 'Center'));
+        $booking = new Booking();
+        $booking->id = $rid;
+        $booking->delete();
+//           $db_error = $this->db->error();
+//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+//        if ($db_error['code'] == 0) {
+//            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+//        } else {
+//            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+//        }
+        $data['msg'] = '<p class="bg-success msg-success">Record removed successfully</p>';
+        $this->load->view('msg', $data);
     }
-    
-    public function viewReservationDetails($rid) {
-        
+
+    public function viewReservationDetails($bid) {
+        //get the inspection id from booking id
+        $this->load->model(array('Booking', 'Inspection'));
+        $inspection = new Inspection();
+        $inspectionByBooingID = $inspection->getInspectionByBooingID($bid);
+        $inspec_id = $inspectionByBooingID[0]->id;
+        redirect('Payment_Controller/loadPayment/'.$inspec_id);
     }
+
 }

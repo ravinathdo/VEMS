@@ -2,7 +2,7 @@
     
     <div class="container">
     <ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
-        <li class="hm"><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li class="hm"><a href="#"><i class="fa fa-home"></i></a></li>
         <!--                    <li class="prnt"><a href="javascript:window.print()">Print/SMS Ticket</a></li>-->
 
     </ul>
@@ -18,8 +18,10 @@
             }
             ?> Welcome <?= $userbean->first_name; ?>
         <li class="sigi">
+            
+            [<?= $userbean->role_code; ?>]
             <a href="<?php echo site_url('User_Controller/logout'); ?>"  data-target="#myModal4" > 
-                [<?= $userbean->role_code; ?>] | Logout</a>
+                 | Logout</a>
         </li>
 
         </li>				

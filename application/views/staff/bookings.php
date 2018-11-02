@@ -76,25 +76,27 @@
                                     <th>DateTime</th>
                                     <th>Status</th>
                                     <th>Date Created</th>
+                                    <th>Center</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $openBooking = $this->session->userdata('openBooking');
-                                if ($openBooking != NULL) {
-                                    foreach ($openBooking as $value) {
+//                                $openBooking = $this->session->userdata('openBooking');
+                                if ($centerBooking != NULL) {
+                                    foreach ($centerBooking as $value) {
                                         ?>
                                         <tr>
                                             <td><?= $value->id ?></td>
                                             <td><?= $value->book_date_time ?></td>
                                             <td><?= $value->status_code ?></td>
                                             <td><?= $value->created_datetime ?></td>
+                                            <td><?= $value->center_name ?></td>
                                             <td>
                                                 <?php if ($value->status_code == 'OPEN') {
                                                     ?> 
                                                 <a href="<?= base_url('Inspection_Controller/loadinitInspectionForBooking')?>/<?= $value->id ?>" class="btn-sm btn-success">Proceed</a>
-                                                    <a href="rejectBooking/<?= $value->id ?>"  class="btn-sm btn-danger">Reject</a>
+                                                <a href="<?= base_url('Reservation_Controller/removeReservation')?>/<?= $value->id ?>"  class="btn-sm btn-danger">Reject</a>
                                                     <?php
                                                 } else {
                                                     

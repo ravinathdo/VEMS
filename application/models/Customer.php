@@ -39,15 +39,36 @@ class Customer extends MY_Model {
         $this->db->select('customer.*');
         $this->db->from('customer');
         $pword = sha1($formData['password']);
-        $where = " status = 'ACTIVE' AND email = '".$formData['email']."' AND password = '".$pword."'";
+        $where = " status = 'ACTIVE' AND email = '" . $formData['email'] . "' AND password = '" . $pword . "'";
         $this->db->where($where);
         $query = $this->db->get();
-        
+
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
             return FALSE;
         }
     }
+
     
+    /**
+     * return customer details and vehicle details by providing vehicle id
+     * @param type $vehicle_id
+     * @return boolean
+     */
+    public function getCustomerVehicleDetails($vehicle_id) {
+        $this->db->select('dg_customer.*,dg_vehicle.*');
+        $this->db->from('dg_customer');
+        $this->db->join('dg_vehicle','dg_vehicle.customer_id = dg_customer.id');
+        $this->db->where('dg_vehicle.id =',$vehicle_id);
+        
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
 }

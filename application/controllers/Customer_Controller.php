@@ -13,6 +13,16 @@
  */
 class Customer_Controller extends CI_Controller {
 
+    public function loadHome() {
+        $this->load->model(array('Booking'));
+        //refesh customer open bookings
+        $booking = new Booking();
+        $customer_id = $this->session->userdata('userbean')->id;
+        $openBookings = $booking->getCustomerStatusBooking($customer_id, 'OPEN');
+        $this->session->set_userdata(array('openBookings' => $openBookings));
+        $this->load->view('home');
+    }
+
     //put your code here
     public function loadCustomerRegistration() {
         $data['quoList'] = "Sample Data";
@@ -21,7 +31,8 @@ class Customer_Controller extends CI_Controller {
 
     public function customerLogin() {
 //        echo 'customerLogin';
-        $this->load->model(array('Users'));
+        $this->load->model(array('Users','Booking'));
+        $booking = new Booking();
         $formData = $this->Users->array_from_post(array('email', 'pword'));
 //        echo '<tt><pre>' . var_export($formData, TRUE) . '</pre></tt>';
         $doLogin = $this->Users->getCustomerLogin($formData);
@@ -30,17 +41,24 @@ class Customer_Controller extends CI_Controller {
 //        echo '<tt><pre>' . var_export($doLogin, TRUE) . '</pre></tt>';
 
         if ($doLogin) {
-
             //get login date 
             date_default_timezone_set('Asia/Colombo');
             $today = date("Y-m-d", time());
-
             $newdata = array(
                 'userbean' => $doLogin[0],
                 'logged_in' => TRUE,
                 'today' => $today
             );
             $this->session->set_userdata($newdata);
+            
+            
+            //customer dash bord - my open booking count
+            $customer_id = $this->session->userdata('userbean')->id;
+            $openBookings = $booking->getCustomerStatusBooking($customer_id, 'OPEN');
+            $this->session->set_userdata(array('openBookings' => $openBookings));
+
+
+
             $this->load->view('home');
         } else {
             $data['msg'] = '<p class="bg-danger msg-err"> Invalid username or password </p>';
@@ -67,7 +85,7 @@ class Customer_Controller extends CI_Controller {
         //validate Inputs
         //check password match
         if (strlen($post_data['pword']) >= 6 && ($post_data['pword'] == $post_data['repword'])) {
-                    $customer->save();
+            $customer->save();
             $db_error = $this->db->error();
             if ($db_error['code'] == 0) {
                 $data['msg'] = '<p class="bg-success msg-success">Registration has been sucessful please login</p>';

@@ -94,4 +94,18 @@ class Inspection extends MY_Model {
         return $this->db->update('dg_inspection', $data);
     }
 
+    public function getInspectionByBooingID($booking_id) {
+        $this->db->select('dg_inspection.*');
+        $this->db->from('dg_inspection');
+        $where = " booking_id = '" . $booking_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
 }

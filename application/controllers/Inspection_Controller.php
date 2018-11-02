@@ -18,7 +18,7 @@ class Inspection_Controller extends CI_Controller {
     }
 
     public function inspection() {
-        $this->load->model(array('Inspection'));
+        $this->load->model(array('Inspection', 'Booking'));
         $inspection = new Inspection();
         $inspection->getPostData();
 
@@ -31,17 +31,21 @@ class Inspection_Controller extends CI_Controller {
         $db_error = $this->db->error();
 //            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if ($db_error['code'] == 0) {
-            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+//            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
             //new inspection created ID: 5 
             //load inspection explorer according to center user session
             $userbean = $this->session->userdata('userbean');
             if ($userbean->role_code == 'STAFF') {
-                echo 'In STAFF';
+//                echo 'In STAFF';
                 $get = $inspection->getCenterInspectionList($userbean->center_id);
             } else {
-                echo 'OUT STAFF';
+//                echo 'OUT STAFF';
                 $get = $inspection->get();
             }
+            //update booking status_code = 'DONE'
+            $booking0 = new Booking();
+            $updateArray = array('status_code' => 'DONE');
+            $booking0->update_booking($updateArray, $inspection->booking_id);
 
 //        echo '<tt><pre>' . var_export($get, TRUE) . '</pre></tt>';
             $data['inspectionList'] = $get;
@@ -75,7 +79,7 @@ class Inspection_Controller extends CI_Controller {
         $this->load->model(array('Booking', 'Vehicle'));
         $booking = new Booking();
         $bookingDetails = $booking->getBookingDetails($bookng_id);
-        echo '<tt><pre>' . var_export($bookingDetails, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($bookingDetails, TRUE) . '</pre></tt>';
 //        $data['msg'] = '';
         //get the customer vehicle list into session 
         $vehicle = new Vehicle();
@@ -98,10 +102,10 @@ class Inspection_Controller extends CI_Controller {
 
         $userbean = $this->session->userdata('userbean');
         if ($userbean->role_code == 'STAFF') {
-            echo 'In STAFF';
+//            echo 'In STAFF';
             $get = $inspection->getCenterInspectionList($userbean->center_id);
         } else {
-            echo 'OUT STAFF';
+//            echo 'OUT STAFF';
             $get = $inspection->get();
         }
 
@@ -109,6 +113,39 @@ class Inspection_Controller extends CI_Controller {
         $data['inspectionList'] = $get;
 
         $this->load->view('staff/operator_list_inspection', $data);
+    }
+
+    /**
+     * set final test result with expire date
+     * @param type $payment_id
+     */
+    public function setFianlResult() {
+        $this->load->model(array('Payment','Inspection'));
+
+        $payment = new Payment();
+        $inspection = new Inspection();
+        //update payment status_code = ''
+
+        $updateData = array('status_code' => $this->input->post('status_code'),
+            'expire_date' => $this->input->post('expire_date'));
+        $payment_id = $this->input->post('payment_id');
+        $payment->update_payment($updateData, $payment_id);
+        
+//        echo '<tt><pre>' . var_export($response, TRUE) . '</pre></tt>';
+        $db_error = $this->db->error();
+//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        //update the inspection as RESULT
+        $inspecUpdate = array('inspec_result'=>'RESULT');
+        $inspection->update_inspec($inspecUpdate,  $this->input->post('inspection_id'));
+        
+        $data['msg'] = '<p class="bg-success msg-success">Result updated successfully</p>';
+        $this->load->view('staff/result_receipt.php', $data);
     }
 
 }

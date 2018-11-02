@@ -69,10 +69,8 @@
         if ($this->session->userdata('userbean')->role_code == 'STAFF') {
             ?> 
             <div class="row">
-                <div class="col-md-4">
-
+                <div class="col-md-1">
                 </div>
-                <div class="col-md-4">.col-md-4</div>
                 <div class="col-md-1">
                     <div class="panel panel-primary">
                         <div class="panel-heading" style="text-align: center">New Bookings</div>
@@ -83,9 +81,14 @@
                                 ?></h1>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-md-3"></div>
+                <div class="col-md-4">
+                    <img src="<?= base_url('images/purpose-lab-tests-wltp.png') ?>" />
+                </div>
+                <div class="col-md-1">
+
+                </div>
             </div>
             <?php
         }
@@ -101,6 +104,40 @@
         <?php
         if ($this->session->userdata('userbean')->role_code == 'ADMIN') {
             
+        }
+        ?>
+        <?php
+        if ($this->session->userdata('userbean')->role_code == 'CUSTOMER') {
+            ?>
+        <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <div class="panel panel-primary">
+                            <div class="panel-heading ">My Bookings</div>
+                            <div class="panel-body">
+                                <h1>
+                               <?php 
+                               if($this->session->userdata('openBookings')!=false){
+                                 echo sizeof($this->session->userdata('openBookings'));  
+                               }else{
+                                   echo '0';
+                               }
+                                ?></h1>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-5">
+                    <h2><br>  Now we are in Island wide,
+                        Find your nearest </h2>
+                    <div class="logo wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+                    <a href="#">Drive <span>Green</span></a>	
+                </div>
+                    
+                </div>
+                <div class="col-md-3"><img src="<?= base_url('images/img_customer.png') ?>" /></div>
+                <div class="col-md-1"></div>
+            </div>
+            <?php
         }
         ?>
 

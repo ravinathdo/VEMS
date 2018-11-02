@@ -39,5 +39,10 @@ class Payment extends MY_Model {
             return FALSE;
         }
     }
+    
+       public function update_payment($data, $id) {
+        $this->db->where('dg_payment.id', $id);
+        return $this->db->update('dg_payment', $data);
+    }
 
 }

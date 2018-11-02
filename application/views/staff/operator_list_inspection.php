@@ -99,10 +99,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <td>
                                 <?php if ($value->inspec_result == 'ACCEPT') { ?> 
                                     <a href="<?php echo base_url('Payment_Controller/loadPayment'); ?>/<?= $value->id ?>">Go to Payment</a>
-                                <?php } else if ($value->inspec_result == 'REJECT') { ?> 
-                                    <a href="<?php echo base_url('Inspection/loadInspection'); ?>">View</a>
-                                    <?php } ?>
+                                <?php } else if ($value->inspec_result == 'PAID' ) { ?> 
+                                    <a href="<?php echo base_url('Payment_Controller/loadPayment'); ?>/<?= $value->id ?>">Set Result</a>
+                                    <?php }  ?>
 
+                                    
+                                    
+                                     <a href="<?php echo base_url('Payment_Controller/loadPayment'); ?>/<?= $value->id ?>">View</a>
                                 </td>                        
                             </tr>
 
