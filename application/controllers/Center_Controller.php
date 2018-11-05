@@ -34,6 +34,25 @@ class Center_Controller extends CI_Controller {
 //        echo $this->uid;
         $this->load->view('admin_edit_center');
     }
+    
+    
+    
+    public function updateStatus($statuscode) {
+        $this->load->model(array('Center'));
+        
+        if($statuscode == 'ACTIVE'){
+            
+        }else if($statuscode == 'DEACTIVE'){
+            
+        }
+        
+        $updateArray();
+        
+        $data['msg'] = '';
+        $this->load->view('', $data);
+    }
+    
+    
 
     public function add() {
         $this->load->model(array('Center', 'District'));
