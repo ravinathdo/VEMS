@@ -37,19 +37,22 @@ class Center_Controller extends CI_Controller {
     
     
     
-    public function updateStatus($statuscode) {
+    public function updateStatus($statuscode,$id) {
         $this->load->model(array('Center'));
+        $center0 = new Center();
         
+        $status_code = '';
         if($statuscode == 'ACTIVE'){
-            
+            $status_code = 'DEACTIVE';
         }else if($statuscode == 'DEACTIVE'){
-            
+            $status_code = 'ACTIVE'; 
         }
         
-        $updateArray();
+        $updateArray = array('status_code'=>$status_code);
+        $center0->update_center($updateArray, $id);
         
-        $data['msg'] = '';
-        $this->load->view('', $data);
+        $data['msg'] = '<p class="msg-err msg-success">Center updated successfully</p>';
+        $this->load->view('msg', $data);
     }
     
     

@@ -176,8 +176,8 @@ if(isset($msg)){
                                 <td>Email</td>
                                 <td><?= $value->status_code ?></td>
                                 <td><?= $value->district_name ?></td>
-                                <td><a href="<?= base_url('Center_Controller/updateStatus')?>/<?= $value->status_code ?>"></a>
-                                    <?= $value->status_code ?></td>
+                                <td><a class="btn-info btn-sm" href="<?= base_url('Center_Controller/updateStatus')?>/<?= $value->status_code ?>/<?= $value->id ?>"><?= $value->status_code ?></a>
+                                    </td>
                             </tr>
                             <?php
                         }

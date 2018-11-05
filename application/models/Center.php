@@ -54,4 +54,11 @@ class Center extends MY_Model {
     }
     
     
+    public function update_center($data, $id) {
+        $this->db->where('dg_center.id', $id);
+        return $this->db->update('dg_center', $data);
+    }
+
+    
+    
 }
