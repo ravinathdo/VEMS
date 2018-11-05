@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="first_name">First Name<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md" >
+                                <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md" pattern="^[a-zA-Z\s]{1,50}$" title="Invalid input" >
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="last_name">Last Name</label>  
                             <div class="col-md-8">
-                                <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" >
+                                <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" pattern="^[a-zA-Z\s]{1,50}$" title="Invalid input" >
 
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="username">Username<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="username" name="username" required="" type="text" placeholder="Username" class="form-control input-md" >
+                                <input id="username" name="username" required="" type="text" placeholder="Username" class="form-control input-md"  pattern="^[a-zA-Z0-9]{10}$" title="Letters and numbers only, max length 10 characters" >
                                 username will be same as the password for first login
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" name="nic" >NIC/PPN<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="nic" name="nic" type="text" required="" placeholder="nic" class="form-control input-md">
+                                <input id="nic" name="nic" type="text" required="" pattern="(?:((^\d{9})(v$))|((^\d{9})(x$))|(^\d{12}$))" title="9 digit with 'x' or 'v', 12 digit modern NIC" placeholder="nic" class="form-control input-md">
 
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                                     <option value="">--select role--</option>
                                     <?php
                                     foreach ($roleList as $rows) {
-                                        ?> <option value="<?= $rows->role_code ?>"><?= $rows->description ?></option> <?php
+                                       if($rows->role_code != 'CUSTOMER'){?> <option value="<?= $rows->role_code ?>"><?= $rows->description ?></option> <?php } ?>  <?php
                                     }
                                     ?>
                                 </select>

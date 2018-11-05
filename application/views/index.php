@@ -20,7 +20,7 @@
     <body>
         
         <!--pre_header-->
-        <?php include './_pre_header.php';?>
+       <?php $this->load->view('_top_pre_header.php')?>
         <!--pre_header-->
         
         <!--- footer-btm ---->

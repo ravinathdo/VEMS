@@ -24,6 +24,7 @@ class Center extends MY_Model {
 //    public $created_datetime;
     public $created_user;
     public $district_name;
+    public $status_code;
     
     
     public function array_from_post($fields) {

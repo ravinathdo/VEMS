@@ -5,3 +5,7 @@
 
 
 <script src="<?php echo site_url('js/jquery.dataTables.min.js');?>"></script>
+
+
+<script src="<?php echo site_url('js/highcharts.js');?>"></script>
+<script src="<?php echo site_url('js/exporting.js');?>"></script>

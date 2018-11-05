@@ -39,14 +39,14 @@ class User_Controller extends CI_Controller {
 
         if ($doLogin) {
 
-               //get login date 
+            //get login date 
             date_default_timezone_set('Asia/Colombo');
             $today = date("Y-m-d", time());
-            
+
             $newdata = array(
                 'userbean' => $doLogin[0],
                 'logged_in' => TRUE,
-                'today'=>$today
+                'today' => $today
             );
             $this->session->set_userdata($newdata);
             $this->load->view('home');
@@ -87,6 +87,53 @@ class User_Controller extends CI_Controller {
                 $this->load->view('manager/manager_user_creation', $data);
                 break;
         }
+    }
+
+    public function updateUser() {
+        $this->load->model(array('Users'));
+        $dataArray = array('first_name'=> $this->input->post('first_name'),
+            'last_name' => $this->input->post('last_name'),
+            'nic' => $this->input->post('nic'),
+            'username' => $this->input->post('username'),
+            'mobile_number' => $this->input->post('mobile_number'),
+            'address' => $this->input->post('address'),
+            'role_code' => $this->input->post('role_code'),
+            'center_id' => $this->input->post('center_id'),
+            'status_code' => $this->input->post('status_code'));
+
+        $users0 = new Users();
+        
+//        echo '<tt><pre>' . var_export($dataArray, TRUE) . '</pre></tt>';
+        
+        $users0->update_user($dataArray, $this->input->post('id'));
+        $data['msg'] = '<p class="bg-success msg-success">User updated successfully</p>';
+        $this->load->view('msg', $data);
+    }
+
+    public function passwordReset() {
+        $this->load->model(array('Users'));
+        $users = new Users();
+
+        $newPword = sha1($this->input->post('nic'));
+        $id = $this->input->post('id');
+        $updateArray = array('pword' => $newPword);
+
+
+        $users->update_user($updateArray, $id);
+
+
+        $db_error = $this->db->error();
+        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+
+        $data['msg'] = '<p class="bg-success msg-success">Password updated successfuly</p>';
+
+        $this->load->view('msg', $data);
     }
 
     public function loadUpdateUser() {
@@ -144,8 +191,8 @@ class User_Controller extends CI_Controller {
         $users->center_id = $arry_input['center_id'];
         $users->status_code = $arry_input['status_code'];
         $users->created_user = $userbean->id;
-        
-        
+
+
         $users->save();
         $db_error = $this->db->error();
 //        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';

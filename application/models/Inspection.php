@@ -43,6 +43,20 @@ class Inspection extends MY_Model {
         return $data;
     }
 
+    public function getCenterInspections() {
+        $this->db->select('COUNT(dg_inspection.id) AS CNT,dg_center.center_name');
+        $this->db->from('dg_inspection');
+        $this->db->join('dg_center','dg_center.id = dg_inspection.center_id');
+        $this->db->group_by("dg_inspection.center_id");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
     public function getPostData() {
         $this->vehicle_id = $this->input->post('vehicle_id');
         $this->engine_type = $this->input->post('engine_type');

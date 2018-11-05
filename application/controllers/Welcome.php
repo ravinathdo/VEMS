@@ -22,4 +22,13 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+        
+        
+        public function test() {
+            echo 'xx';
+            $this->load->model(array('Inspection'));
+            $inspection = new Inspection();
+            $centerInspections = $inspection->getCenterInspections();
+            echo '<tt><pre>' . var_export($centerInspections, TRUE) . '</pre></tt>';
+        }
 }

@@ -22,7 +22,7 @@ class Admin extends CI_Controller {
 
     public function userLogin() {
         //find the user and role == 'ADMIN'
-        $this->load->model(array('Users','Booking'));
+        $this->load->model(array('Users','Booking','Inspection'));
         $formData = $this->Users->array_from_post(array('username', 'password'));
 //        echo '<tt><pre>' . var_export($formData, TRUE) . '</pre></tt>';
         
@@ -45,6 +45,13 @@ class Admin extends CI_Controller {
                 $this->session->set_userdata(array('openBooking'=>$centerBooking));
             }
             
+            
+              if($doLogin[0]->role_code == 'ADMIN'){
+                  //get center inspection list details to show pie chart
+                  $inspection = new Inspection();
+                  $centerInspections = $inspection->getCenterInspections();
+                  $this->session->set_userdata(array('centerInspectionsList'=>$centerInspections));
+              }
             
             $this->load->view('home');
         } else {
