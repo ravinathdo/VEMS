@@ -77,7 +77,7 @@
                 <div class="col-md-1">
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4"><span class="mando-msg">* Fields are mandatory</span>
                     <table class="table table-bordered">
                         <tr>
                             <td>VEHICLE NO</td>
@@ -87,9 +87,9 @@
                             </td>
                         </tr> 
                         <tr>
-                            <td>Engine Type</td>
+                            <td>Engine Type<span class="mando-msg">*</span></td>
                             <td>
-                                <select name="" name="engine_type" class="form-control" >
+                                <select name="" name="engine_type" required="" class="form-control" >
                                     <option value="manual">Manual</option>
                                     <option value="auto">Auto</option>
                                 </select>
@@ -99,40 +99,40 @@
 
                     <table class="table table-bordered">
                         <tr>
-                            <td>Chassis Number</td>
-                            <td><select class="form-control" name="chassis_number">
+                            <td>Chassis Number<span class="mando-msg">*</span></td>
+                            <td><select class="form-control" required="" name="chassis_number">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Engine Number</td>
-                            <td><select class="form-control" name="engine_number">
+                            <td>Engine Number<span class="mando-msg">*</span></td>
+                            <td><select class="form-control" required="" name="engine_number">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Absence of Silencer Leak</td>
-                            <td><select class="form-control" name="silencer_leak">
+                            <td>Absence of Silencer Leak<span class="mando-msg">*</span></td>
+                            <td><select class="form-control" required="" name="silencer_leak">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Absence of oil leak</td>
-                            <td><select class="form-control" name="oil_leak">
+                            <td>Absence of oil leak<span class="mando-msg">*</span></td>
+                            <td><select class="form-control"  required="" name="oil_leak">
                                     <option>--select--</option>
                                    <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Presence of air leak</td>
-                            <td><select class="form-control" name="air_leak">
+                            <td>Presence of air leak<span class="mando-msg">*</span></td>
+                            <td><select class="form-control" required="" name="air_leak">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
@@ -148,40 +148,40 @@
                     <table class="table table-bordered">
 
                         <tr>
-                            <td>Good condition of fuel tank cap</td>
-                            <td><select class="form-control" name="fuel_tank_cap">
+                            <td>Good condition of fuel tank cap<span class="mando-msg">*</span></td>
+                            <td><select class="form-control" required="" name="fuel_tank_cap">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Presence of plug top </td>
-                            <td><select class="form-control" name="plug_top">
+                            <td>Presence of plug top<span class="mando-msg">*</span> </td>
+                            <td><select class="form-control" required="" name="plug_top">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Stable engine idle RPM </td>
-                            <td><select class="form-control" name="engine_idle_RPM">
+                            <td>Stable engine idle RPM<span class="mando-msg">*</span> </td>
+                            <td><select class="form-control" required="" name="engine_idle_RPM">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Absence of abnormal Vibration </td>
-                            <td><select class="form-control" name="abnormal_vibration">
+                            <td>Absence of abnormal Vibration<span class="mando-msg">*</span> </td>
+                            <td><select class="form-control" required="" name="abnormal_vibration">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>
                                 </select></td>
                         </tr>
                         <tr>
-                            <td>Absence of noticeable water leakages</td>
-                            <td><select class="form-control" name="water_leakages">
+                            <td>Absence of noticeable water leakages<span class="mando-msg">*</span></td>
+                            <td><select class="form-control" required="" name="water_leakages">
                                     <option>--select--</option>
                                     <option value="Accepted">Accepted</option>
                                     <option value="Not Accepted">Not Accepted</option>

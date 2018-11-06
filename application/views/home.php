@@ -97,7 +97,41 @@
 
         <?php
         if ($this->session->userdata('userbean')->role_code == 'MANAGER') {
-            
+            ?> 
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+             <?php $centerDetail = $this->session->userdata('centerDetail') ?>
+                    <table class="table-bordered">
+                        <tr>
+                            <td><h1> <?= $centerDetail[0]->center_name?> </h1> </td>
+                        </tr>
+                        <tr>
+                            <td><?= $centerDetail[0]->mobile?> </td>
+                        </tr>
+                        <tr>
+                            <td><?= $centerDetail[0]->address?> </td>
+                        </tr>
+                    </table>
+                
+                </div>
+                
+                <div class="col-md-4">   <img src="<?= base_url('images/purpose-lab-tests-wltp.png') ?>" /></div>
+                <div class="col-md-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="text-align: center">New Bookings</div>
+                        <div class="panel-body">
+                            <h1 style="text-align: center"><?php
+                                $openBooking = $this->session->userdata('openBooking');
+                                echo sizeof($openBooking);
+                                ?></h1>
+                        </div>
+                    </div>
+                </div>
+                                <div class="col-md-1">
+                                </div>
+            </div>
+            <?php
         }
         ?>
 
@@ -107,58 +141,58 @@
             <div class="row">
                 <div class="col-md-8">
                     <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-                    
+
                 </div>
                 <div class="col-md-4">.col-md-4</div>
             </div>
-        
-        
-    <script>
-    
-Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Centers Inspections'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
-            }
-        }
-    },
-    series: [{
-        name: 'Count',
-        colorByPoint: true,
-        data: [<?php 
-       $centerInspectionsList = $this->session->userdata('centerInspectionsList');
+
+
+            <script>
+
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Centers Inspections'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                            name: 'Count',
+                            colorByPoint: true,
+                            data: [<?php
+        $centerInspectionsList = $this->session->userdata('centerInspectionsList');
         foreach ($centerInspectionsList as $value) {
-              ?> {
-            name: '<?= $value->center_name ?>',
-            y: <?= $value->CNT ?>
-        },<?php }?>]
-    }]
-});
-    </script>
-    
-    
- <?php echo '<tt><pre>' . var_export($this->session->userdata('centerInspectionsList'), TRUE) . '</pre></tt>';?>
-        
-        
+            ?> {
+                                        name: '<?= $value->center_name ?>',
+                                        y: <?= $value->CNT ?>
+                                    },<?php } ?>]
+                        }]
+                });
+            </script>
+
+
+            <?php echo '<tt><pre>' . var_export($this->session->userdata('centerInspectionsList'), TRUE) . '</pre></tt>'; ?>
+
+
             <?php
         }
         ?>

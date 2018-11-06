@@ -136,7 +136,7 @@ if ($bookingList != null)
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-5 control-label">Date Time<span class="mando-msg">*</span></label>
                                 <div class="col-sm-7">
-                                    <input type="datetime-local"  min="<?= $this->session->userdata('today') ?>T00:00" name="book_date_time" class="form-control" id="inputPassword3" >
+                                    <input type="datetime-local" required=""  min="<?= $this->session->userdata('today') ?>T00:00" name="book_date_time" class="form-control" id="inputPassword3" >
                                 </div>
                             </div>
                             <div class="form-group">

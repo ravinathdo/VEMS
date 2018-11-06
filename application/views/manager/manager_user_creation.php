@@ -77,7 +77,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="first_name">First Name<span class="mando-msg">*</span></label>  
                                     <div class="col-md-8">
-                                        <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md" >
+                                        <input id="first_name" name="first_name" required="" type="text" placeholder="First Name" class="form-control input-md"  pattern="^[a-zA-Z\s]{1,50}$" title="Invalid input">
                                     </div>
                                 </div>
 
@@ -85,7 +85,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="last_name">Last Name</label>  
                                     <div class="col-md-8">
-                                        <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" >
+                                        <input id="last_name" name="last_name" type="text" placeholder="Last Name" class="form-control input-md" pattern="^[a-zA-Z\s]{1,50}$" title="Invalid input">
 
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="username">Username<span class="mando-msg">*</span></label>  
                                     <div class="col-md-8">
-                                        <input id="username" name="username" required="" type="text" placeholder="Username" class="form-control input-md" >
+                                        <input id="username" name="username" required="" type="text" placeholder="Username" class="form-control input-md" pattern="^[a-zA-Z0-9]{3,20}$" title="Letters and numbers only,min length, max length 10 characters">
                                         username will be same as the password for first login
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" name="nic" >NIC/PPN<span class="mando-msg">*</span></label>  
                                     <div class="col-md-8">
-                                        <input id="nic" name="nic" type="text" required="" placeholder="nic" class="form-control input-md">
+                                        <input id="nic" name="nic" type="text" required="" placeholder="nic" class="form-control input-md" pattern="(?:((^\d{9})(v$))|((^\d{9})(x$))|(^\d{12}$))" title="9 digit with 'x' or 'v', 12 digit modern NIC">
 
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="mobile_number">Mobile No</label>  
                                     <div class="col-md-8">
-                                        <input id="mobile_number" name="mobile_number" type="text" placeholder="Mobile Number" class="form-control input-md">
+                                        <input id="mobile_number" name="mobile_number" type="text" placeholder="Mobile Number" class="form-control input-md"  pattern="^[0-9]{0,10}$"  title="Invalid input">
 
                                     </div>
                                 </div>

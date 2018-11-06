@@ -83,6 +83,7 @@ class User_Controller extends CI_Controller {
                 break;
             case 'MANAGER':
                 $userList = $users->getUserListOnCenter($this->session->userdata('userbean')->center_id);
+//                echo '<tt><pre>' . var_export($userList, TRUE) . '</pre></tt>';
                 $data['userList'] = $userList;
                 $this->load->view('manager/manager_user_creation', $data);
                 break;

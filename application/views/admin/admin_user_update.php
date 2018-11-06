@@ -144,7 +144,7 @@
                                             <option value="">--select role--</option>
                                             <?php
                                             foreach ($roleList as $rows) {
-                                                ?> <option value="<?= $rows->role_code ?>"  <?php if ($rows->role_code == $user_update->role_code) { ?> selected="" <?php } ?> ><?= $rows->description ?></option> <?php
+                                         if($rows->role_code != 'ADMIN'){       ?> <option value="<?= $rows->role_code ?>"  <?php if ($rows->role_code == $user_update->role_code) { ?> selected="" <?php } ?> ><?= $rows->description ?></option> <?php }
                                             }
                                             ?>
                                         </select>

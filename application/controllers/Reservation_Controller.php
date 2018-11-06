@@ -15,15 +15,27 @@ class Reservation_Controller extends CI_Controller {
 
     //put your code here
     public function loadNewReservation() {
-        $this->load->model(array('Customer'));
+        $this->load->model(array('Customer','Booking'));
         //get customer list
         $customer = new Customer();
+        $booking = new Booking();
         $data['custList'] = $customer->get();
+        $center_id = $this->session->userdata('userbean')->center_id;
+        $centerBooking = $booking->getCenterBookingStatus($center_id, 'OPEN');
+//        echo '<tt><pre>' . var_export($centerBooking, TRUE) . '</pre></tt>';
+        $data['bookingList'] = $centerBooking;
         $this->load->view('staff/new_reservation', $data);
     }
 
     public function manageReservation() {
-        $this->load->view('customer_manage_reservation');
+                $this->load->model(array('Booking'));
+        $booking = new Booking();
+
+            $getBooking = $booking->getCenterBooking($this->session->userdata('userbean')->center_id);
+            $data['centerBooking'] = $getBooking;
+            $this->load->view('staff/bookings', $data);
+            
+//        $this->load->view('customer_manage_reservation');
     }
 
     public function loadCenterBooking() {
@@ -32,7 +44,8 @@ class Reservation_Controller extends CI_Controller {
         $booking = new Booking();
 
         $center_id = $this->session->userdata('userbean')->center_id;
-        $centerBooking = $booking->getCenterBooking($center_id);
+        $centerBooking = $booking->getCenterBookingStatus($center_id, 'OPEN');
+
 //        echo '<tt><pre>' . var_export($centerBooking, TRUE) . '</pre></tt>';
         $data['centerBooking'] = $centerBooking;
         $this->load->view('staff/bookings', $data);
@@ -76,10 +89,21 @@ class Reservation_Controller extends CI_Controller {
         } else {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
-        //load all booking to this customer
-        $getBooking = $booking->get();
-        $data['bookingList'] = $getBooking;
-        $this->load->view('customer_new_reservation', $data);
+
+
+
+        if ($this->session->userdata('userbean')->role_code == 'CUSTOMER') {
+            //load OPEN booking to this customer
+            $getBooking = $booking->getCustomerStatusBooking($this->session->userdata('userbean')->id, 'OPEN');
+            $data['bookingList'] = $getBooking;
+            $this->load->view('customer_new_reservation', $data);
+        }
+
+        if ($this->session->userdata('userbean')->role_code == 'STAFF' || $this->session->userdata('userbean')->role_code == 'MANAGER') {
+            $getBooking = $booking->getCenterBooking($this->session->userdata('userbean')->center_id);
+            $data['centerBooking'] = $getBooking;
+            $this->load->view('staff/bookings', $data);
+        }
     }
 
     public function loadBookingExplorer() {
@@ -92,7 +116,10 @@ class Reservation_Controller extends CI_Controller {
 //        echo '<tt><pre>' . var_export($customerBooking, TRUE) . '</pre></tt>';
         $this->load->view('customer/customer_booking_explorer', $data);
     }
+    
+    
 
+    
     public function removeReservation($rid) {
         $this->load->model(array('Booking', 'Center'));
         $booking = new Booking();
@@ -115,7 +142,7 @@ class Reservation_Controller extends CI_Controller {
         $inspection = new Inspection();
         $inspectionByBooingID = $inspection->getInspectionByBooingID($bid);
         $inspec_id = $inspectionByBooingID[0]->id;
-        redirect('Payment_Controller/loadPayment/'.$inspec_id);
+        redirect('Payment_Controller/loadPayment/' . $inspec_id);
     }
 
 }

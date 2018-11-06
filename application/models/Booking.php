@@ -71,7 +71,7 @@ class Booking extends MY_Model {
         $this->db->select('dg_booking.*,dg_center.center_name');
         $this->db->from('dg_booking');
         $this->db->join('dg_center','dg_center.id = dg_booking.center_id');
-        $where = " center_id = '" . $center_id . "'";
+        $where = " dg_booking.center_id = '" . $center_id . "'";
         $this->db->where($where);
         $query = $this->db->get();
 
@@ -81,6 +81,26 @@ class Booking extends MY_Model {
             return FALSE;
         }
     }
+    
+    
+    public function getCenterBookingStatus($center_id,$statuscode) {
+        $this->db->select('dg_booking.*,dg_center.center_name');
+        $this->db->from('dg_booking');
+        $this->db->join('dg_center','dg_center.id = dg_booking.center_id');
+        $where = " dg_booking.center_id = '" . $center_id . "' AND dg_booking.status_code = '".$statuscode."'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+    
+    
+    
 
     public function getCenterOPENBookings($center_id) {
         $this->db->select('dg_booking.*');

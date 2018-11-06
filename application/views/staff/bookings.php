@@ -68,7 +68,9 @@
                     <div class="panel-heading ">Booking Explorer</div>
                     <div class="panel-body">
                         <!--extract the session open booking data-->
-
+<?php if(isset($msg)){
+    echo $msg;
+}?>
                         <table id="example" class="display" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -96,7 +98,7 @@
                                                 <?php if ($value->status_code == 'OPEN') {
                                                     ?> 
                                                 <a href="<?= base_url('Inspection_Controller/loadinitInspectionForBooking')?>/<?= $value->id ?>" class="btn-sm btn-success">Proceed</a>
-                                                <a href="<?= base_url('Reservation_Controller/removeReservation')?>/<?= $value->id ?>"  class="btn-sm btn-danger">Reject</a>
+                                                <a onclick="return removeConfirm()" href="<?= base_url('Reservation_Controller/removeReservation')?>/<?= $value->id ?>"  class="btn-sm btn-danger">Reject</a>
                                                     <?php
                                                 } else {
                                                     
@@ -115,6 +117,14 @@
             $(document).ready(function () {
                 $('#example').DataTable();
             });
+            
+            
+            
+            function removeConfirm(){
+                if(confirm("Are you sure?")){
+                    return true;
+                }else{return false;}
+            }
                         </script>
 
                     </div>

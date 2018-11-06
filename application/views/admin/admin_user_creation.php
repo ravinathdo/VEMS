@@ -129,7 +129,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="mobile_number">Mobile No</label>  
                             <div class="col-md-8">
-                                <input id="mobile_number" name="mobile_number" type="text" placeholder="Mobile Number" class="form-control input-md">
+                                <input id="mobile_number" name="mobile_number" type="text" placeholder="Mobile Number" class="form-control input-md" pattern="^[0-9]{0,10}$"  title="Invalid input">
 
                             </div>
                         </div>
