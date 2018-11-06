@@ -43,11 +43,49 @@ class Inspection extends MY_Model {
         return $data;
     }
 
+    public function getInspectionReportData($fromdate, $todate,$centerid) {
+        $this->db->distinct();
+        $this->db->select('dg_inspection.*,dg_vehicle.reg_no,dg_vehicle.type_code,dg_customer.first_name,dg_payment.amount,dg_payment.created_datetime');
+        $this->db->from('dg_inspection');
+        $this->db->join('dg_vehicle','dg_vehicle.id = dg_inspection.vehicle_id');
+        $this->db->join('dg_customer','dg_customer.id = dg_vehicle.customer_id');
+        $this->db->join('dg_payment','dg_payment.inspection_id = dg_inspection.id');
+        $where = " DATE(dg_inspection.created_datetime) >= '".$fromdate."' AND  DATE(dg_inspection.created_datetime) <= '".$todate."' AND  dg_inspection.center_id = '".$centerid."'";
+        $this->db->where($where);
+        $query = $this->db->get();
+        
+        
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+    
+    
+    public function getCenterVehicleTypeInspec($fromdate, $todate,$centerid) {
+         $this->db->distinct();
+        $this->db->select('COUNT(dg_inspection.id) CNT,dg_vehicle.type_code');
+        $this->db->group_by('dg_vehicle.type_code'); 
+        $this->db->from('dg_inspection');
+        $this->db->join('dg_vehicle','dg_vehicle.id = dg_inspection.vehicle_id');
+        $where = " DATE(dg_inspection.created_datetime) >= '".$fromdate."' AND  DATE(dg_inspection.created_datetime) <= '".$todate."' AND  dg_inspection.center_id = '".$centerid."'";
+        $this->db->where($where);
+        $query = $this->db->get();
+        
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
     public function isCustomerResult($customerid, $inspecid) {
         $this->db->select('dg_inspection.*');
         $this->db->from('dg_inspection');
         $this->db->join('dg_vehicle', 'dg_vehicle.id = dg_inspection.vehicle_id');
-        $where = " dg_vehicle.customer_id = '" . $customerid . "' AND dg_inspection.id = '".$inspecid."'";
+        $where = " dg_vehicle.customer_id = '" . $customerid . "' AND dg_inspection.id = '" . $inspecid . "'";
         $this->db->where($where);
         $query = $this->db->get();
 
