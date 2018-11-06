@@ -79,7 +79,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="first_name">First Name<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="first_name" required="" name="first_name" type="text" placeholder="first name" class="form-control input-md">
+                                <input id="first_name" required="" name="first_name" type="text" placeholder="first name" class="form-control input-md"  pattern="^[a-zA-Z\s]{1,50}$" title="Invalid input,letters only,max length 50" >
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="nic">NIC<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="nic" required="" name="nic" type="text" placeholder="nic" class="form-control input-md">
+                                <input id="nic" required="" name="nic" type="text" placeholder="nic" class="form-control input-md" pattern="(?:((^\d{9})(v$))|((^\d{9})(x$))|(^\d{12}$))" title="9 digit with 'x' or 'v', 12 digit modern NIC" >
 
                             </div>
                         </div>
@@ -105,16 +105,16 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="mobile_number">Mobile Number</label>  
                             <div class="col-md-8">
-                                <input id="mobile_number" name="mobile_number" type="text" placeholder="mobile number" class="form-control input-md">
+                                <input id="mobile_number" name="mobile_number" type="text" placeholder="mobile number" class="form-control input-md"  pattern="^[0-9]{0,10}$"  title="Invalid input">
 
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="email">email</label>  
+                            <label class="col-md-4 control-label" for="email">Email<span class="mando-msg">*</span></label>  
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
+                                <input id="email" name="email" required="" type="text" placeholder="email" class="form-control input-md">
 
                             </div>
                         </div>
@@ -160,6 +160,7 @@
                         <tr>
                             <th>First Name</th>
                             <th>Last Name</th>
+                            <th>Email</th>
                             <th>NIC</th>
                             <th>Mobile Number</th>
                             <th>Status</th>
@@ -172,6 +173,7 @@
                             <tr>
                                 <td><?php echo $value->first_name ?></td>
                                 <td><?php echo $value->last_name ?></td>
+                                <td><?php echo $value->email ?></td>
                                 <td><?php echo $value->nic ?></td>
                                 <td><?php echo $value->mobile_number ?></td>
                                 <td><?php echo $value->status_code ?> </td>

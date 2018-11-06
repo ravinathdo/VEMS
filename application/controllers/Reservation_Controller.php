@@ -59,7 +59,7 @@ class Reservation_Controller extends CI_Controller {
         $data['centerList'] = $center->get();
         $data['msg'] = '';
 
-        $getBooking = $booking->get();
+        $getBooking = $booking->getCustomerStatusBooking($this->session->userdata('userbean')->id,'OPEN');
         $data['bookingList'] = $getBooking;
         $this->load->view('customer_new_reservation', $data);
     }

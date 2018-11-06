@@ -52,9 +52,11 @@ class Booking extends MY_Model {
     
     
     public function getCustomerStatusBooking($customer_id,$status_code) {
+//        echo $customer_id;
+//        echo $status_code;
         $this->db->select('dg_booking.*');
         $this->db->from('dg_booking');
-        $where = " customer_id = '" . $customer_id . "' AND status_code = '".$status_code."'";
+        $where = "dg_booking.customer_id = '" . $customer_id . "' AND dg_booking.status_code = '".$status_code."' ";
         $this->db->where($where);
         $query = $this->db->get();
 

@@ -2,6 +2,7 @@
             <li class="active"><a href="<?php echo base_url('Customer_Controller/loadHome'); ?>">Home</a></li>
             <li><a href="<?php echo base_url('Reservation_Controller/loadCustNewReservation'); ?>">New Reservation</a></li>
             <li><a href="<?php echo base_url('Reservation_Controller/loadBookingExplorer'); ?>">Booking Explorer</a></li>
+            <li><a href="<?php echo base_url('Report_Controller/loadResultReport'); ?>">Report</a></li>
 <!--            <li><a href="<?php echo base_url('Menu_Controller/about'); ?>">About</a></li>
             <li><a href="<?php echo base_url('Menu_Controller/terms'); ?>">Terms of Use</a></li>
             <li><a href="<?php echo base_url('Menu_Controller/contact'); ?>">Contact Us</a></li>

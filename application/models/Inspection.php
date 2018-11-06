@@ -43,10 +43,25 @@ class Inspection extends MY_Model {
         return $data;
     }
 
+    public function isCustomerResult($customerid, $inspecid) {
+        $this->db->select('dg_inspection.*');
+        $this->db->from('dg_inspection');
+        $this->db->join('dg_vehicle', 'dg_vehicle.id = dg_inspection.vehicle_id');
+        $where = " dg_vehicle.customer_id = '" . $customerid . "' AND dg_inspection.id = '".$inspecid."'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
     public function getCenterInspections() {
         $this->db->select('COUNT(dg_inspection.id) AS CNT,dg_center.center_name');
         $this->db->from('dg_inspection');
-        $this->db->join('dg_center','dg_center.id = dg_inspection.center_id');
+        $this->db->join('dg_center', 'dg_center.id = dg_inspection.center_id');
         $this->db->group_by("dg_inspection.center_id");
         $query = $this->db->get();
 

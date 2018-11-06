@@ -101,21 +101,21 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-             <?php $centerDetail = $this->session->userdata('centerDetail') ?>
+                    <?php $centerDetail = $this->session->userdata('centerDetail') ?>
                     <table class="table-bordered">
                         <tr>
-                            <td><h1> <?= $centerDetail[0]->center_name?> </h1> </td>
+                            <td><h1> <?= $centerDetail[0]->center_name ?> </h1> </td>
                         </tr>
                         <tr>
-                            <td><?= $centerDetail[0]->mobile?> </td>
+                            <td><?= $centerDetail[0]->mobile ?> </td>
                         </tr>
                         <tr>
-                            <td><?= $centerDetail[0]->address?> </td>
+                            <td><?= $centerDetail[0]->address ?> </td>
                         </tr>
                     </table>
-                
+
                 </div>
-                
+
                 <div class="col-md-4">   <img src="<?= base_url('images/purpose-lab-tests-wltp.png') ?>" /></div>
                 <div class="col-md-2">
                     <div class="panel panel-primary">
@@ -128,8 +128,8 @@
                         </div>
                     </div>
                 </div>
-                                <div class="col-md-1">
-                                </div>
+                <div class="col-md-1">
+                </div>
             </div>
             <?php
         }
@@ -231,6 +231,13 @@
         }
         ?>
 
+        <!--- footer-top ---->
+        <div class="footer-top">
+            <div class="container">
+                <?php $this->load->view('_footer_branch'); ?>
+            </div>
+        </div>
+        <!--- /footer-top ---->
         <!---copy-right ---->
         <div class="copy-right">
             <div class="container">
