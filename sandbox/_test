@@ -8,5 +8,6 @@ cimethod
 1. contact.php [Fill the details of centers name,address,telephone,email etc.]
 2. terms.php   [Fill the terms and conditions]
 3. about.php   [Fill content, remove what doesnt need]
+4. _footer.php [Fill the content, center names]
 
 

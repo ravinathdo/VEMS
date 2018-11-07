@@ -51,6 +51,18 @@ class Customer extends MY_Model {
     }
 
     
+    
+    public function getCustomerList() {
+        $this->db->select('customer.*');
+        $this->db->from('customer');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
     /**
      * return customer details and vehicle details by providing vehicle id
      * @param type $vehicle_id
