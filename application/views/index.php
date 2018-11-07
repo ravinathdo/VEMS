@@ -51,7 +51,7 @@
                 <li><a href="agent.html">Agent Registration</a></li>-->
             <li><a href="<?php echo base_url('Menu_Controller/terms'); ?>">Terms of Use</a></li>
             <li><a href="<?php echo base_url('Menu_Controller/contact'); ?>">Contact Us</a></li>
-            <li>Need Help?<a href="#" data-toggle="modal" data-target="#myModal3"> / Write Us </a>  </li>
+            <!--<li>Need Help?<a href="#" data-toggle="modal" data-target="#myModal3"> / Write Us </a>  </li>-->
             <div class="clearfix"></div>
         </ul>
                             </nav>

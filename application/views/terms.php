@@ -172,7 +172,7 @@
         </div>
         <!--- /copy-right ---->
         <!-- sign -->
-        <?php $this->load->view('_model_signin');?>
+        <?php $this->load->view('_model_login');?>
         <!-- //sign -->
         <!-- signin -->
         <?php $this->load->view('_model_signup');?>
