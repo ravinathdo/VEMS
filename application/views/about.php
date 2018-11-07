@@ -1,13 +1,8 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Green Wheels a Travel Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+        <title>Green Drive</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Green Wheels Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -26,23 +21,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         
         <!--- /top-header ---->
         <!--- header ---->
-        <div class="header">
-            <div class="container">
-                <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-                    <a href="index">Green <span>Wheels</span></a>	
-                </div>
-                <div class="bus wow fadeInUp animated" data-wow-delay=".5s">
-                    <a href="index.html" class="buses active">BUSES</a>
-                    <a href="hotels.html">HOTELS</a>
-                </div>
-                <div class="lock fadeInDown animated" data-wow-delay=".5s"> 
-                    <li><i class="fa fa-lock"></i></li>
-                    <li><div class="securetxt">SAFE &amp; SECURE<br> ONLINE PAYMENTS</div></li>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+        <!--pre_header-->
+       <?php $this->load->view('_pre_header.php')?>
+        <!--pre_header-->
         <!--- /header ---->
         <!--- footer-btm ---->
         <div class="footer-btm wow fadeInLeft animated" data-wow-delay=".5s">
@@ -211,11 +192,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
         <!--- /copy-right ---->
-        <!-- sign -->
-        <?php $this->load->view('_model_signin');?>
-        <!-- //sign -->
         <!-- signin -->
         <?php $this->load->view('_model_signup');?>
+        <!-- //signin -->
+         <!-- signin -->
+        <?php $this->load->view('_model_login');?>
         <!-- //signin -->
         <!-- write us -->
         <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

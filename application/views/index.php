@@ -20,7 +20,7 @@
     <body>
         
         <!--pre_header-->
-       <?php $this->load->view('_top_pre_header.php')?>
+       <?php $this->load->view('_pre_header.php')?>
         <!--pre_header-->
         
         <!--- footer-btm ---->
@@ -278,9 +278,6 @@
             </div>
         </div>
         <!--- /footer-top ---->
-        <!---copy-right ---->
-         <?php $this->load->view('_footer');?>
-        <!--- /copy-right ---->
         <!-- sign -->
         <?php // $this->load->view('_model_signin');?>
         <!-- //sign -->
@@ -289,7 +286,8 @@
         <!-- //signin -->
         <!-- signin -->
         <?php $this->load->view('_model_login');?>
-        <!-- //signin -->
+        <!-- //signin -->       
+        
         <!-- write us -->
         <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">

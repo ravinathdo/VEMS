@@ -24,41 +24,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--//end-animate-->
     </head>
     <body>
-        <!-- top-header -->
-        <div class="top-header">
-            <div class="container">
-                <ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
-                    <li class="hm"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                    <li class="prnt"><a href="javascript:window.print()">Print/SMS Ticket</a></li>
 
-                </ul>
-                <ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
-                    <li class="tol">Toll Number : 123-4568790</li>				
-                    <li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a></li> 
-                    <li class="sigi"><a href="#" data-toggle="modal" data-target="#myModal4" >/ Sign In</a></li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <!--- /top-header ---->
         <!--- header ---->
-        <div class="header">
-            <div class="container">
-                <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-                    <a href="index">Green <span>Wheels</span></a>	
-                </div>
-                <div class="bus wow fadeInUp animated" data-wow-delay=".5s">
-                    <a href="index.html" class="buses active">BUSES</a>
-                    <a href="hotels.html">HOTELS</a>
-                </div>
-                <div class="lock fadeInDown animated" data-wow-delay=".5s"> 
-                    <li><i class="fa fa-lock"></i></li>
-                    <li><div class="securetxt">SAFE &amp; SECURE<br> ONLINE PAYMENTS</div></li>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+
+        <!--pre_header-->
+        <?php $this->load->view('_pre_header.php') ?>
+        <!--pre_header-->
+
         <!--- /header ---->
         <!--- footer-btm ---->
         <div class="footer-btm wow fadeInLeft animated" data-wow-delay=".5s">
@@ -326,11 +298,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
         <!--- /copy-right ---->
-       <!-- sign -->
-        <?php $this->load->view('_model_signin');?>
+        <!-- sign -->
+        <?php $this->load->view('_model_signin'); ?>
         <!-- //sign -->
         <!-- signin -->
-        <?php $this->load->view('_model_signup');?>
+        <?php $this->load->view('_model_signup'); ?>
         <!-- //signin -->
         <!-- write us -->
         <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -346,15 +318,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <ul>
                                     <li class="na-me">
                                         <input class="name" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                                    this.value = 'Name';}" required="">
+                                                    this.value = 'Name';
+                                                }" required="">
                                     </li>
                                     <li class="na-me">
                                         <input class="Email" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                                    this.value = 'Email';}" required="">
+                                                    this.value = 'Email';
+                                                }" required="">
                                     </li>
                                     <li class="na-me">
                                         <input class="number" type="text" value="Mobile Number" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                                    this.value = 'Mobile Number';}" required="">
+                                                    this.value = 'Mobile Number';
+                                                }" required="">
                                     </li>
                                     <li class="na-me">
                                         <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
@@ -376,7 +351,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </li>
                                     <li class="descrip">
                                         <input class="special" type="text" value="Write Description" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                                                    this.value = 'Write Description';}" required="">
+                                                    this.value = 'Write Description';}" required="">
                                     </li>
                                     <div class="clearfix"></div>
                                 </ul>
